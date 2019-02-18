@@ -23,7 +23,7 @@
         },
         {
             "relationshipType": "one-to-one",
-            "relationshipName": "id",
+            "relationshipName": "idBillingTariff",
             "otherEntityName": "billingTariff",
             "otherEntityField": "id",
             "ownerSide": true,

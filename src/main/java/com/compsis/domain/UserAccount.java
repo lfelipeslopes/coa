@@ -26,7 +26,7 @@ public class UserAccount implements Serializable {
     private Long id;
 
     @ManyToOne
-    @JsonIgnoreProperties("ids")
+    @JsonIgnoreProperties("idUserAccounts")
     private FinancialAccount financialAccount;
 
     @ManyToOne

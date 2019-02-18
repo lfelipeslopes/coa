@@ -23,10 +23,10 @@
                         <a [routerLink]="['/vehicle', vehicleClass.vehicleId, 'view']">{{vehicleClass.vehicleId}}</a>
                     </div>
                 </dd>
-                <dt><span>Id</span></dt>
+                <dt><span>Id Billing Tariff</span></dt>
                 <dd>
-                    <div *ngIf="vehicleClass.idId">
-                        <a [routerLink]="['/billing-tariff', vehicleClass.idId, 'view']">{{vehicleClass.idId}}</a>
+                    <div *ngIf="vehicleClass.idBillingTariffId">
+                        <a [routerLink]="['/billing-tariff', vehicleClass.idBillingTariffId, 'view']">{{vehicleClass.idBillingTariffId}}</a>
                     </div>
                 </dd>
             </dl>

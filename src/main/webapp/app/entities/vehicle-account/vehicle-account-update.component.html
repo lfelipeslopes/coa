@@ -18,10 +18,10 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" for="field_id">Id</label>
-                    <select class="form-control" id="field_id" name="id" [(ngModel)]="vehicleAccount.idId">
+                    <label class="form-control-label" for="field_idVehicleClass">Id Vehicle Class</label>
+                    <select class="form-control" id="field_idVehicleClass" name="idVehicleClass" [(ngModel)]="vehicleAccount.idVehicleClassId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="vehicleClassOption.id" *ngFor="let vehicleClassOption of ids; trackBy: trackVehicleClassById">{{vehicleClassOption.id}}</option>
+                        <option [ngValue]="vehicleClassOption.id" *ngFor="let vehicleClassOption of idvehicleclasses; trackBy: trackVehicleClassById">{{vehicleClassOption.id}}</option>
                     </select>
                 </div>
             </div>

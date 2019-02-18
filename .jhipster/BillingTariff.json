@@ -17,7 +17,7 @@
     "relationships": [
         {
             "relationshipType": "one-to-one",
-            "relationshipName": "id",
+            "relationshipName": "idBillingLocation",
             "otherEntityName": "billingLocation",
             "otherEntityField": "id",
             "ownerSide": true,

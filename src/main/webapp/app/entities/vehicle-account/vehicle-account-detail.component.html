@@ -11,10 +11,10 @@
                         <a [routerLink]="['/financial-account', vehicleAccount.financialAccountId, 'view']">{{vehicleAccount.financialAccountId}}</a>
                     </div>
                 </dd>
-                <dt><span>Id</span></dt>
+                <dt><span>Id Vehicle Class</span></dt>
                 <dd>
-                    <div *ngIf="vehicleAccount.idId">
-                        <a [routerLink]="['/vehicle-class', vehicleAccount.idId, 'view']">{{vehicleAccount.idId}}</a>
+                    <div *ngIf="vehicleAccount.idVehicleClassId">
+                        <a [routerLink]="['/vehicle-class', vehicleAccount.idVehicleClassId, 'view']">{{vehicleAccount.idVehicleClassId}}</a>
                     </div>
                 </dd>
             </dl>

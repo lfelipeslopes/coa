@@ -29,7 +29,7 @@ public class Media implements Serializable {
     private String identification;
 
     @ManyToOne
-    @JsonIgnoreProperties("ids")
+    @JsonIgnoreProperties("idMedias")
     private Vehicle vehicle;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove

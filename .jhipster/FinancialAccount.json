@@ -13,19 +13,19 @@
     "relationships": [
         {
             "relationshipType": "one-to-many",
-            "relationshipName": "id",
+            "relationshipName": "idUserAccount",
             "otherEntityName": "userAccount",
             "otherEntityRelationshipName": "financialAccount"
         },
         {
             "relationshipType": "one-to-many",
-            "relationshipName": "id",
+            "relationshipName": "idVehicleAccount",
             "otherEntityName": "vehicleAccount",
             "otherEntityRelationshipName": "financialAccount"
         },
         {
             "relationshipType": "one-to-many",
-            "relationshipName": "id",
+            "relationshipName": "idAccountOperation",
             "otherEntityName": "accountOperation",
             "otherEntityRelationshipName": "financialAccount"
         }

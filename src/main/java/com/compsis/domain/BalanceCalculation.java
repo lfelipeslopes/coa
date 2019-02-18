@@ -30,7 +30,7 @@ public class BalanceCalculation implements Serializable {
     private BigDecimal balance;
 
     @ManyToOne
-    @JsonIgnoreProperties("ids")
+    @JsonIgnoreProperties("idBalanceCalculations")
     private AccountOperation accountOperation;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove

@@ -12,11 +12,11 @@ import org.mapstruct.*;
 public interface VehicleAccountMapper extends EntityMapper<VehicleAccountDTO, VehicleAccount> {
 
     @Mapping(source = "financialAccount.id", target = "financialAccountId")
-    @Mapping(source = "id.id", target = "idId")
+    @Mapping(source = "idVehicleClass.id", target = "idVehicleClassId")
     VehicleAccountDTO toDto(VehicleAccount vehicleAccount);
 
     @Mapping(source = "financialAccountId", target = "financialAccount")
-    @Mapping(source = "idId", target = "id")
+    @Mapping(source = "idVehicleClassId", target = "idVehicleClass")
     VehicleAccount toEntity(VehicleAccountDTO vehicleAccountDTO);
 
     default VehicleAccount fromId(Long id) {

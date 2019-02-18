@@ -58,6 +58,18 @@ public class CacheConfiguration {
             cm.createCache(com.compsis.domain.Operator.class.getName(), jcacheConfiguration);
             cm.createCache(com.compsis.domain.AccountTransction.class.getName(), jcacheConfiguration);
             cm.createCache(com.compsis.domain.AutomaticOperation.class.getName(), jcacheConfiguration);
+            cm.createCache(com.compsis.domain.FinancialAccount.class.getName() + ".idUserAccounts", jcacheConfiguration);
+            cm.createCache(com.compsis.domain.FinancialAccount.class.getName() + ".idVehicleAccounts", jcacheConfiguration);
+            cm.createCache(com.compsis.domain.FinancialAccount.class.getName() + ".idAccountOperations", jcacheConfiguration);
+            cm.createCache(com.compsis.domain.Vehicle.class.getName() + ".idMedias", jcacheConfiguration);
+            cm.createCache(com.compsis.domain.Vehicle.class.getName() + ".idVehicleClasses", jcacheConfiguration);
+            cm.createCache(com.compsis.domain.Vehicle.class.getName() + ".idPassages", jcacheConfiguration);
+            cm.createCache(com.compsis.domain.AccountOperation.class.getName() + ".idDataChanges", jcacheConfiguration);
+            cm.createCache(com.compsis.domain.AccountOperation.class.getName() + ".idInformativeOperations", jcacheConfiguration);
+            cm.createCache(com.compsis.domain.AccountOperation.class.getName() + ".idBalanceCalculations", jcacheConfiguration);
+            cm.createCache(com.compsis.domain.AccountOperation.class.getName() + ".idOperators", jcacheConfiguration);
+            cm.createCache(com.compsis.domain.AccountOperation.class.getName() + ".idAccountTransctions", jcacheConfiguration);
+            cm.createCache(com.compsis.domain.AccountOperation.class.getName() + ".idAutomaticOperations", jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

@@ -39,7 +39,7 @@ public class AccountTransction implements Serializable {
     private TransactionType transactionType;
 
     @ManyToOne
-    @JsonIgnoreProperties("ids")
+    @JsonIgnoreProperties("idAccountTransctions")
     private AccountOperation accountOperation;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove

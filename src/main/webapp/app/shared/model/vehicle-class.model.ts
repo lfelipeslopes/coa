@@ -4,7 +4,7 @@ export interface IVehicleClass {
     description?: string;
     doubleWheel?: number;
     vehicleId?: number;
-    idId?: number;
+    idBillingTariffId?: number;
 }
 
 export class VehicleClass implements IVehicleClass {
@@ -14,6 +14,6 @@ export class VehicleClass implements IVehicleClass {
         public description?: string,
         public doubleWheel?: number,
         public vehicleId?: number,
-        public idId?: number
+        public idBillingTariffId?: number
     ) {}
 }

@@ -10,12 +10,12 @@ export interface IAccountOperation {
     id?: number;
     occurrenceDate?: Moment;
     financialAccountId?: number;
-    ids?: IDataChange[];
-    ids?: IInformativeOperation[];
-    ids?: IBalanceCalculation[];
-    ids?: IOperator[];
-    ids?: IAccountTransction[];
-    ids?: IAutomaticOperation[];
+    idDataChanges?: IDataChange[];
+    idInformativeOperations?: IInformativeOperation[];
+    idBalanceCalculations?: IBalanceCalculation[];
+    idOperators?: IOperator[];
+    idAccountTransctions?: IAccountTransction[];
+    idAutomaticOperations?: IAutomaticOperation[];
 }
 
 export class AccountOperation implements IAccountOperation {
@@ -23,11 +23,11 @@ export class AccountOperation implements IAccountOperation {
         public id?: number,
         public occurrenceDate?: Moment,
         public financialAccountId?: number,
-        public ids?: IDataChange[],
-        public ids?: IInformativeOperation[],
-        public ids?: IBalanceCalculation[],
-        public ids?: IOperator[],
-        public ids?: IAccountTransction[],
-        public ids?: IAutomaticOperation[]
+        public idDataChanges?: IDataChange[],
+        public idInformativeOperations?: IInformativeOperation[],
+        public idBalanceCalculations?: IBalanceCalculation[],
+        public idOperators?: IOperator[],
+        public idAccountTransctions?: IAccountTransction[],
+        public idAutomaticOperations?: IAutomaticOperation[]
     ) {}
 }

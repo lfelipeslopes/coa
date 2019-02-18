@@ -33,27 +33,27 @@ public class AccountOperation implements Serializable {
     private ZonedDateTime occurrenceDate;
 
     @ManyToOne
-    @JsonIgnoreProperties("ids")
+    @JsonIgnoreProperties("idAccountOperations")
     private FinancialAccount financialAccount;
 
     @OneToMany(mappedBy = "accountOperation")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<DataChange> ids = new HashSet<>();
+    private Set<DataChange> idDataChanges = new HashSet<>();
     @OneToMany(mappedBy = "accountOperation")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<InformativeOperation> ids = new HashSet<>();
+    private Set<InformativeOperation> idInformativeOperations = new HashSet<>();
     @OneToMany(mappedBy = "accountOperation")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<BalanceCalculation> ids = new HashSet<>();
+    private Set<BalanceCalculation> idBalanceCalculations = new HashSet<>();
     @OneToMany(mappedBy = "accountOperation")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Operator> ids = new HashSet<>();
+    private Set<Operator> idOperators = new HashSet<>();
     @OneToMany(mappedBy = "accountOperation")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<AccountTransction> ids = new HashSet<>();
+    private Set<AccountTransction> idAccountTransctions = new HashSet<>();
     @OneToMany(mappedBy = "accountOperation")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<AutomaticOperation> ids = new HashSet<>();
+    private Set<AutomaticOperation> idAutomaticOperations = new HashSet<>();
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -89,154 +89,154 @@ public class AccountOperation implements Serializable {
         this.financialAccount = financialAccount;
     }
 
-    public Set<DataChange> getIds() {
-        return ids;
+    public Set<DataChange> getIdDataChanges() {
+        return idDataChanges;
     }
 
-    public AccountOperation ids(Set<DataChange> dataChanges) {
-        this.ids = dataChanges;
+    public AccountOperation idDataChanges(Set<DataChange> dataChanges) {
+        this.idDataChanges = dataChanges;
         return this;
     }
 
-    public AccountOperation addId(DataChange dataChange) {
-        this.ids.add(dataChange);
+    public AccountOperation addIdDataChange(DataChange dataChange) {
+        this.idDataChanges.add(dataChange);
         dataChange.setAccountOperation(this);
         return this;
     }
 
-    public AccountOperation removeId(DataChange dataChange) {
-        this.ids.remove(dataChange);
+    public AccountOperation removeIdDataChange(DataChange dataChange) {
+        this.idDataChanges.remove(dataChange);
         dataChange.setAccountOperation(null);
         return this;
     }
 
-    public void setIds(Set<DataChange> dataChanges) {
-        this.ids = dataChanges;
+    public void setIdDataChanges(Set<DataChange> dataChanges) {
+        this.idDataChanges = dataChanges;
     }
 
-    public Set<InformativeOperation> getIds() {
-        return ids;
+    public Set<InformativeOperation> getIdInformativeOperations() {
+        return idInformativeOperations;
     }
 
-    public AccountOperation ids(Set<InformativeOperation> informativeOperations) {
-        this.ids = informativeOperations;
+    public AccountOperation idInformativeOperations(Set<InformativeOperation> informativeOperations) {
+        this.idInformativeOperations = informativeOperations;
         return this;
     }
 
-    public AccountOperation addId(InformativeOperation informativeOperation) {
-        this.ids.add(informativeOperation);
+    public AccountOperation addIdInformativeOperation(InformativeOperation informativeOperation) {
+        this.idInformativeOperations.add(informativeOperation);
         informativeOperation.setAccountOperation(this);
         return this;
     }
 
-    public AccountOperation removeId(InformativeOperation informativeOperation) {
-        this.ids.remove(informativeOperation);
+    public AccountOperation removeIdInformativeOperation(InformativeOperation informativeOperation) {
+        this.idInformativeOperations.remove(informativeOperation);
         informativeOperation.setAccountOperation(null);
         return this;
     }
 
-    public void setIds(Set<InformativeOperation> informativeOperations) {
-        this.ids = informativeOperations;
+    public void setIdInformativeOperations(Set<InformativeOperation> informativeOperations) {
+        this.idInformativeOperations = informativeOperations;
     }
 
-    public Set<BalanceCalculation> getIds() {
-        return ids;
+    public Set<BalanceCalculation> getIdBalanceCalculations() {
+        return idBalanceCalculations;
     }
 
-    public AccountOperation ids(Set<BalanceCalculation> balanceCalculations) {
-        this.ids = balanceCalculations;
+    public AccountOperation idBalanceCalculations(Set<BalanceCalculation> balanceCalculations) {
+        this.idBalanceCalculations = balanceCalculations;
         return this;
     }
 
-    public AccountOperation addId(BalanceCalculation balanceCalculation) {
-        this.ids.add(balanceCalculation);
+    public AccountOperation addIdBalanceCalculation(BalanceCalculation balanceCalculation) {
+        this.idBalanceCalculations.add(balanceCalculation);
         balanceCalculation.setAccountOperation(this);
         return this;
     }
 
-    public AccountOperation removeId(BalanceCalculation balanceCalculation) {
-        this.ids.remove(balanceCalculation);
+    public AccountOperation removeIdBalanceCalculation(BalanceCalculation balanceCalculation) {
+        this.idBalanceCalculations.remove(balanceCalculation);
         balanceCalculation.setAccountOperation(null);
         return this;
     }
 
-    public void setIds(Set<BalanceCalculation> balanceCalculations) {
-        this.ids = balanceCalculations;
+    public void setIdBalanceCalculations(Set<BalanceCalculation> balanceCalculations) {
+        this.idBalanceCalculations = balanceCalculations;
     }
 
-    public Set<Operator> getIds() {
-        return ids;
+    public Set<Operator> getIdOperators() {
+        return idOperators;
     }
 
-    public AccountOperation ids(Set<Operator> operators) {
-        this.ids = operators;
+    public AccountOperation idOperators(Set<Operator> operators) {
+        this.idOperators = operators;
         return this;
     }
 
-    public AccountOperation addId(Operator operator) {
-        this.ids.add(operator);
+    public AccountOperation addIdOperator(Operator operator) {
+        this.idOperators.add(operator);
         operator.setAccountOperation(this);
         return this;
     }
 
-    public AccountOperation removeId(Operator operator) {
-        this.ids.remove(operator);
+    public AccountOperation removeIdOperator(Operator operator) {
+        this.idOperators.remove(operator);
         operator.setAccountOperation(null);
         return this;
     }
 
-    public void setIds(Set<Operator> operators) {
-        this.ids = operators;
+    public void setIdOperators(Set<Operator> operators) {
+        this.idOperators = operators;
     }
 
-    public Set<AccountTransction> getIds() {
-        return ids;
+    public Set<AccountTransction> getIdAccountTransctions() {
+        return idAccountTransctions;
     }
 
-    public AccountOperation ids(Set<AccountTransction> accountTransctions) {
-        this.ids = accountTransctions;
+    public AccountOperation idAccountTransctions(Set<AccountTransction> accountTransctions) {
+        this.idAccountTransctions = accountTransctions;
         return this;
     }
 
-    public AccountOperation addId(AccountTransction accountTransction) {
-        this.ids.add(accountTransction);
+    public AccountOperation addIdAccountTransction(AccountTransction accountTransction) {
+        this.idAccountTransctions.add(accountTransction);
         accountTransction.setAccountOperation(this);
         return this;
     }
 
-    public AccountOperation removeId(AccountTransction accountTransction) {
-        this.ids.remove(accountTransction);
+    public AccountOperation removeIdAccountTransction(AccountTransction accountTransction) {
+        this.idAccountTransctions.remove(accountTransction);
         accountTransction.setAccountOperation(null);
         return this;
     }
 
-    public void setIds(Set<AccountTransction> accountTransctions) {
-        this.ids = accountTransctions;
+    public void setIdAccountTransctions(Set<AccountTransction> accountTransctions) {
+        this.idAccountTransctions = accountTransctions;
     }
 
-    public Set<AutomaticOperation> getIds() {
-        return ids;
+    public Set<AutomaticOperation> getIdAutomaticOperations() {
+        return idAutomaticOperations;
     }
 
-    public AccountOperation ids(Set<AutomaticOperation> automaticOperations) {
-        this.ids = automaticOperations;
+    public AccountOperation idAutomaticOperations(Set<AutomaticOperation> automaticOperations) {
+        this.idAutomaticOperations = automaticOperations;
         return this;
     }
 
-    public AccountOperation addId(AutomaticOperation automaticOperation) {
-        this.ids.add(automaticOperation);
+    public AccountOperation addIdAutomaticOperation(AutomaticOperation automaticOperation) {
+        this.idAutomaticOperations.add(automaticOperation);
         automaticOperation.setAccountOperation(this);
         return this;
     }
 
-    public AccountOperation removeId(AutomaticOperation automaticOperation) {
-        this.ids.remove(automaticOperation);
+    public AccountOperation removeIdAutomaticOperation(AutomaticOperation automaticOperation) {
+        this.idAutomaticOperations.remove(automaticOperation);
         automaticOperation.setAccountOperation(null);
         return this;
     }
 
-    public void setIds(Set<AutomaticOperation> automaticOperations) {
-        this.ids = automaticOperations;
+    public void setIdAutomaticOperations(Set<AutomaticOperation> automaticOperations) {
+        this.idAutomaticOperations = automaticOperations;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

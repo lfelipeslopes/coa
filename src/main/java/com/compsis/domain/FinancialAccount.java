@@ -36,13 +36,13 @@ public class FinancialAccount implements Serializable {
 
     @OneToMany(mappedBy = "financialAccount")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<UserAccount> ids = new HashSet<>();
+    private Set<UserAccount> idUserAccounts = new HashSet<>();
     @OneToMany(mappedBy = "financialAccount")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<VehicleAccount> ids = new HashSet<>();
+    private Set<VehicleAccount> idVehicleAccounts = new HashSet<>();
     @OneToMany(mappedBy = "financialAccount")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<AccountOperation> ids = new HashSet<>();
+    private Set<AccountOperation> idAccountOperations = new HashSet<>();
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -78,79 +78,79 @@ public class FinancialAccount implements Serializable {
         this.balance = balance;
     }
 
-    public Set<UserAccount> getIds() {
-        return ids;
+    public Set<UserAccount> getIdUserAccounts() {
+        return idUserAccounts;
     }
 
-    public FinancialAccount ids(Set<UserAccount> userAccounts) {
-        this.ids = userAccounts;
+    public FinancialAccount idUserAccounts(Set<UserAccount> userAccounts) {
+        this.idUserAccounts = userAccounts;
         return this;
     }
 
-    public FinancialAccount addId(UserAccount userAccount) {
-        this.ids.add(userAccount);
+    public FinancialAccount addIdUserAccount(UserAccount userAccount) {
+        this.idUserAccounts.add(userAccount);
         userAccount.setFinancialAccount(this);
         return this;
     }
 
-    public FinancialAccount removeId(UserAccount userAccount) {
-        this.ids.remove(userAccount);
+    public FinancialAccount removeIdUserAccount(UserAccount userAccount) {
+        this.idUserAccounts.remove(userAccount);
         userAccount.setFinancialAccount(null);
         return this;
     }
 
-    public void setIds(Set<UserAccount> userAccounts) {
-        this.ids = userAccounts;
+    public void setIdUserAccounts(Set<UserAccount> userAccounts) {
+        this.idUserAccounts = userAccounts;
     }
 
-    public Set<VehicleAccount> getIds() {
-        return ids;
+    public Set<VehicleAccount> getIdVehicleAccounts() {
+        return idVehicleAccounts;
     }
 
-    public FinancialAccount ids(Set<VehicleAccount> vehicleAccounts) {
-        this.ids = vehicleAccounts;
+    public FinancialAccount idVehicleAccounts(Set<VehicleAccount> vehicleAccounts) {
+        this.idVehicleAccounts = vehicleAccounts;
         return this;
     }
 
-    public FinancialAccount addId(VehicleAccount vehicleAccount) {
-        this.ids.add(vehicleAccount);
+    public FinancialAccount addIdVehicleAccount(VehicleAccount vehicleAccount) {
+        this.idVehicleAccounts.add(vehicleAccount);
         vehicleAccount.setFinancialAccount(this);
         return this;
     }
 
-    public FinancialAccount removeId(VehicleAccount vehicleAccount) {
-        this.ids.remove(vehicleAccount);
+    public FinancialAccount removeIdVehicleAccount(VehicleAccount vehicleAccount) {
+        this.idVehicleAccounts.remove(vehicleAccount);
         vehicleAccount.setFinancialAccount(null);
         return this;
     }
 
-    public void setIds(Set<VehicleAccount> vehicleAccounts) {
-        this.ids = vehicleAccounts;
+    public void setIdVehicleAccounts(Set<VehicleAccount> vehicleAccounts) {
+        this.idVehicleAccounts = vehicleAccounts;
     }
 
-    public Set<AccountOperation> getIds() {
-        return ids;
+    public Set<AccountOperation> getIdAccountOperations() {
+        return idAccountOperations;
     }
 
-    public FinancialAccount ids(Set<AccountOperation> accountOperations) {
-        this.ids = accountOperations;
+    public FinancialAccount idAccountOperations(Set<AccountOperation> accountOperations) {
+        this.idAccountOperations = accountOperations;
         return this;
     }
 
-    public FinancialAccount addId(AccountOperation accountOperation) {
-        this.ids.add(accountOperation);
+    public FinancialAccount addIdAccountOperation(AccountOperation accountOperation) {
+        this.idAccountOperations.add(accountOperation);
         accountOperation.setFinancialAccount(this);
         return this;
     }
 
-    public FinancialAccount removeId(AccountOperation accountOperation) {
-        this.ids.remove(accountOperation);
+    public FinancialAccount removeIdAccountOperation(AccountOperation accountOperation) {
+        this.idAccountOperations.remove(accountOperation);
         accountOperation.setFinancialAccount(null);
         return this;
     }
 
-    public void setIds(Set<AccountOperation> accountOperations) {
-        this.ids = accountOperations;
+    public void setIdAccountOperations(Set<AccountOperation> accountOperations) {
+        this.idAccountOperations = accountOperations;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

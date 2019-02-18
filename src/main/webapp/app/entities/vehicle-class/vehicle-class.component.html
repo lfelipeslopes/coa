@@ -19,7 +19,7 @@
             <th><span>Description</span></th>
             <th><span>Double Wheel</span></th>
             <th><span>Vehicle</span></th>
-            <th><span>Id</span></th>
+            <th><span>Id Billing Tariff</span></th>
             <th></th>
             </tr>
             </thead>
@@ -35,8 +35,8 @@
                     </div>
                 </td>
                 <td>
-                    <div *ngIf="vehicleClass.idId">
-                        <a [routerLink]="['../billing-tariff', vehicleClass.idId , 'view' ]" >{{vehicleClass.idId}}</a>
+                    <div *ngIf="vehicleClass.idBillingTariffId">
+                        <a [routerLink]="['../billing-tariff', vehicleClass.idBillingTariffId , 'view' ]" >{{vehicleClass.idBillingTariffId}}</a>
                     </div>
                 </td>
                 <td class="text-right">

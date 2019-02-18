@@ -21,7 +21,7 @@ export class VehicleAccountUpdateComponent implements OnInit {
 
     financialaccounts: IFinancialAccount[];
 
-    ids: IVehicleClass[];
+    idvehicleclasses: IVehicleClass[];
 
     constructor(
         protected jhiAlertService: JhiAlertService,
@@ -51,17 +51,17 @@ export class VehicleAccountUpdateComponent implements OnInit {
             )
             .subscribe(
                 (res: IVehicleClass[]) => {
-                    if (!this.vehicleAccount.idId) {
-                        this.ids = res;
+                    if (!this.vehicleAccount.idVehicleClassId) {
+                        this.idvehicleclasses = res;
                     } else {
                         this.vehicleClassService
-                            .find(this.vehicleAccount.idId)
+                            .find(this.vehicleAccount.idVehicleClassId)
                             .pipe(
                                 filter((subResMayBeOk: HttpResponse<IVehicleClass>) => subResMayBeOk.ok),
                                 map((subResponse: HttpResponse<IVehicleClass>) => subResponse.body)
                             )
                             .subscribe(
-                                (subRes: IVehicleClass) => (this.ids = [subRes].concat(res)),
+                                (subRes: IVehicleClass) => (this.idvehicleclasses = [subRes].concat(res)),
                                 (subRes: HttpErrorResponse) => this.onError(subRes.message)
                             );
                     }

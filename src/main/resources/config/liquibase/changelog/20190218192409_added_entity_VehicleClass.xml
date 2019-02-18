@@ -36,8 +36,8 @@
             <column name="vehicle_id" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="id_id" type="bigint">
-                <constraints unique="true" nullable="true" uniqueConstraintName="ux_vehicle_class_id_id" />
+            <column name="id_billing_tariff_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_vehicle_class_id_billing_tariff_id" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>

@@ -17,7 +17,7 @@ export class BillingLocationUpdateComponent implements OnInit {
     billingLocation: IBillingLocation;
     isSaving: boolean;
 
-    ids: IPassage[];
+    idpassages: IPassage[];
 
     constructor(
         protected jhiAlertService: JhiAlertService,
@@ -39,17 +39,17 @@ export class BillingLocationUpdateComponent implements OnInit {
             )
             .subscribe(
                 (res: IPassage[]) => {
-                    if (!this.billingLocation.idId) {
-                        this.ids = res;
+                    if (!this.billingLocation.idPassageId) {
+                        this.idpassages = res;
                     } else {
                         this.passageService
-                            .find(this.billingLocation.idId)
+                            .find(this.billingLocation.idPassageId)
                             .pipe(
                                 filter((subResMayBeOk: HttpResponse<IPassage>) => subResMayBeOk.ok),
                                 map((subResponse: HttpResponse<IPassage>) => subResponse.body)
                             )
                             .subscribe(
-                                (subRes: IPassage) => (this.ids = [subRes].concat(res)),
+                                (subRes: IPassage) => (this.idpassages = [subRes].concat(res)),
                                 (subRes: HttpErrorResponse) => this.onError(subRes.message)
                             );
                     }

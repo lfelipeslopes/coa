@@ -187,31 +187,31 @@ entity AutomaticOperation{
 *	RELACIONAMENTOS
 */
 relationship OneToMany{
-	FinancialAccount{id} to UserAccount,
-    FinancialAccount{id} to VehicleAccount,
-    FinancialAccount{id} to AccountOperation
+	FinancialAccount{idUserAccount} to UserAccount,
+    FinancialAccount{idVehicleAccount} to VehicleAccount,
+    FinancialAccount{idAccountOperation} to AccountOperation
 }
 
 relationship OneToOne{
-	VehicleAccount{id} to VehicleClass
+	VehicleAccount{idVehicleClass} to VehicleClass
 }
 
 relationship OneToOne{
-	BillingTariff{id} to BillingLocation
+	BillingTariff{idBillingLocation} to BillingLocation
 }
 
 relationship OneToMany{
-	Vehicle{id} to Media,
-    Vehicle{id} to VehicleClass,
-    Vehicle{id} to Passage
+	Vehicle{idMedia} to Media,
+    Vehicle{idVehicleClass} to VehicleClass,
+    Vehicle{idPassage} to Passage
 }
 
 relationship OneToOne{
-	VehicleClass{id} to BillingTariff
+	VehicleClass{idBillingTariff} to BillingTariff
 } 
 
 relationship OneToOne{
-	BillingLocation{id} to Passage
+	BillingLocation{idPassage} to Passage
 }
 
 relationship ManyToOne{
@@ -222,12 +222,12 @@ relationship ManyToOne{
 
 
 relationship OneToMany{
-	AccountOperation{id} to DataChange,
-    AccountOperation{id} to InformativeOperation,
-    AccountOperation{id} to BalanceCalculation
-    AccountOperation{id} to Operator,
-    AccountOperation{id} to AccountTransction,
-    AccountOperation{id} to AutomaticOperation
+	AccountOperation{idDataChange} to DataChange,
+    AccountOperation{idInformativeOperation} to InformativeOperation,
+    AccountOperation{idBalanceCalculation} to BalanceCalculation
+    AccountOperation{idOperator} to Operator,
+    AccountOperation{idAccountTransction} to AccountTransction,
+    AccountOperation{idAutomaticOperation} to AutomaticOperation
 }
 
 relationship ManyToOne{

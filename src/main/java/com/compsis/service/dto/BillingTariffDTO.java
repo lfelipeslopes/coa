@@ -20,7 +20,7 @@ public class BillingTariffDTO implements Serializable {
     private BigDecimal value;
 
 
-    private Long idId;
+    private Long idBillingLocationId;
 
     public Long getId() {
         return id;
@@ -54,12 +54,12 @@ public class BillingTariffDTO implements Serializable {
         this.value = value;
     }
 
-    public Long getIdId() {
-        return idId;
+    public Long getIdBillingLocationId() {
+        return idBillingLocationId;
     }
 
-    public void setIdId(Long billingLocationId) {
-        this.idId = billingLocationId;
+    public void setIdBillingLocationId(Long billingLocationId) {
+        this.idBillingLocationId = billingLocationId;
     }
 
     @Override
@@ -90,7 +90,7 @@ public class BillingTariffDTO implements Serializable {
             ", dayOfWeek=" + getDayOfWeek() +
             ", startedIn='" + getStartedIn() + "'" +
             ", value=" + getValue() +
-            ", id=" + getIdId() +
+            ", idBillingLocation=" + getIdBillingLocationId() +
             "}";
     }
 }
