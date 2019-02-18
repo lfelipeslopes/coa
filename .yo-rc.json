@@ -1,0 +1,43 @@
+{
+  "generator-jhipster": {
+    "applicationType": "monolith",
+    "gitCompany": "",
+    "baseName": "coa",
+    "packageName": "com.compsis",
+    "packageFolder": "com/compsis",
+    "serverPort": 8080,
+    "serviceDiscoveryType": false,
+    "authenticationType": "jwt",
+    "uaaBaseName": "../uaa",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": "spring-websocket",
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "enableSwaggerCodegen": false,
+    "messageBroker": false,
+    "buildTool": "maven",
+    "useSass": false,
+    "clientPackageManager": "npm",
+    "testFrameworks": [
+      "gatling"
+    ],
+    "enableTranslation": false,
+    "nativeLanguage": "en",
+    "languages": [
+      "en"
+    ],
+    "clientFramework": "angularX",
+    "jhiPrefix": "jhi",
+    "jhipsterVersion": "5.8.1",
+    "jwtSecretKey": "NmU1ZTZiMWM3YjQwZDI3MTNhMmYwOTJhNzkxMWM4ODFmNzNmOTc3YjkzZWZkMmVhYjhjZTUwYWJiZjg3YmFlOWJmYjcwZWI0ODBiNGFiMDU2YjVjYjg1YzQxMzVhNTQ3YmRjYmE0NjQ4ZDc1ZWE4ZWY3ZjdkYTgyY2ZiNmMwNGE=",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": []
+  },
+  "git-provider": "GitHub",
+  "git-company": "lfelipeslopes",
+  "repository-name": "coa"
+}
