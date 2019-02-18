@@ -1,0 +1,56 @@
+{
+    "name": "Vehicle",
+    "fields": [
+        {
+            "fieldName": "color",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "manufacturer",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "model",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "plate",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "vehicleStatus",
+            "fieldType": "VehicleStatus",
+            "fieldValues": "RELEASED,BLOCKED,FORCED_RELEASE,FORCED_LOCK"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "id",
+            "otherEntityName": "media",
+            "otherEntityRelationshipName": "vehicle"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "id",
+            "otherEntityName": "vehicleClass",
+            "otherEntityRelationshipName": "vehicle"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "id",
+            "otherEntityName": "passage",
+            "otherEntityRelationshipName": "vehicle"
+        }
+    ],
+    "changelogDate": "20190218192407",
+    "javadoc": "Veiculo",
+    "entityTableName": "vehicle",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

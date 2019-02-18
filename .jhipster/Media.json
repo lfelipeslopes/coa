@@ -1,0 +1,27 @@
+{
+    "name": "Media",
+    "fields": [
+        {
+            "fieldName": "identification",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "vehicle",
+            "otherEntityName": "vehicle",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190218192408",
+    "javadoc": "Midia",
+    "entityTableName": "media",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

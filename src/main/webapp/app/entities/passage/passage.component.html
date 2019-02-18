@@ -1,0 +1,90 @@
+<div>
+    <h2 id="page-heading">
+        <span>Passages</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-passage" [routerLink]="['/passage/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Passage
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="passages">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Amount</span></th>
+            <th><span>Automatic Passage</span></th>
+            <th><span>Lane</span></th>
+            <th><span>Occurrence Date</span></th>
+            <th><span>Passage Identification</span></th>
+            <th><span>Plate</span></th>
+            <th><span>Processed At</span></th>
+            <th><span>Vehicle</span></th>
+            <th><span>Classified Class</span></th>
+            <th><span>Detect Class</span></th>
+            <th><span>Charged Class</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let passage of passages ;trackBy: trackId">
+                <td><a [routerLink]="['/passage', passage.id, 'view' ]">{{passage.id}}</a></td>
+                <td>{{passage.amount}}</td>
+                <td>{{passage.automaticPassage}}</td>
+                <td>{{passage.lane}}</td>
+                <td>{{passage.occurrenceDate | date:'medium'}}</td>
+                <td>{{passage.passageIdentification}}</td>
+                <td>{{passage.plate}}</td>
+                <td>{{passage.processedAt | date:'medium'}}</td>
+                <td>
+                    <div *ngIf="passage.vehicleId">
+                        <a [routerLink]="['../vehicle', passage.vehicleId , 'view' ]" >{{passage.vehicleId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="passage.classifiedClassId">
+                        <a [routerLink]="['../vehicle-class', passage.classifiedClassId , 'view' ]" >{{passage.classifiedClassId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="passage.detectClassId">
+                        <a [routerLink]="['../vehicle-class', passage.detectClassId , 'view' ]" >{{passage.detectClassId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="passage.chargedClassId">
+                        <a [routerLink]="['../vehicle-class', passage.chargedClassId , 'view' ]" >{{passage.chargedClassId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/passage', passage.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/passage', passage.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'passage', { outlets: { popup: passage.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

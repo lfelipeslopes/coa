@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="operator">
+            <h2><span>Operator</span> {{operator.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Email</span></dt>
+                <dd>
+                    <span>{{operator.email}}</span>
+                </dd>
+                <dt><span>Name</span></dt>
+                <dd>
+                    <span>{{operator.name}}</span>
+                </dd>
+                <dt><span>Password</span></dt>
+                <dd>
+                    <span>{{operator.password}}</span>
+                </dd>
+                <dt><span>Operator Status</span></dt>
+                <dd>
+                    <span>{{operator.operatorStatus}}</span>
+                </dd>
+                <dt><span>Account Operation</span></dt>
+                <dd>
+                    <div *ngIf="operator.accountOperationId">
+                        <a [routerLink]="['/account-operation', operator.accountOperationId, 'view']">{{operator.accountOperationId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/operator', operator.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

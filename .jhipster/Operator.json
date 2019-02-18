@@ -1,0 +1,39 @@
+{
+    "name": "Operator",
+    "fields": [
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "password",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "operatorStatus",
+            "fieldType": "OperatorStatus",
+            "fieldValues": "ATICVE,DISABLED"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "accountOperation",
+            "otherEntityName": "accountOperation",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190218192417",
+    "entityTableName": "operator",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

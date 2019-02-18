@@ -1,0 +1,45 @@
+{
+    "name": "AutomaticOperation",
+    "fields": [
+        {
+            "fieldName": "amount",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "recurrent",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "automatictOperationStatus",
+            "fieldType": "AutomaticOperationStatus",
+            "fieldValues": "ACTIVATED,DISABLED"
+        },
+        {
+            "fieldName": "automatictEvent",
+            "fieldType": "AutomaticEvent",
+            "fieldValues": "RECHARGE,BLOCK"
+        },
+        {
+            "fieldName": "transactionType",
+            "fieldType": "TransactionType",
+            "fieldValues": "CREDIT,DEBIT"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "accountOperation",
+            "otherEntityName": "accountOperation",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190218192419",
+    "entityTableName": "automatic_operation",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

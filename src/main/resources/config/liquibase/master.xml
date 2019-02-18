@@ -5,6 +5,37 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190218192403_added_entity_FinancialAccount.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190218192404_added_entity_Person.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190218192405_added_entity_UserAccount.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190218192406_added_entity_VehicleAccount.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190218192407_added_entity_Vehicle.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190218192408_added_entity_Media.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190218192409_added_entity_VehicleClass.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190218192410_added_entity_BillingTariff.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190218192411_added_entity_BillingLocation.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190218192412_added_entity_Passage.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190218192413_added_entity_AccountOperation.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190218192414_added_entity_DataChange.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190218192415_added_entity_InformativeOperation.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190218192416_added_entity_BalanceCalculation.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190218192417_added_entity_Operator.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190218192418_added_entity_AccountTransction.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190218192419_added_entity_AutomaticOperation.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20190218192405_added_entity_constraints_UserAccount.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190218192406_added_entity_constraints_VehicleAccount.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190218192408_added_entity_constraints_Media.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190218192409_added_entity_constraints_VehicleClass.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190218192410_added_entity_constraints_BillingTariff.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190218192411_added_entity_constraints_BillingLocation.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190218192412_added_entity_constraints_Passage.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190218192413_added_entity_constraints_AccountOperation.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190218192414_added_entity_constraints_DataChange.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190218192415_added_entity_constraints_InformativeOperation.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190218192416_added_entity_constraints_BalanceCalculation.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190218192417_added_entity_constraints_Operator.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190218192418_added_entity_constraints_AccountTransction.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190218192419_added_entity_constraints_AutomaticOperation.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

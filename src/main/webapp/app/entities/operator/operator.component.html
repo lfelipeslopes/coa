@@ -1,0 +1,66 @@
+<div>
+    <h2 id="page-heading">
+        <span>Operators</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-operator" [routerLink]="['/operator/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Operator
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="operators">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="email"><span>Email</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="name"><span>Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="password"><span>Password</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="operatorStatus"><span>Operator Status</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="accountOperationId"><span>Account Operation</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let operator of operators ;trackBy: trackId">
+                <td><a [routerLink]="['/operator', operator.id, 'view' ]">{{operator.id}}</a></td>
+                <td>{{operator.email}}</td>
+                <td>{{operator.name}}</td>
+                <td>{{operator.password}}</td>
+                <td>{{operator.operatorStatus}}</td>
+                <td>
+                    <div *ngIf="operator.accountOperationId">
+                        <a [routerLink]="['../account-operation', operator.accountOperationId , 'view' ]" >{{operator.accountOperationId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/operator', operator.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/operator', operator.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'operator', { outlets: { popup: operator.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

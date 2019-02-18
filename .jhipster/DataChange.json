@@ -1,0 +1,27 @@
+{
+    "name": "DataChange",
+    "fields": [
+        {
+            "fieldName": "changeDetail",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "accountOperation",
+            "otherEntityName": "accountOperation",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190218192414",
+    "javadoc": "Data alteração",
+    "entityTableName": "data_change",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

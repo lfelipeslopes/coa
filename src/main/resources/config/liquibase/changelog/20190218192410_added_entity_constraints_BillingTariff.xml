@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity BillingTariff.
+    -->
+    <changeSet id="20190218192410-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="id_id"
+                                 baseTableName="billing_tariff"
+                                 constraintName="fk_billing_tariff_id_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="billing_location"/>
+
+    </changeSet>
+</databaseChangeLog>

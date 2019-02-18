@@ -1,0 +1,43 @@
+{
+    "name": "VehicleClass",
+    "fields": [
+        {
+            "fieldName": "axes",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "doubleWheel",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "vehicle",
+            "otherEntityName": "vehicle",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "id",
+            "otherEntityName": "billingTariff",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "vehicleClass"
+        }
+    ],
+    "changelogDate": "20190218192409",
+    "javadoc": "Classificação do veículo",
+    "entityTableName": "vehicle_class",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

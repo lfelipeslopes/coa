@@ -1,0 +1,91 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-passage-heading">Create or edit a Passage</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!passage.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="passage.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_amount">Amount</label>
+                    <input type="number" class="form-control" name="amount" id="field_amount"
+                        [(ngModel)]="passage.amount" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_automaticPassage">Automatic Passage</label>
+                    <input type="checkbox" class="form-control" name="automaticPassage" id="field_automaticPassage"
+                        [(ngModel)]="passage.automaticPassage" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_lane">Lane</label>
+                    <input type="number" class="form-control" name="lane" id="field_lane"
+                        [(ngModel)]="passage.lane" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_occurrenceDate">Occurrence Date</label>
+                    <div class="d-flex">
+                        <input id="field_occurrenceDate" type="datetime-local" class="form-control" name="occurrenceDate" [(ngModel)]="occurrenceDate" placeholder="YYYY-MM-DD HH:mm"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_passageIdentification">Passage Identification</label>
+                    <input type="number" class="form-control" name="passageIdentification" id="field_passageIdentification"
+                        [(ngModel)]="passage.passageIdentification" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_plate">Plate</label>
+                    <input type="text" class="form-control" name="plate" id="field_plate"
+                        [(ngModel)]="passage.plate" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_processedAt">Processed At</label>
+                    <div class="d-flex">
+                        <input id="field_processedAt" type="datetime-local" class="form-control" name="processedAt" [(ngModel)]="processedAt" placeholder="YYYY-MM-DD HH:mm"
+                        />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_vehicle">Vehicle</label>
+                    <select class="form-control" id="field_vehicle" name="vehicle" [(ngModel)]="passage.vehicleId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="vehicleOption.id" *ngFor="let vehicleOption of vehicles; trackBy: trackVehicleById">{{vehicleOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_classifiedClass">Classified Class</label>
+                    <select class="form-control" id="field_classifiedClass" name="classifiedClass" [(ngModel)]="passage.classifiedClassId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="vehicleClassOption.id" *ngFor="let vehicleClassOption of vehicleclasses; trackBy: trackVehicleClassById">{{vehicleClassOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_detectClass">Detect Class</label>
+                    <select class="form-control" id="field_detectClass" name="detectClass" [(ngModel)]="passage.detectClassId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="vehicleClassOption.id" *ngFor="let vehicleClassOption of vehicleclasses; trackBy: trackVehicleClassById">{{vehicleClassOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_chargedClass">Charged Class</label>
+                    <select class="form-control" id="field_chargedClass" name="chargedClass" [(ngModel)]="passage.chargedClassId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="vehicleClassOption.id" *ngFor="let vehicleClassOption of vehicleclasses; trackBy: trackVehicleClassById">{{vehicleClassOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

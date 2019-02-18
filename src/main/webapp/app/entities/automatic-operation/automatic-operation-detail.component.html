@@ -1,0 +1,49 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="automaticOperation">
+            <h2><span>Automatic Operation</span> {{automaticOperation.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Amount</span></dt>
+                <dd>
+                    <span>{{automaticOperation.amount}}</span>
+                </dd>
+                <dt><span>Recurrent</span></dt>
+                <dd>
+                    <span>{{automaticOperation.recurrent}}</span>
+                </dd>
+                <dt><span>Automatict Operation Status</span></dt>
+                <dd>
+                    <span>{{automaticOperation.automatictOperationStatus}}</span>
+                </dd>
+                <dt><span>Automatict Event</span></dt>
+                <dd>
+                    <span>{{automaticOperation.automatictEvent}}</span>
+                </dd>
+                <dt><span>Transaction Type</span></dt>
+                <dd>
+                    <span>{{automaticOperation.transactionType}}</span>
+                </dd>
+                <dt><span>Account Operation</span></dt>
+                <dd>
+                    <div *ngIf="automaticOperation.accountOperationId">
+                        <a [routerLink]="['/account-operation', automaticOperation.accountOperationId, 'view']">{{automaticOperation.accountOperationId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/automatic-operation', automaticOperation.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+{
+    "name": "UserAccount",
+    "fields": [],
+    "relationships": [
+        {
+            "relationshipName": "financialAccount",
+            "otherEntityName": "financialAccount",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "accountable",
+            "otherEntityName": "person",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "userAccount"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "contacts",
+            "otherEntityName": "person",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "userAccount"
+        }
+    ],
+    "changelogDate": "20190218192405",
+    "javadoc": "Conta Usuário",
+    "entityTableName": "user_account",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
