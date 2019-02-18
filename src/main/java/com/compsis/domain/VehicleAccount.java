@@ -26,12 +26,12 @@ public class VehicleAccount implements Serializable {
     private Long id;
 
     @ManyToOne
-    @JsonIgnoreProperties("ids")
+    @JsonIgnoreProperties("idVehicleAccounts")
     private FinancialAccount financialAccount;
 
     @OneToOne
     @JoinColumn(unique = true)
-    private VehicleClass id;
+    private VehicleClass idVehicleClass;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -55,17 +55,17 @@ public class VehicleAccount implements Serializable {
         this.financialAccount = financialAccount;
     }
 
-    public VehicleClass getId() {
-        return id;
+    public VehicleClass getIdVehicleClass() {
+        return idVehicleClass;
     }
 
-    public VehicleAccount id(VehicleClass vehicleClass) {
-        this.id = vehicleClass;
+    public VehicleAccount idVehicleClass(VehicleClass vehicleClass) {
+        this.idVehicleClass = vehicleClass;
         return this;
     }
 
-    public void setId(VehicleClass vehicleClass) {
-        this.id = vehicleClass;
+    public void setIdVehicleClass(VehicleClass vehicleClass) {
+        this.idVehicleClass = vehicleClass;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

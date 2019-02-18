@@ -15,12 +15,12 @@ public interface AccountOperationMapper extends EntityMapper<AccountOperationDTO
     AccountOperationDTO toDto(AccountOperation accountOperation);
 
     @Mapping(source = "financialAccountId", target = "financialAccount")
-    @Mapping(target = "ids", ignore = true)
-    @Mapping(target = "ids", ignore = true)
-    @Mapping(target = "ids", ignore = true)
-    @Mapping(target = "ids", ignore = true)
-    @Mapping(target = "ids", ignore = true)
-    @Mapping(target = "ids", ignore = true)
+    @Mapping(target = "idDataChanges", ignore = true)
+    @Mapping(target = "idInformativeOperations", ignore = true)
+    @Mapping(target = "idBalanceCalculations", ignore = true)
+    @Mapping(target = "idOperators", ignore = true)
+    @Mapping(target = "idAccountTransctions", ignore = true)
+    @Mapping(target = "idAutomaticOperations", ignore = true)
     AccountOperation toEntity(AccountOperationDTO accountOperationDTO);
 
     default AccountOperation fromId(Long id) {

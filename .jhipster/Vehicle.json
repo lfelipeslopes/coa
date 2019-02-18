@@ -26,19 +26,19 @@
     "relationships": [
         {
             "relationshipType": "one-to-many",
-            "relationshipName": "id",
+            "relationshipName": "idMedia",
             "otherEntityName": "media",
             "otherEntityRelationshipName": "vehicle"
         },
         {
             "relationshipType": "one-to-many",
-            "relationshipName": "id",
+            "relationshipName": "idVehicleClass",
             "otherEntityName": "vehicleClass",
             "otherEntityRelationshipName": "vehicle"
         },
         {
             "relationshipType": "one-to-many",
-            "relationshipName": "id",
+            "relationshipName": "idPassage",
             "otherEntityName": "passage",
             "otherEntityRelationshipName": "vehicle"
         }

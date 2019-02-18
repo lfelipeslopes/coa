@@ -41,7 +41,7 @@ public class Operator implements Serializable {
     private OperatorStatus operatorStatus;
 
     @ManyToOne
-    @JsonIgnoreProperties("ids")
+    @JsonIgnoreProperties("idOperators")
     private AccountOperation accountOperation;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove

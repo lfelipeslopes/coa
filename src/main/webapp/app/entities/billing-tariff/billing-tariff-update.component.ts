@@ -19,7 +19,7 @@ export class BillingTariffUpdateComponent implements OnInit {
     billingTariff: IBillingTariff;
     isSaving: boolean;
 
-    ids: IBillingLocation[];
+    idbillinglocations: IBillingLocation[];
     startedIn: string;
 
     constructor(
@@ -43,17 +43,17 @@ export class BillingTariffUpdateComponent implements OnInit {
             )
             .subscribe(
                 (res: IBillingLocation[]) => {
-                    if (!this.billingTariff.idId) {
-                        this.ids = res;
+                    if (!this.billingTariff.idBillingLocationId) {
+                        this.idbillinglocations = res;
                     } else {
                         this.billingLocationService
-                            .find(this.billingTariff.idId)
+                            .find(this.billingTariff.idBillingLocationId)
                             .pipe(
                                 filter((subResMayBeOk: HttpResponse<IBillingLocation>) => subResMayBeOk.ok),
                                 map((subResponse: HttpResponse<IBillingLocation>) => subResponse.body)
                             )
                             .subscribe(
-                                (subRes: IBillingLocation) => (this.ids = [subRes].concat(res)),
+                                (subRes: IBillingLocation) => (this.idbillinglocations = [subRes].concat(res)),
                                 (subRes: HttpErrorResponse) => this.onError(subRes.message)
                             );
                     }

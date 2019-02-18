@@ -14,7 +14,7 @@ public class VehicleAccountDTO implements Serializable {
 
     private Long financialAccountId;
 
-    private Long idId;
+    private Long idVehicleClassId;
 
     public Long getId() {
         return id;
@@ -32,12 +32,12 @@ public class VehicleAccountDTO implements Serializable {
         this.financialAccountId = financialAccountId;
     }
 
-    public Long getIdId() {
-        return idId;
+    public Long getIdVehicleClassId() {
+        return idVehicleClassId;
     }
 
-    public void setIdId(Long vehicleClassId) {
-        this.idId = vehicleClassId;
+    public void setIdVehicleClassId(Long vehicleClassId) {
+        this.idVehicleClassId = vehicleClassId;
     }
 
     @Override
@@ -66,7 +66,7 @@ public class VehicleAccountDTO implements Serializable {
         return "VehicleAccountDTO{" +
             "id=" + getId() +
             ", financialAccount=" + getFinancialAccountId() +
-            ", id=" + getIdId() +
+            ", idVehicleClass=" + getIdVehicleClassId() +
             "}";
     }
 }

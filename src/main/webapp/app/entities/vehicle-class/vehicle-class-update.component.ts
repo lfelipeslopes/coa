@@ -21,7 +21,7 @@ export class VehicleClassUpdateComponent implements OnInit {
 
     vehicles: IVehicle[];
 
-    ids: IBillingTariff[];
+    idbillingtariffs: IBillingTariff[];
 
     constructor(
         protected jhiAlertService: JhiAlertService,
@@ -51,17 +51,17 @@ export class VehicleClassUpdateComponent implements OnInit {
             )
             .subscribe(
                 (res: IBillingTariff[]) => {
-                    if (!this.vehicleClass.idId) {
-                        this.ids = res;
+                    if (!this.vehicleClass.idBillingTariffId) {
+                        this.idbillingtariffs = res;
                     } else {
                         this.billingTariffService
-                            .find(this.vehicleClass.idId)
+                            .find(this.vehicleClass.idBillingTariffId)
                             .pipe(
                                 filter((subResMayBeOk: HttpResponse<IBillingTariff>) => subResMayBeOk.ok),
                                 map((subResponse: HttpResponse<IBillingTariff>) => subResponse.body)
                             )
                             .subscribe(
-                                (subRes: IBillingTariff) => (this.ids = [subRes].concat(res)),
+                                (subRes: IBillingTariff) => (this.idbillingtariffs = [subRes].concat(res)),
                                 (subRes: HttpErrorResponse) => this.onError(subRes.message)
                             );
                     }

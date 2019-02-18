@@ -16,9 +16,9 @@ export interface IVehicle {
     model?: string;
     plate?: string;
     vehicleStatus?: VehicleStatus;
-    ids?: IMedia[];
-    ids?: IVehicleClass[];
-    ids?: IPassage[];
+    idMedias?: IMedia[];
+    idVehicleClasses?: IVehicleClass[];
+    idPassages?: IPassage[];
 }
 
 export class Vehicle implements IVehicle {
@@ -29,8 +29,8 @@ export class Vehicle implements IVehicle {
         public model?: string,
         public plate?: string,
         public vehicleStatus?: VehicleStatus,
-        public ids?: IMedia[],
-        public ids?: IVehicleClass[],
-        public ids?: IPassage[]
+        public idMedias?: IMedia[],
+        public idVehicleClasses?: IVehicleClass[],
+        public idPassages?: IPassage[]
     ) {}
 }

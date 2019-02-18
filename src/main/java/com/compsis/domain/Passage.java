@@ -49,7 +49,7 @@ public class Passage implements Serializable {
     private ZonedDateTime processedAt;
 
     @ManyToOne
-    @JsonIgnoreProperties("ids")
+    @JsonIgnoreProperties("idPassages")
     private Vehicle vehicle;
 
     @ManyToOne

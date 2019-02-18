@@ -37,7 +37,7 @@ public class BillingTariff implements Serializable {
 
     @OneToOne
     @JoinColumn(unique = true)
-    private BillingLocation id;
+    private BillingLocation idBillingLocation;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -87,17 +87,17 @@ public class BillingTariff implements Serializable {
         this.value = value;
     }
 
-    public BillingLocation getId() {
-        return id;
+    public BillingLocation getIdBillingLocation() {
+        return idBillingLocation;
     }
 
-    public BillingTariff id(BillingLocation billingLocation) {
-        this.id = billingLocation;
+    public BillingTariff idBillingLocation(BillingLocation billingLocation) {
+        this.idBillingLocation = billingLocation;
         return this;
     }
 
-    public void setId(BillingLocation billingLocation) {
-        this.id = billingLocation;
+    public void setIdBillingLocation(BillingLocation billingLocation) {
+        this.idBillingLocation = billingLocation;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

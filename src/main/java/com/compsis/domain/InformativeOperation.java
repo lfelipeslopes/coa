@@ -29,7 +29,7 @@ public class InformativeOperation implements Serializable {
     private String comments;
 
     @ManyToOne
-    @JsonIgnoreProperties("ids")
+    @JsonIgnoreProperties("idInformativeOperations")
     private AccountOperation accountOperation;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove

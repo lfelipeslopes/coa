@@ -14,9 +14,9 @@
                                  referencedColumnNames="id"
                                  referencedTableName="financial_account"/>
 
-        <addForeignKeyConstraint baseColumnNames="id_id"
+        <addForeignKeyConstraint baseColumnNames="id_vehicle_class_id"
                                  baseTableName="vehicle_account"
-                                 constraintName="fk_vehicle_account_id_id"
+                                 constraintName="fk_vehicle_account_id_vehicle_class_id"
                                  referencedColumnNames="id"
                                  referencedTableName="vehicle_class"/>
 

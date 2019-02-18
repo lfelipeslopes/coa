@@ -6,9 +6,9 @@ export interface IFinancialAccount {
     id?: number;
     alias?: string;
     balance?: number;
-    ids?: IUserAccount[];
-    ids?: IVehicleAccount[];
-    ids?: IAccountOperation[];
+    idUserAccounts?: IUserAccount[];
+    idVehicleAccounts?: IVehicleAccount[];
+    idAccountOperations?: IAccountOperation[];
 }
 
 export class FinancialAccount implements IFinancialAccount {
@@ -16,8 +16,8 @@ export class FinancialAccount implements IFinancialAccount {
         public id?: number,
         public alias?: string,
         public balance?: number,
-        public ids?: IUserAccount[],
-        public ids?: IVehicleAccount[],
-        public ids?: IAccountOperation[]
+        public idUserAccounts?: IUserAccount[],
+        public idVehicleAccounts?: IVehicleAccount[],
+        public idAccountOperations?: IAccountOperation[]
     ) {}
 }

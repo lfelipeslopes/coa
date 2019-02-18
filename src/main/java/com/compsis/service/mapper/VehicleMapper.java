@@ -12,9 +12,9 @@ import org.mapstruct.*;
 public interface VehicleMapper extends EntityMapper<VehicleDTO, Vehicle> {
 
 
-    @Mapping(target = "ids", ignore = true)
-    @Mapping(target = "ids", ignore = true)
-    @Mapping(target = "ids", ignore = true)
+    @Mapping(target = "idMedias", ignore = true)
+    @Mapping(target = "idVehicleClasses", ignore = true)
+    @Mapping(target = "idPassages", ignore = true)
     Vehicle toEntity(VehicleDTO vehicleDTO);
 
     default Vehicle fromId(Long id) {

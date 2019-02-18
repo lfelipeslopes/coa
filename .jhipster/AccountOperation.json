@@ -15,37 +15,37 @@
         },
         {
             "relationshipType": "one-to-many",
-            "relationshipName": "id",
+            "relationshipName": "idDataChange",
             "otherEntityName": "dataChange",
             "otherEntityRelationshipName": "accountOperation"
         },
         {
             "relationshipType": "one-to-many",
-            "relationshipName": "id",
+            "relationshipName": "idInformativeOperation",
             "otherEntityName": "informativeOperation",
             "otherEntityRelationshipName": "accountOperation"
         },
         {
             "relationshipType": "one-to-many",
-            "relationshipName": "id",
+            "relationshipName": "idBalanceCalculation",
             "otherEntityName": "balanceCalculation",
             "otherEntityRelationshipName": "accountOperation"
         },
         {
             "relationshipType": "one-to-many",
-            "relationshipName": "id",
+            "relationshipName": "idOperator",
             "otherEntityName": "operator",
             "otherEntityRelationshipName": "accountOperation"
         },
         {
             "relationshipType": "one-to-many",
-            "relationshipName": "id",
+            "relationshipName": "idAccountTransction",
             "otherEntityName": "accountTransction",
             "otherEntityRelationshipName": "accountOperation"
         },
         {
             "relationshipType": "one-to-many",
-            "relationshipName": "id",
+            "relationshipName": "idAutomaticOperation",
             "otherEntityName": "automaticOperation",
             "otherEntityRelationshipName": "accountOperation"
         }

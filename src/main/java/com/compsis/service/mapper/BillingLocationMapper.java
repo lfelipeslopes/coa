@@ -11,10 +11,10 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {PassageMapper.class})
 public interface BillingLocationMapper extends EntityMapper<BillingLocationDTO, BillingLocation> {
 
-    @Mapping(source = "id.id", target = "idId")
+    @Mapping(source = "idPassage.id", target = "idPassageId")
     BillingLocationDTO toDto(BillingLocation billingLocation);
 
-    @Mapping(source = "idId", target = "id")
+    @Mapping(source = "idPassageId", target = "idPassage")
     BillingLocation toEntity(BillingLocationDTO billingLocationDTO);
 
     default BillingLocation fromId(Long id) {

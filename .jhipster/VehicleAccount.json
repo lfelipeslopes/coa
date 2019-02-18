@@ -10,7 +10,7 @@
         },
         {
             "relationshipType": "one-to-one",
-            "relationshipName": "id",
+            "relationshipName": "idVehicleClass",
             "otherEntityName": "vehicleClass",
             "otherEntityField": "id",
             "ownerSide": true,

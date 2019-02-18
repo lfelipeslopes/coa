@@ -17,10 +17,10 @@
                 <dd>
                     <span>{{billingTariff.value}}</span>
                 </dd>
-                <dt><span>Id</span></dt>
+                <dt><span>Id Billing Location</span></dt>
                 <dd>
-                    <div *ngIf="billingTariff.idId">
-                        <a [routerLink]="['/billing-location', billingTariff.idId, 'view']">{{billingTariff.idId}}</a>
+                    <div *ngIf="billingTariff.idBillingLocationId">
+                        <a [routerLink]="['/billing-location', billingTariff.idBillingLocationId, 'view']">{{billingTariff.idBillingLocationId}}</a>
                     </div>
                 </dd>
             </dl>
