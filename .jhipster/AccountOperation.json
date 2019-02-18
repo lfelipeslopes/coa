@@ -1,0 +1,63 @@
+{
+    "name": "AccountOperation",
+    "fields": [
+        {
+            "fieldName": "occurrenceDate",
+            "fieldType": "ZonedDateTime"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "financialAccount",
+            "otherEntityName": "financialAccount",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "id",
+            "otherEntityName": "dataChange",
+            "otherEntityRelationshipName": "accountOperation"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "id",
+            "otherEntityName": "informativeOperation",
+            "otherEntityRelationshipName": "accountOperation"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "id",
+            "otherEntityName": "balanceCalculation",
+            "otherEntityRelationshipName": "accountOperation"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "id",
+            "otherEntityName": "operator",
+            "otherEntityRelationshipName": "accountOperation"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "id",
+            "otherEntityName": "accountTransction",
+            "otherEntityRelationshipName": "accountOperation"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "id",
+            "otherEntityName": "automaticOperation",
+            "otherEntityRelationshipName": "accountOperation"
+        }
+    ],
+    "changelogDate": "20190218192413",
+    "javadoc": "Operação da conta",
+    "entityTableName": "account_operation",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

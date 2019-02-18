@@ -1,0 +1,36 @@
+{
+    "name": "AccountTransction",
+    "fields": [
+        {
+            "fieldName": "amount",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "origin",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "transactionType",
+            "fieldType": "TransactionType",
+            "fieldValues": "CREDIT,DEBIT"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "accountOperation",
+            "otherEntityName": "accountOperation",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190218192418",
+    "javadoc": "Transações da conta",
+    "entityTableName": "account_transction",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

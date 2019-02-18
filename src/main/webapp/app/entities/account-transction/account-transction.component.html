@@ -1,0 +1,64 @@
+<div>
+    <h2 id="page-heading">
+        <span>Account Transctions</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-account-transction" [routerLink]="['/account-transction/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Account Transction
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="accountTransctions">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Amount</span></th>
+            <th><span>Origin</span></th>
+            <th><span>Transaction Type</span></th>
+            <th><span>Account Operation</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let accountTransction of accountTransctions ;trackBy: trackId">
+                <td><a [routerLink]="['/account-transction', accountTransction.id, 'view' ]">{{accountTransction.id}}</a></td>
+                <td>{{accountTransction.amount}}</td>
+                <td>{{accountTransction.origin}}</td>
+                <td>{{accountTransction.transactionType}}</td>
+                <td>
+                    <div *ngIf="accountTransction.accountOperationId">
+                        <a [routerLink]="['../account-operation', accountTransction.accountOperationId , 'view' ]" >{{accountTransction.accountOperationId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/account-transction', accountTransction.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/account-transction', accountTransction.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'account-transction', { outlets: { popup: accountTransction.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

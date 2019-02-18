@@ -1,0 +1,30 @@
+{
+    "name": "VehicleAccount",
+    "fields": [],
+    "relationships": [
+        {
+            "relationshipName": "financialAccount",
+            "otherEntityName": "financialAccount",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "id",
+            "otherEntityName": "vehicleClass",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "vehicleAccount"
+        }
+    ],
+    "changelogDate": "20190218192406",
+    "javadoc": "Conta do veiculo",
+    "entityTableName": "vehicle_account",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

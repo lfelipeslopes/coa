@@ -1,0 +1,43 @@
+{
+    "name": "FinancialAccount",
+    "fields": [
+        {
+            "fieldName": "alias",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "balance",
+            "fieldType": "BigDecimal"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "id",
+            "otherEntityName": "userAccount",
+            "otherEntityRelationshipName": "financialAccount"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "id",
+            "otherEntityName": "vehicleAccount",
+            "otherEntityRelationshipName": "financialAccount"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "id",
+            "otherEntityName": "accountOperation",
+            "otherEntityRelationshipName": "financialAccount"
+        }
+    ],
+    "changelogDate": "20190218192403",
+    "javadoc": "Conta",
+    "entityTableName": "financial_account",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

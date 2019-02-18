@@ -1,0 +1,246 @@
+ /**
+ * Conta
+ */
+ entity FinancialAccount{
+	id Long,
+    alias String,
+    balance BigDecimal
+}
+
+/**
+* Tipo de pessoa
+*/
+enum TypePerson{
+	PRE_PAID, ASSOCIATED
+}
+
+/**
+* Pessoa
+*/
+entity Person{
+	id Long,
+    document String,
+    name String,
+    email String
+    typePerson TypePerson
+}
+
+/**
+* Conta Usuário
+*/
+entity UserAccount{
+	id Long
+}
+
+/**
+*	Conta do veiculo
+*/
+entity VehicleAccount{
+	id Long
+}
+/**
+* Status do veículo
+*/
+enum VehicleStatus{
+	RELEASED, BLOCKED, FORCED_RELEASE, FORCED_LOCK
+}
+/**
+* Veiculo
+*/
+entity Vehicle{
+	id Long,
+    color String,
+    manufacturer String,
+    model String,
+    plate String,
+    vehicleStatus VehicleStatus
+}
+
+/**
+* Midia
+*/
+entity Media{
+	identification String
+}
+
+/**
+* Classificação do veículo
+*/
+entity VehicleClass{
+	id Long,
+	axes Integer,
+    description String,
+    doubleWheel Integer,
+}    
+
+/**
+* Tarifa
+*/
+entity BillingTariff{
+	id Long,
+	dayOfWeek Integer,
+    startedIn ZonedDateTime,
+    value BigDecimal
+}
+ 
+/**
+*	Localização (praça)
+*/
+entity BillingLocation{
+	id Long,
+    description String,
+    code String
+}
+
+
+/**
+*	Passagem
+*/
+entity Passage{
+	id Long,
+    amount BigDecimal,
+    automaticPassage Boolean,
+    lane Integer,
+    occurrenceDate ZonedDateTime,
+    passageIdentification Long,
+    plate String,
+    processedAt ZonedDateTime
+}
+
+/**
+*	Operação da conta
+*/
+entity AccountOperation{
+	id Long,
+    occurrenceDate ZonedDateTime
+}
+
+/**
+*  Data alteração
+*/
+entity DataChange{
+	changeDetail String
+}
+
+/**
+*	Comentários do usuário
+*/
+entity InformativeOperation{
+	comments String
+}
+
+/**
+*	Balanço
+*/
+entity BalanceCalculation{
+	balance BigDecimal
+}
+
+/**
+* Operador
+*/
+enum OperatorStatus{
+	ATICVE, DISABLED
+}
+
+entity Operator{
+	id Long,
+    email String,
+    name String,
+    password String
+    operatorStatus OperatorStatus
+}
+
+/**
+* Transações da conta
+*/
+entity AccountTransction{
+	amount BigDecimal,
+    origin String
+    transactionType TransactionType
+}
+
+/**
+* Operações Automáticas
+*/
+enum AutomaticOperationStatus{
+	ACTIVATED, DISABLED
+}
+
+enum AutomaticEvent{
+	RECHARGE, BLOCK
+}
+
+enum TransactionType{
+	CREDIT, DEBIT
+}
+
+entity AutomaticOperation{
+	amount BigDecimal,
+    recurrent Boolean
+    automatictOperationStatus AutomaticOperationStatus,
+    automatictEvent AutomaticEvent
+    transactionType TransactionType
+}
+
+/**
+*	RELACIONAMENTOS
+*/
+relationship OneToMany{
+	FinancialAccount{id} to UserAccount,
+    FinancialAccount{id} to VehicleAccount,
+    FinancialAccount{id} to AccountOperation
+}
+
+relationship OneToOne{
+	VehicleAccount{id} to VehicleClass
+}
+
+relationship OneToOne{
+	BillingTariff{id} to BillingLocation
+}
+
+relationship OneToMany{
+	Vehicle{id} to Media,
+    Vehicle{id} to VehicleClass,
+    Vehicle{id} to Passage
+}
+
+relationship OneToOne{
+	VehicleClass{id} to BillingTariff
+} 
+
+relationship OneToOne{
+	BillingLocation{id} to Passage
+}
+
+relationship ManyToOne{
+    UserAccount{accountable(id)} to Person,
+    UserAccount{contacts(id)} to Person
+
+}
+
+
+relationship OneToMany{
+	AccountOperation{id} to DataChange,
+    AccountOperation{id} to InformativeOperation,
+    AccountOperation{id} to BalanceCalculation
+    AccountOperation{id} to Operator,
+    AccountOperation{id} to AccountTransction,
+    AccountOperation{id} to AutomaticOperation
+}
+
+relationship ManyToOne{
+    Passage{classifiedClass(id)} to VehicleClass,
+    Passage{detectClass(id)} to VehicleClass,
+    Passage{chargedClass(id)} to VehicleClass
+}
+
+//Creates service classes, which will make the resource call the service class which will call the repository interface
+service all with serviceImpl
+// Set pagination options
+paginate FinancialAccount, Vehicle, UserAccount, Operator, AccountOperation with infinite-scroll
+//Creates DTO's and maps the fields using mapstruct generator
+dto all with mapstruct
+
+

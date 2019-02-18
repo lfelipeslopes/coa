@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="accountTransction">
+            <h2><span>Account Transction</span> {{accountTransction.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Amount</span></dt>
+                <dd>
+                    <span>{{accountTransction.amount}}</span>
+                </dd>
+                <dt><span>Origin</span></dt>
+                <dd>
+                    <span>{{accountTransction.origin}}</span>
+                </dd>
+                <dt><span>Transaction Type</span></dt>
+                <dd>
+                    <span>{{accountTransction.transactionType}}</span>
+                </dd>
+                <dt><span>Account Operation</span></dt>
+                <dd>
+                    <div *ngIf="accountTransction.accountOperationId">
+                        <a [routerLink]="['/account-operation', accountTransction.accountOperationId, 'view']">{{accountTransction.accountOperationId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/account-transction', accountTransction.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

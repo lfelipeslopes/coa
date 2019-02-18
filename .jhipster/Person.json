@@ -1,0 +1,33 @@
+{
+    "name": "Person",
+    "fields": [
+        {
+            "fieldName": "document",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "typePerson",
+            "fieldType": "TypePerson",
+            "fieldValues": "PRE_PAID,ASSOCIATED"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190218192404",
+    "javadoc": "Pessoa",
+    "entityTableName": "person",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

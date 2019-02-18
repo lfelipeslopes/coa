@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="userAccount">
+            <h2><span>User Account</span> {{userAccount.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Financial Account</span></dt>
+                <dd>
+                    <div *ngIf="userAccount.financialAccountId">
+                        <a [routerLink]="['/financial-account', userAccount.financialAccountId, 'view']">{{userAccount.financialAccountId}}</a>
+                    </div>
+                </dd>
+                <dt><span>Accountable</span></dt>
+                <dd>
+                    <div *ngIf="userAccount.accountableId">
+                        <a [routerLink]="['/person', userAccount.accountableId, 'view']">{{userAccount.accountableId}}</a>
+                    </div>
+                </dd>
+                <dt><span>Contacts</span></dt>
+                <dd>
+                    <div *ngIf="userAccount.contactsId">
+                        <a [routerLink]="['/person', userAccount.contactsId, 'view']">{{userAccount.contactsId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/user-account', userAccount.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

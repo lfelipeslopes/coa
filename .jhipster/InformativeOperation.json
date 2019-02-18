@@ -1,0 +1,27 @@
+{
+    "name": "InformativeOperation",
+    "fields": [
+        {
+            "fieldName": "comments",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "accountOperation",
+            "otherEntityName": "accountOperation",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190218192415",
+    "javadoc": "Comentários do usuário",
+    "entityTableName": "informative_operation",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,72 @@
+{
+    "name": "Passage",
+    "fields": [
+        {
+            "fieldName": "amount",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "automaticPassage",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "lane",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "occurrenceDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "passageIdentification",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "plate",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "processedAt",
+            "fieldType": "ZonedDateTime"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "vehicle",
+            "otherEntityName": "vehicle",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "classifiedClass",
+            "otherEntityName": "vehicleClass",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "passage"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "detectClass",
+            "otherEntityName": "vehicleClass",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "passage"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "chargedClass",
+            "otherEntityName": "vehicleClass",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "passage"
+        }
+    ],
+    "changelogDate": "20190218192412",
+    "javadoc": "Passagem",
+    "entityTableName": "passage",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,68 @@
+<div>
+    <h2 id="page-heading">
+        <span>Automatic Operations</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-automatic-operation" [routerLink]="['/automatic-operation/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Automatic Operation
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="automaticOperations">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Amount</span></th>
+            <th><span>Recurrent</span></th>
+            <th><span>Automatict Operation Status</span></th>
+            <th><span>Automatict Event</span></th>
+            <th><span>Transaction Type</span></th>
+            <th><span>Account Operation</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let automaticOperation of automaticOperations ;trackBy: trackId">
+                <td><a [routerLink]="['/automatic-operation', automaticOperation.id, 'view' ]">{{automaticOperation.id}}</a></td>
+                <td>{{automaticOperation.amount}}</td>
+                <td>{{automaticOperation.recurrent}}</td>
+                <td>{{automaticOperation.automatictOperationStatus}}</td>
+                <td>{{automaticOperation.automatictEvent}}</td>
+                <td>{{automaticOperation.transactionType}}</td>
+                <td>
+                    <div *ngIf="automaticOperation.accountOperationId">
+                        <a [routerLink]="['../account-operation', automaticOperation.accountOperationId , 'view' ]" >{{automaticOperation.accountOperationId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/automatic-operation', automaticOperation.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/automatic-operation', automaticOperation.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'automatic-operation', { outlets: { popup: automaticOperation.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
