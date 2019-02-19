@@ -195,10 +195,6 @@ relationship OneToOne{
 	BillingLocation{idBillingLocation(id)} to BillingTariff
 }
 
-relationship OneToMany{
-    Vehicle{idVehicle(id)} to Passage
-}
-
 relationship OneToOne{
 	Vehicle{idVehicleClass(id)} to VehicleClass
 }
@@ -225,7 +221,8 @@ relationship OneToMany{
 relationship ManyToOne{
     Passage{classifiedClass(id)} to VehicleClass,
     Passage{detectClass(id)} to VehicleClass,
-    Passage{chargedClass(id)} to VehicleClass
+    Passage{chargedClass(id)} to VehicleClass,
+    Passage{idVehicle(id)} to Vehicle
 }
 
 //Creates service classes, which will make the resource call the service class which will call the repository interface
