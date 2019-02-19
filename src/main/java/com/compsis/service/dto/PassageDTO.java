@@ -28,13 +28,13 @@ public class PassageDTO implements Serializable {
     private ZonedDateTime processedAt;
 
 
-    private Long vehicleId;
-
     private Long classifiedClassId;
 
     private Long detectClassId;
 
     private Long chargedClassId;
+
+    private Long idVehicleId;
 
     public Long getId() {
         return id;
@@ -100,14 +100,6 @@ public class PassageDTO implements Serializable {
         this.processedAt = processedAt;
     }
 
-    public Long getVehicleId() {
-        return vehicleId;
-    }
-
-    public void setVehicleId(Long vehicleId) {
-        this.vehicleId = vehicleId;
-    }
-
     public Long getClassifiedClassId() {
         return classifiedClassId;
     }
@@ -130,6 +122,14 @@ public class PassageDTO implements Serializable {
 
     public void setChargedClassId(Long vehicleClassId) {
         this.chargedClassId = vehicleClassId;
+    }
+
+    public Long getIdVehicleId() {
+        return idVehicleId;
+    }
+
+    public void setIdVehicleId(Long vehicleId) {
+        this.idVehicleId = vehicleId;
     }
 
     @Override
@@ -164,10 +164,10 @@ public class PassageDTO implements Serializable {
             ", passageIdentification=" + getPassageIdentification() +
             ", plate='" + getPlate() + "'" +
             ", processedAt='" + getProcessedAt() + "'" +
-            ", vehicle=" + getVehicleId() +
             ", classifiedClass=" + getClassifiedClassId() +
             ", detectClass=" + getDetectClassId() +
             ", chargedClass=" + getChargedClassId() +
+            ", idVehicle=" + getIdVehicleId() +
             "}";
     }
 }

@@ -8,10 +8,10 @@ import { DATE_TIME_FORMAT } from 'app/shared/constants/input.constants';
 import { JhiAlertService } from 'ng-jhipster';
 import { IPassage } from 'app/shared/model/passage.model';
 import { PassageService } from './passage.service';
-import { IVehicle } from 'app/shared/model/vehicle.model';
-import { VehicleService } from 'app/entities/vehicle';
 import { IVehicleClass } from 'app/shared/model/vehicle-class.model';
 import { VehicleClassService } from 'app/entities/vehicle-class';
+import { IVehicle } from 'app/shared/model/vehicle.model';
+import { VehicleService } from 'app/entities/vehicle';
 
 @Component({
     selector: 'jhi-passage-update',
@@ -21,17 +21,17 @@ export class PassageUpdateComponent implements OnInit {
     passage: IPassage;
     isSaving: boolean;
 
-    vehicles: IVehicle[];
-
     vehicleclasses: IVehicleClass[];
+
+    vehicles: IVehicle[];
     occurrenceDate: string;
     processedAt: string;
 
     constructor(
         protected jhiAlertService: JhiAlertService,
         protected passageService: PassageService,
-        protected vehicleService: VehicleService,
         protected vehicleClassService: VehicleClassService,
+        protected vehicleService: VehicleService,
         protected activatedRoute: ActivatedRoute
     ) {}
 
@@ -42,13 +42,6 @@ export class PassageUpdateComponent implements OnInit {
             this.occurrenceDate = this.passage.occurrenceDate != null ? this.passage.occurrenceDate.format(DATE_TIME_FORMAT) : null;
             this.processedAt = this.passage.processedAt != null ? this.passage.processedAt.format(DATE_TIME_FORMAT) : null;
         });
-        this.vehicleService
-            .query()
-            .pipe(
-                filter((mayBeOk: HttpResponse<IVehicle[]>) => mayBeOk.ok),
-                map((response: HttpResponse<IVehicle[]>) => response.body)
-            )
-            .subscribe((res: IVehicle[]) => (this.vehicles = res), (res: HttpErrorResponse) => this.onError(res.message));
         this.vehicleClassService
             .query()
             .pipe(
@@ -56,6 +49,13 @@ export class PassageUpdateComponent implements OnInit {
                 map((response: HttpResponse<IVehicleClass[]>) => response.body)
             )
             .subscribe((res: IVehicleClass[]) => (this.vehicleclasses = res), (res: HttpErrorResponse) => this.onError(res.message));
+        this.vehicleService
+            .query()
+            .pipe(
+                filter((mayBeOk: HttpResponse<IVehicle[]>) => mayBeOk.ok),
+                map((response: HttpResponse<IVehicle[]>) => response.body)
+            )
+            .subscribe((res: IVehicle[]) => (this.vehicles = res), (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     previousState() {
@@ -90,11 +90,11 @@ export class PassageUpdateComponent implements OnInit {
         this.jhiAlertService.error(errorMessage, null, null);
     }
 
-    trackVehicleById(index: number, item: IVehicle) {
+    trackVehicleClassById(index: number, item: IVehicleClass) {
         return item.id;
     }
 
-    trackVehicleClassById(index: number, item: IVehicleClass) {
+    trackVehicleById(index: number, item: IVehicle) {
         return item.id;
     }
 }

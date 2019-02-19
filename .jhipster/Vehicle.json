@@ -31,12 +31,6 @@
             "otherEntityField": "id",
             "ownerSide": true,
             "otherEntityRelationshipName": "vehicle"
-        },
-        {
-            "relationshipType": "one-to-many",
-            "relationshipName": "idVehicle",
-            "otherEntityName": "passage",
-            "otherEntityRelationshipName": "vehicle"
         }
     ],
     "changelogDate": "20190218192407",

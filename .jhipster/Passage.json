@@ -32,12 +32,6 @@
     ],
     "relationships": [
         {
-            "relationshipName": "vehicle",
-            "otherEntityName": "vehicle",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "id"
-        },
-        {
             "relationshipType": "many-to-one",
             "relationshipName": "classifiedClass",
             "otherEntityName": "vehicleClass",
@@ -55,6 +49,13 @@
             "relationshipType": "many-to-one",
             "relationshipName": "chargedClass",
             "otherEntityName": "vehicleClass",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "passage"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "idVehicle",
+            "otherEntityName": "vehicle",
             "otherEntityField": "id",
             "otherEntityRelationshipName": "passage"
         }

@@ -49,10 +49,6 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="vehicle_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
-
             <column name="classified_class_id" type="bigint">
                 <constraints nullable="true" />
             </column>
@@ -62,6 +58,10 @@
             </column>
 
             <column name="charged_class_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="id_vehicle_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 
