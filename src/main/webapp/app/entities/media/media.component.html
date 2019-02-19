@@ -16,7 +16,6 @@
             <tr>
             <th><span>ID</span></th>
             <th><span>Identification</span></th>
-            <th><span>Id Media</span></th>
             <th></th>
             </tr>
             </thead>
@@ -24,11 +23,6 @@
             <tr *ngFor="let media of media ;trackBy: trackId">
                 <td><a [routerLink]="['/media', media.id, 'view' ]">{{media.id}}</a></td>
                 <td>{{media.identification}}</td>
-                <td>
-                    <div *ngIf="media.idMediaId">
-                        <a [routerLink]="['../vehicle', media.idMediaId , 'view' ]" >{{media.idMediaId}}</a>
-                    </div>
-                </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

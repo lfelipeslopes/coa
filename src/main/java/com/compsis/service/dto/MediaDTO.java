@@ -14,8 +14,6 @@ public class MediaDTO implements Serializable {
     private String identification;
 
 
-    private Long idMediaId;
-
     public Long getId() {
         return id;
     }
@@ -30,14 +28,6 @@ public class MediaDTO implements Serializable {
 
     public void setIdentification(String identification) {
         this.identification = identification;
-    }
-
-    public Long getIdMediaId() {
-        return idMediaId;
-    }
-
-    public void setIdMediaId(Long vehicleId) {
-        this.idMediaId = vehicleId;
     }
 
     @Override
@@ -66,7 +56,6 @@ public class MediaDTO implements Serializable {
         return "MediaDTO{" +
             "id=" + getId() +
             ", identification='" + getIdentification() + "'" +
-            ", idMedia=" + getIdMediaId() +
             "}";
     }
 }

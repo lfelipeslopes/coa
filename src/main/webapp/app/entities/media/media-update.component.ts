@@ -3,11 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
-import { JhiAlertService } from 'ng-jhipster';
 import { IMedia } from 'app/shared/model/media.model';
 import { MediaService } from './media.service';
-import { IVehicle } from 'app/shared/model/vehicle.model';
-import { VehicleService } from 'app/entities/vehicle';
 
 @Component({
     selector: 'jhi-media-update',
@@ -17,45 +14,13 @@ export class MediaUpdateComponent implements OnInit {
     media: IMedia;
     isSaving: boolean;
 
-    idmedias: IVehicle[];
-
-    constructor(
-        protected jhiAlertService: JhiAlertService,
-        protected mediaService: MediaService,
-        protected vehicleService: VehicleService,
-        protected activatedRoute: ActivatedRoute
-    ) {}
+    constructor(protected mediaService: MediaService, protected activatedRoute: ActivatedRoute) {}
 
     ngOnInit() {
         this.isSaving = false;
         this.activatedRoute.data.subscribe(({ media }) => {
             this.media = media;
         });
-        this.vehicleService
-            .query({ filter: 'media-is-null' })
-            .pipe(
-                filter((mayBeOk: HttpResponse<IVehicle[]>) => mayBeOk.ok),
-                map((response: HttpResponse<IVehicle[]>) => response.body)
-            )
-            .subscribe(
-                (res: IVehicle[]) => {
-                    if (!this.media.idMediaId) {
-                        this.idmedias = res;
-                    } else {
-                        this.vehicleService
-                            .find(this.media.idMediaId)
-                            .pipe(
-                                filter((subResMayBeOk: HttpResponse<IVehicle>) => subResMayBeOk.ok),
-                                map((subResponse: HttpResponse<IVehicle>) => subResponse.body)
-                            )
-                            .subscribe(
-                                (subRes: IVehicle) => (this.idmedias = [subRes].concat(res)),
-                                (subRes: HttpErrorResponse) => this.onError(subRes.message)
-                            );
-                    }
-                },
-                (res: HttpErrorResponse) => this.onError(res.message)
-            );
     }
 
     previousState() {
@@ -82,13 +47,5 @@ export class MediaUpdateComponent implements OnInit {
 
     protected onSaveError() {
         this.isSaving = false;
-    }
-
-    protected onError(errorMessage: string) {
-        this.jhiAlertService.error(errorMessage, null, null);
-    }
-
-    trackVehicleById(index: number, item: IVehicle) {
-        return item.id;
     }
 }

@@ -4,7 +4,7 @@
     "relationships": [
         {
             "relationshipType": "one-to-one",
-            "relationshipName": "idVehicleClass",
+            "relationshipName": "idVehicle",
             "otherEntityName": "vehicle",
             "otherEntityField": "id",
             "ownerSide": true,

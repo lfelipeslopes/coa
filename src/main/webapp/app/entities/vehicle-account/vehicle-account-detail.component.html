@@ -5,10 +5,10 @@
             <hr>
             <jhi-alert-error></jhi-alert-error>
             <dl class="row-md jh-entity-details">
-                <dt><span>Id Vehicle Class</span></dt>
+                <dt><span>Id Vehicle</span></dt>
                 <dd>
-                    <div *ngIf="vehicleAccount.idVehicleClassId">
-                        <a [routerLink]="['/vehicle', vehicleAccount.idVehicleClassId, 'view']">{{vehicleAccount.idVehicleClassId}}</a>
+                    <div *ngIf="vehicleAccount.idVehicleId">
+                        <a [routerLink]="['/vehicle', vehicleAccount.idVehicleId, 'view']">{{vehicleAccount.idVehicleId}}</a>
                     </div>
                 </dd>
             </dl>
