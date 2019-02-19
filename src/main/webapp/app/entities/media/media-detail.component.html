@@ -9,12 +9,6 @@
                 <dd>
                     <span>{{media.identification}}</span>
                 </dd>
-                <dt><span>Id Media</span></dt>
-                <dd>
-                    <div *ngIf="media.idMediaId">
-                        <a [routerLink]="['/vehicle', media.idMediaId, 'view']">{{media.idMediaId}}</a>
-                    </div>
-                </dd>
             </dl>
 
             <button type="submit"

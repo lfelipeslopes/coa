@@ -1,8 +1,8 @@
 export interface IVehicleAccount {
     id?: number;
-    idVehicleClassId?: number;
+    idVehicleId?: number;
 }
 
 export class VehicleAccount implements IVehicleAccount {
-    constructor(public id?: number, public idVehicleClassId?: number) {}
+    constructor(public id?: number, public idVehicleId?: number) {}
 }

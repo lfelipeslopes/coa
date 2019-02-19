@@ -15,7 +15,7 @@
             <thead>
             <tr>
             <th><span>ID</span></th>
-            <th><span>Id Vehicle Class</span></th>
+            <th><span>Id Vehicle</span></th>
             <th></th>
             </tr>
             </thead>
@@ -23,8 +23,8 @@
             <tr *ngFor="let vehicleAccount of vehicleAccounts ;trackBy: trackId">
                 <td><a [routerLink]="['/vehicle-account', vehicleAccount.id, 'view' ]">{{vehicleAccount.id}}</a></td>
                 <td>
-                    <div *ngIf="vehicleAccount.idVehicleClassId">
-                        <a [routerLink]="['../vehicle', vehicleAccount.idVehicleClassId , 'view' ]" >{{vehicleAccount.idVehicleClassId}}</a>
+                    <div *ngIf="vehicleAccount.idVehicleId">
+                        <a [routerLink]="['../vehicle', vehicleAccount.idVehicleId , 'view' ]" >{{vehicleAccount.idVehicleId}}</a>
                     </div>
                 </td>
                 <td class="text-right">

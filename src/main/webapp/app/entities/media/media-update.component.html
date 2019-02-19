@@ -15,13 +15,6 @@
                         [(ngModel)]="media.identification" />
                 </div>
 
-                <div class="form-group">
-                    <label class="form-control-label" for="field_idMedia">Id Media</label>
-                    <select class="form-control" id="field_idMedia" name="idMedia" [(ngModel)]="media.idMediaId">
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="vehicleOption.id" *ngFor="let vehicleOption of idmedias; trackBy: trackVehicleById">{{vehicleOption.id}}</option>
-                    </select>
-                </div>
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">

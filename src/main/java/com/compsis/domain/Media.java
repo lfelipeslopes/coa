@@ -27,10 +27,6 @@ public class Media implements Serializable {
     @Column(name = "identification")
     private String identification;
 
-    @OneToOne
-    @JoinColumn(unique = true)
-    private Vehicle idMedia;
-
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -51,19 +47,6 @@ public class Media implements Serializable {
 
     public void setIdentification(String identification) {
         this.identification = identification;
-    }
-
-    public Vehicle getIdMedia() {
-        return idMedia;
-    }
-
-    public Media idMedia(Vehicle vehicle) {
-        this.idMedia = vehicle;
-        return this;
-    }
-
-    public void setIdMedia(Vehicle vehicle) {
-        this.idMedia = vehicle;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

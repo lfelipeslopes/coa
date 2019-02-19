@@ -11,10 +11,10 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" for="field_idVehicleClass">Id Vehicle Class</label>
-                    <select class="form-control" id="field_idVehicleClass" name="idVehicleClass" [(ngModel)]="vehicleAccount.idVehicleClassId">
+                    <label class="form-control-label" for="field_idVehicle">Id Vehicle</label>
+                    <select class="form-control" id="field_idVehicle" name="idVehicle" [(ngModel)]="vehicleAccount.idVehicleId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="vehicleOption.id" *ngFor="let vehicleOption of idvehicleclasses; trackBy: trackVehicleById">{{vehicleOption.id}}</option>
+                        <option [ngValue]="vehicleOption.id" *ngFor="let vehicleOption of idvehicles; trackBy: trackVehicleById">{{vehicleOption.id}}</option>
                     </select>
                 </div>
             </div>

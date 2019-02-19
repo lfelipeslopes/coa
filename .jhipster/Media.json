@@ -6,16 +6,7 @@
             "fieldType": "String"
         }
     ],
-    "relationships": [
-        {
-            "relationshipType": "one-to-one",
-            "relationshipName": "idMedia",
-            "otherEntityName": "vehicle",
-            "otherEntityField": "id",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "media"
-        }
-    ],
+    "relationships": [],
     "changelogDate": "20190218192408",
     "javadoc": "Midia",
     "entityTableName": "media",
