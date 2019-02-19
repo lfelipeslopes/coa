@@ -14,8 +14,6 @@ public class DataChangeDTO implements Serializable {
     private String changeDetail;
 
 
-    private Long accountOperationId;
-
     public Long getId() {
         return id;
     }
@@ -30,14 +28,6 @@ public class DataChangeDTO implements Serializable {
 
     public void setChangeDetail(String changeDetail) {
         this.changeDetail = changeDetail;
-    }
-
-    public Long getAccountOperationId() {
-        return accountOperationId;
-    }
-
-    public void setAccountOperationId(Long accountOperationId) {
-        this.accountOperationId = accountOperationId;
     }
 
     @Override
@@ -66,7 +56,6 @@ public class DataChangeDTO implements Serializable {
         return "DataChangeDTO{" +
             "id=" + getId() +
             ", changeDetail='" + getChangeDetail() + "'" +
-            ", accountOperation=" + getAccountOperationId() +
             "}";
     }
 }

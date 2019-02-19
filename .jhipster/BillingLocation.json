@@ -13,6 +13,22 @@
     "relationships": [
         {
             "relationshipType": "one-to-one",
+            "relationshipName": "idBillingLocation",
+            "otherEntityName": "billingTariff",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "billingLocation"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "idBillingLocation",
+            "otherEntityName": "passage",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "billingLocation"
+        },
+        {
+            "relationshipType": "one-to-one",
             "relationshipName": "idPassage",
             "otherEntityName": "passage",
             "otherEntityField": "id",

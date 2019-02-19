@@ -5,12 +5,6 @@
             <hr>
             <jhi-alert-error></jhi-alert-error>
             <dl class="row-md jh-entity-details">
-                <dt><span>Financial Account</span></dt>
-                <dd>
-                    <div *ngIf="userAccount.financialAccountId">
-                        <a [routerLink]="['/financial-account', userAccount.financialAccountId, 'view']">{{userAccount.financialAccountId}}</a>
-                    </div>
-                </dd>
                 <dt><span>Accountable</span></dt>
                 <dd>
                     <div *ngIf="userAccount.accountableId">

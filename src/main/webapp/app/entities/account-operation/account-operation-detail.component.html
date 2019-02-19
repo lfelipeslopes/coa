@@ -9,12 +9,6 @@
                 <dd>
                     <span>{{accountOperation.occurrenceDate}}</span>
                 </dd>
-                <dt><span>Financial Account</span></dt>
-                <dd>
-                    <div *ngIf="accountOperation.financialAccountId">
-                        <a [routerLink]="['/financial-account', accountOperation.financialAccountId, 'view']">{{accountOperation.financialAccountId}}</a>
-                    </div>
-                </dd>
             </dl>
 
             <button type="submit"

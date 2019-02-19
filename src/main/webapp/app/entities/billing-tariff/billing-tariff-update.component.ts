@@ -5,11 +5,8 @@ import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import * as moment from 'moment';
 import { DATE_TIME_FORMAT } from 'app/shared/constants/input.constants';
-import { JhiAlertService } from 'ng-jhipster';
 import { IBillingTariff } from 'app/shared/model/billing-tariff.model';
 import { BillingTariffService } from './billing-tariff.service';
-import { IBillingLocation } from 'app/shared/model/billing-location.model';
-import { BillingLocationService } from 'app/entities/billing-location';
 
 @Component({
     selector: 'jhi-billing-tariff-update',
@@ -18,16 +15,9 @@ import { BillingLocationService } from 'app/entities/billing-location';
 export class BillingTariffUpdateComponent implements OnInit {
     billingTariff: IBillingTariff;
     isSaving: boolean;
-
-    idbillinglocations: IBillingLocation[];
     startedIn: string;
 
-    constructor(
-        protected jhiAlertService: JhiAlertService,
-        protected billingTariffService: BillingTariffService,
-        protected billingLocationService: BillingLocationService,
-        protected activatedRoute: ActivatedRoute
-    ) {}
+    constructor(protected billingTariffService: BillingTariffService, protected activatedRoute: ActivatedRoute) {}
 
     ngOnInit() {
         this.isSaving = false;
@@ -35,31 +25,6 @@ export class BillingTariffUpdateComponent implements OnInit {
             this.billingTariff = billingTariff;
             this.startedIn = this.billingTariff.startedIn != null ? this.billingTariff.startedIn.format(DATE_TIME_FORMAT) : null;
         });
-        this.billingLocationService
-            .query({ filter: 'billingtariff-is-null' })
-            .pipe(
-                filter((mayBeOk: HttpResponse<IBillingLocation[]>) => mayBeOk.ok),
-                map((response: HttpResponse<IBillingLocation[]>) => response.body)
-            )
-            .subscribe(
-                (res: IBillingLocation[]) => {
-                    if (!this.billingTariff.idBillingLocationId) {
-                        this.idbillinglocations = res;
-                    } else {
-                        this.billingLocationService
-                            .find(this.billingTariff.idBillingLocationId)
-                            .pipe(
-                                filter((subResMayBeOk: HttpResponse<IBillingLocation>) => subResMayBeOk.ok),
-                                map((subResponse: HttpResponse<IBillingLocation>) => subResponse.body)
-                            )
-                            .subscribe(
-                                (subRes: IBillingLocation) => (this.idbillinglocations = [subRes].concat(res)),
-                                (subRes: HttpErrorResponse) => this.onError(subRes.message)
-                            );
-                    }
-                },
-                (res: HttpErrorResponse) => this.onError(res.message)
-            );
     }
 
     previousState() {
@@ -87,13 +52,5 @@ export class BillingTariffUpdateComponent implements OnInit {
 
     protected onSaveError() {
         this.isSaving = false;
-    }
-
-    protected onError(errorMessage: string) {
-        this.jhiAlertService.error(errorMessage, null, null);
-    }
-
-    trackBillingLocationById(index: number, item: IBillingLocation) {
-        return item.id;
     }
 }

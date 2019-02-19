@@ -24,11 +24,9 @@
             <column name="identification" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-
-            <column name="vehicle_id" type="bigint">
-                <constraints nullable="true" />
+            <column name="id_media_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_media_id_media_id" />
             </column>
-
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
         

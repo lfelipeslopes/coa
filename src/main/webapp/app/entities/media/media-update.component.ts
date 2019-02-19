@@ -17,7 +17,7 @@ export class MediaUpdateComponent implements OnInit {
     media: IMedia;
     isSaving: boolean;
 
-    vehicles: IVehicle[];
+    idmedias: IVehicle[];
 
     constructor(
         protected jhiAlertService: JhiAlertService,
@@ -32,12 +32,30 @@ export class MediaUpdateComponent implements OnInit {
             this.media = media;
         });
         this.vehicleService
-            .query()
+            .query({ filter: 'media-is-null' })
             .pipe(
                 filter((mayBeOk: HttpResponse<IVehicle[]>) => mayBeOk.ok),
                 map((response: HttpResponse<IVehicle[]>) => response.body)
             )
-            .subscribe((res: IVehicle[]) => (this.vehicles = res), (res: HttpErrorResponse) => this.onError(res.message));
+            .subscribe(
+                (res: IVehicle[]) => {
+                    if (!this.media.idMediaId) {
+                        this.idmedias = res;
+                    } else {
+                        this.vehicleService
+                            .find(this.media.idMediaId)
+                            .pipe(
+                                filter((subResMayBeOk: HttpResponse<IVehicle>) => subResMayBeOk.ok),
+                                map((subResponse: HttpResponse<IVehicle>) => subResponse.body)
+                            )
+                            .subscribe(
+                                (subRes: IVehicle) => (this.idmedias = [subRes].concat(res)),
+                                (subRes: HttpErrorResponse) => this.onError(subRes.message)
+                            );
+                    }
+                },
+                (res: HttpErrorResponse) => this.onError(res.message)
+            );
     }
 
     previousState() {

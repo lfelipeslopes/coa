@@ -9,10 +9,10 @@
                 <dd>
                     <span>{{media.identification}}</span>
                 </dd>
-                <dt><span>Vehicle</span></dt>
+                <dt><span>Id Media</span></dt>
                 <dd>
-                    <div *ngIf="media.vehicleId">
-                        <a [routerLink]="['/vehicle', media.vehicleId, 'view']">{{media.vehicleId}}</a>
+                    <div *ngIf="media.idMediaId">
+                        <a [routerLink]="['/vehicle', media.idMediaId, 'view']">{{media.idMediaId}}</a>
                     </div>
                 </dd>
             </dl>

@@ -25,12 +25,6 @@
                 <dd>
                     <span>{{automaticOperation.transactionType}}</span>
                 </dd>
-                <dt><span>Account Operation</span></dt>
-                <dd>
-                    <div *ngIf="automaticOperation.accountOperationId">
-                        <a [routerLink]="['/account-operation', automaticOperation.accountOperationId, 'view']">{{automaticOperation.accountOperationId}}</a>
-                    </div>
-                </dd>
             </dl>
 
             <button type="submit"

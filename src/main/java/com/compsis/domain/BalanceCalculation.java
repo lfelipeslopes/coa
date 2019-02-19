@@ -1,7 +1,6 @@
 package com.compsis.domain;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -29,10 +28,6 @@ public class BalanceCalculation implements Serializable {
     @Column(name = "balance", precision = 10, scale = 2)
     private BigDecimal balance;
 
-    @ManyToOne
-    @JsonIgnoreProperties("idBalanceCalculations")
-    private AccountOperation accountOperation;
-
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -53,19 +48,6 @@ public class BalanceCalculation implements Serializable {
 
     public void setBalance(BigDecimal balance) {
         this.balance = balance;
-    }
-
-    public AccountOperation getAccountOperation() {
-        return accountOperation;
-    }
-
-    public BalanceCalculation accountOperation(AccountOperation accountOperation) {
-        this.accountOperation = accountOperation;
-        return this;
-    }
-
-    public void setAccountOperation(AccountOperation accountOperation) {
-        this.accountOperation = accountOperation;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

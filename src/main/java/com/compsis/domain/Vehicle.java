@@ -47,13 +47,10 @@ public class Vehicle implements Serializable {
 
     @OneToMany(mappedBy = "vehicle")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Media> idMedias = new HashSet<>();
-    @OneToMany(mappedBy = "vehicle")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<VehicleClass> idVehicleClasses = new HashSet<>();
     @OneToMany(mappedBy = "vehicle")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Passage> idPassages = new HashSet<>();
+    private Set<Passage> idVehicles = new HashSet<>();
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -128,31 +125,6 @@ public class Vehicle implements Serializable {
         this.vehicleStatus = vehicleStatus;
     }
 
-    public Set<Media> getIdMedias() {
-        return idMedias;
-    }
-
-    public Vehicle idMedias(Set<Media> media) {
-        this.idMedias = media;
-        return this;
-    }
-
-    public Vehicle addIdMedia(Media media) {
-        this.idMedias.add(media);
-        media.setVehicle(this);
-        return this;
-    }
-
-    public Vehicle removeIdMedia(Media media) {
-        this.idMedias.remove(media);
-        media.setVehicle(null);
-        return this;
-    }
-
-    public void setIdMedias(Set<Media> media) {
-        this.idMedias = media;
-    }
-
     public Set<VehicleClass> getIdVehicleClasses() {
         return idVehicleClasses;
     }
@@ -178,29 +150,29 @@ public class Vehicle implements Serializable {
         this.idVehicleClasses = vehicleClasses;
     }
 
-    public Set<Passage> getIdPassages() {
-        return idPassages;
+    public Set<Passage> getIdVehicles() {
+        return idVehicles;
     }
 
-    public Vehicle idPassages(Set<Passage> passages) {
-        this.idPassages = passages;
+    public Vehicle idVehicles(Set<Passage> passages) {
+        this.idVehicles = passages;
         return this;
     }
 
-    public Vehicle addIdPassage(Passage passage) {
-        this.idPassages.add(passage);
+    public Vehicle addIdVehicle(Passage passage) {
+        this.idVehicles.add(passage);
         passage.setVehicle(this);
         return this;
     }
 
-    public Vehicle removeIdPassage(Passage passage) {
-        this.idPassages.remove(passage);
+    public Vehicle removeIdVehicle(Passage passage) {
+        this.idVehicles.remove(passage);
         passage.setVehicle(null);
         return this;
     }
 
-    public void setIdPassages(Set<Passage> passages) {
-        this.idPassages = passages;
+    public void setIdVehicles(Set<Passage> passages) {
+        this.idVehicles = passages;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

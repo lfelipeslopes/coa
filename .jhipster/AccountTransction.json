@@ -15,14 +15,7 @@
             "fieldValues": "CREDIT,DEBIT"
         }
     ],
-    "relationships": [
-        {
-            "relationshipName": "accountOperation",
-            "otherEntityName": "accountOperation",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "id"
-        }
-    ],
+    "relationships": [],
     "changelogDate": "20190218192418",
     "javadoc": "Transações da conta",
     "entityTableName": "account_transction",

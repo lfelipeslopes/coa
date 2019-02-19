@@ -27,13 +27,6 @@
                         [(ngModel)]="billingTariff.value" />
                 </div>
 
-                <div class="form-group">
-                    <label class="form-control-label" for="field_idBillingLocation">Id Billing Location</label>
-                    <select class="form-control" id="field_idBillingLocation" name="idBillingLocation" [(ngModel)]="billingTariff.idBillingLocationId">
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="billingLocationOption.id" *ngFor="let billingLocationOption of idbillinglocations; trackBy: trackBillingLocationById">{{billingLocationOption.id}}</option>
-                    </select>
-                </div>
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">

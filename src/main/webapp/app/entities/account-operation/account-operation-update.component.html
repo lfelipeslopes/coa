@@ -17,13 +17,6 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label class="form-control-label" for="field_financialAccount">Financial Account</label>
-                    <select class="form-control" id="field_financialAccount" name="financialAccount" [(ngModel)]="accountOperation.financialAccountId" >
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="financialAccountOption.id" *ngFor="let financialAccountOption of financialaccounts; trackBy: trackFinancialAccountById">{{financialAccountOption.id}}</option>
-                    </select>
-                </div>
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">

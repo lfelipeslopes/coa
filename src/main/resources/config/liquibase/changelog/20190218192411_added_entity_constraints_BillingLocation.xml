@@ -8,6 +8,18 @@
     -->
     <changeSet id="20190218192411-2" author="jhipster">
         
+        <addForeignKeyConstraint baseColumnNames="id_billing_location_id"
+                                 baseTableName="billing_location"
+                                 constraintName="fk_billing_location_id_billing_location_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="billing_tariff"/>
+
+        <addForeignKeyConstraint baseColumnNames="id_billing_location_id"
+                                 baseTableName="billing_location"
+                                 constraintName="fk_billing_location_id_billing_location_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="passage"/>
+
         <addForeignKeyConstraint baseColumnNames="id_passage_id"
                                  baseTableName="billing_location"
                                  constraintName="fk_billing_location_id_passage_id"

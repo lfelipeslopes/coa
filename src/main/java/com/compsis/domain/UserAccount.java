@@ -26,10 +26,6 @@ public class UserAccount implements Serializable {
     private Long id;
 
     @ManyToOne
-    @JsonIgnoreProperties("idUserAccounts")
-    private FinancialAccount financialAccount;
-
-    @ManyToOne
     @JsonIgnoreProperties("userAccounts")
     private Person accountable;
 
@@ -44,19 +40,6 @@ public class UserAccount implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public FinancialAccount getFinancialAccount() {
-        return financialAccount;
-    }
-
-    public UserAccount financialAccount(FinancialAccount financialAccount) {
-        this.financialAccount = financialAccount;
-        return this;
-    }
-
-    public void setFinancialAccount(FinancialAccount financialAccount) {
-        this.financialAccount = financialAccount;
     }
 
     public Person getAccountable() {

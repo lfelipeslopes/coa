@@ -18,7 +18,6 @@
             <th><span>Amount</span></th>
             <th><span>Origin</span></th>
             <th><span>Transaction Type</span></th>
-            <th><span>Account Operation</span></th>
             <th></th>
             </tr>
             </thead>
@@ -28,11 +27,6 @@
                 <td>{{accountTransction.amount}}</td>
                 <td>{{accountTransction.origin}}</td>
                 <td>{{accountTransction.transactionType}}</td>
-                <td>
-                    <div *ngIf="accountTransction.accountOperationId">
-                        <a [routerLink]="['../account-operation', accountTransction.accountOperationId , 'view' ]" >{{accountTransction.accountOperationId}}</a>
-                    </div>
-                </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

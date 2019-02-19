@@ -1,7 +1,6 @@
 package com.compsis.domain;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -28,10 +27,6 @@ public class DataChange implements Serializable {
     @Column(name = "change_detail")
     private String changeDetail;
 
-    @ManyToOne
-    @JsonIgnoreProperties("idDataChanges")
-    private AccountOperation accountOperation;
-
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -52,19 +47,6 @@ public class DataChange implements Serializable {
 
     public void setChangeDetail(String changeDetail) {
         this.changeDetail = changeDetail;
-    }
-
-    public AccountOperation getAccountOperation() {
-        return accountOperation;
-    }
-
-    public DataChange accountOperation(AccountOperation accountOperation) {
-        this.accountOperation = accountOperation;
-        return this;
-    }
-
-    public void setAccountOperation(AccountOperation accountOperation) {
-        this.accountOperation = accountOperation;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

@@ -12,10 +12,6 @@ import org.mapstruct.*;
 public interface FinancialAccountMapper extends EntityMapper<FinancialAccountDTO, FinancialAccount> {
 
 
-    @Mapping(target = "idUserAccounts", ignore = true)
-    @Mapping(target = "idVehicleAccounts", ignore = true)
-    @Mapping(target = "idAccountOperations", ignore = true)
-    FinancialAccount toEntity(FinancialAccountDTO financialAccountDTO);
 
     default FinancialAccount fromId(Long id) {
         if (id == null) {

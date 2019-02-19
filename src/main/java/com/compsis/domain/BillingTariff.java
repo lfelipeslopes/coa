@@ -35,10 +35,6 @@ public class BillingTariff implements Serializable {
     @Column(name = "jhi_value", precision = 10, scale = 2)
     private BigDecimal value;
 
-    @OneToOne
-    @JoinColumn(unique = true)
-    private BillingLocation idBillingLocation;
-
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -85,19 +81,6 @@ public class BillingTariff implements Serializable {
 
     public void setValue(BigDecimal value) {
         this.value = value;
-    }
-
-    public BillingLocation getIdBillingLocation() {
-        return idBillingLocation;
-    }
-
-    public BillingTariff idBillingLocation(BillingLocation billingLocation) {
-        this.idBillingLocation = billingLocation;
-        return this;
-    }
-
-    public void setIdBillingLocation(BillingLocation billingLocation) {
-        this.idBillingLocation = billingLocation;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

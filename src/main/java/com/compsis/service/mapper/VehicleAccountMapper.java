@@ -8,14 +8,12 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity VehicleAccount and its DTO VehicleAccountDTO.
  */
-@Mapper(componentModel = "spring", uses = {FinancialAccountMapper.class, VehicleClassMapper.class})
+@Mapper(componentModel = "spring", uses = {VehicleClassMapper.class})
 public interface VehicleAccountMapper extends EntityMapper<VehicleAccountDTO, VehicleAccount> {
 
-    @Mapping(source = "financialAccount.id", target = "financialAccountId")
     @Mapping(source = "idVehicleClass.id", target = "idVehicleClassId")
     VehicleAccountDTO toDto(VehicleAccount vehicleAccount);
 
-    @Mapping(source = "financialAccountId", target = "financialAccount")
     @Mapping(source = "idVehicleClassId", target = "idVehicleClass")
     VehicleAccount toEntity(VehicleAccountDTO vehicleAccountDTO);
 

@@ -1,9 +1,9 @@
 export interface IMedia {
     id?: number;
     identification?: string;
-    vehicleId?: number;
+    idMediaId?: number;
 }
 
 export class Media implements IMedia {
-    constructor(public id?: number, public identification?: string, public vehicleId?: number) {}
+    constructor(public id?: number, public identification?: string, public idMediaId?: number) {}
 }

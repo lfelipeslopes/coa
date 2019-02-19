@@ -8,10 +8,12 @@
     ],
     "relationships": [
         {
-            "relationshipName": "vehicle",
+            "relationshipType": "one-to-one",
+            "relationshipName": "idMedia",
             "otherEntityName": "vehicle",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "id"
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "media"
         }
     ],
     "changelogDate": "20190218192408",

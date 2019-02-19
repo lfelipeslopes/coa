@@ -9,12 +9,6 @@
                 <dd>
                     <span>{{balanceCalculation.balance}}</span>
                 </dd>
-                <dt><span>Account Operation</span></dt>
-                <dd>
-                    <div *ngIf="balanceCalculation.accountOperationId">
-                        <a [routerLink]="['/account-operation', balanceCalculation.accountOperationId, 'view']">{{balanceCalculation.accountOperationId}}</a>
-                    </div>
-                </dd>
             </dl>
 
             <button type="submit"

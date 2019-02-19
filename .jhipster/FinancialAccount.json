@@ -10,26 +10,7 @@
             "fieldType": "BigDecimal"
         }
     ],
-    "relationships": [
-        {
-            "relationshipType": "one-to-many",
-            "relationshipName": "idUserAccount",
-            "otherEntityName": "userAccount",
-            "otherEntityRelationshipName": "financialAccount"
-        },
-        {
-            "relationshipType": "one-to-many",
-            "relationshipName": "idVehicleAccount",
-            "otherEntityName": "vehicleAccount",
-            "otherEntityRelationshipName": "financialAccount"
-        },
-        {
-            "relationshipType": "one-to-many",
-            "relationshipName": "idAccountOperation",
-            "otherEntityName": "accountOperation",
-            "otherEntityRelationshipName": "financialAccount"
-        }
-    ],
+    "relationships": [],
     "changelogDate": "20190218192403",
     "javadoc": "Conta",
     "entityTableName": "financial_account",

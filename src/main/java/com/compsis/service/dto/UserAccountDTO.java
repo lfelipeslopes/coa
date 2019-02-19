@@ -12,8 +12,6 @@ public class UserAccountDTO implements Serializable {
     private Long id;
 
 
-    private Long financialAccountId;
-
     private Long accountableId;
 
     private Long contactsId;
@@ -24,14 +22,6 @@ public class UserAccountDTO implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Long getFinancialAccountId() {
-        return financialAccountId;
-    }
-
-    public void setFinancialAccountId(Long financialAccountId) {
-        this.financialAccountId = financialAccountId;
     }
 
     public Long getAccountableId() {
@@ -75,7 +65,6 @@ public class UserAccountDTO implements Serializable {
     public String toString() {
         return "UserAccountDTO{" +
             "id=" + getId() +
-            ", financialAccount=" + getFinancialAccountId() +
             ", accountable=" + getAccountableId() +
             ", contacts=" + getContactsId() +
             "}";

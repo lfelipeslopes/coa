@@ -24,8 +24,6 @@ public class AutomaticOperationDTO implements Serializable {
     private TransactionType transactionType;
 
 
-    private Long accountOperationId;
-
     public Long getId() {
         return id;
     }
@@ -74,14 +72,6 @@ public class AutomaticOperationDTO implements Serializable {
         this.transactionType = transactionType;
     }
 
-    public Long getAccountOperationId() {
-        return accountOperationId;
-    }
-
-    public void setAccountOperationId(Long accountOperationId) {
-        this.accountOperationId = accountOperationId;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -112,7 +102,6 @@ public class AutomaticOperationDTO implements Serializable {
             ", automatictOperationStatus='" + getAutomatictOperationStatus() + "'" +
             ", automatictEvent='" + getAutomatictEvent() + "'" +
             ", transactionType='" + getTransactionType() + "'" +
-            ", accountOperation=" + getAccountOperationId() +
             "}";
     }
 }

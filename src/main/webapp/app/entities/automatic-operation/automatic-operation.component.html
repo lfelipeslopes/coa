@@ -20,7 +20,6 @@
             <th><span>Automatict Operation Status</span></th>
             <th><span>Automatict Event</span></th>
             <th><span>Transaction Type</span></th>
-            <th><span>Account Operation</span></th>
             <th></th>
             </tr>
             </thead>
@@ -32,11 +31,6 @@
                 <td>{{automaticOperation.automatictOperationStatus}}</td>
                 <td>{{automaticOperation.automatictEvent}}</td>
                 <td>{{automaticOperation.transactionType}}</td>
-                <td>
-                    <div *ngIf="automaticOperation.accountOperationId">
-                        <a [routerLink]="['../account-operation', automaticOperation.accountOperationId , 'view' ]" >{{automaticOperation.accountOperationId}}</a>
-                    </div>
-                </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

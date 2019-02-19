@@ -15,8 +15,6 @@ public class AccountOperationDTO implements Serializable {
     private ZonedDateTime occurrenceDate;
 
 
-    private Long financialAccountId;
-
     public Long getId() {
         return id;
     }
@@ -31,14 +29,6 @@ public class AccountOperationDTO implements Serializable {
 
     public void setOccurrenceDate(ZonedDateTime occurrenceDate) {
         this.occurrenceDate = occurrenceDate;
-    }
-
-    public Long getFinancialAccountId() {
-        return financialAccountId;
-    }
-
-    public void setFinancialAccountId(Long financialAccountId) {
-        this.financialAccountId = financialAccountId;
     }
 
     @Override
@@ -67,7 +57,6 @@ public class AccountOperationDTO implements Serializable {
         return "AccountOperationDTO{" +
             "id=" + getId() +
             ", occurrenceDate='" + getOccurrenceDate() + "'" +
-            ", financialAccount=" + getFinancialAccountId() +
             "}";
     }
 }

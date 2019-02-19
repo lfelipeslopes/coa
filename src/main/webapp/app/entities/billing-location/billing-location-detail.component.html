@@ -13,6 +13,18 @@
                 <dd>
                     <span>{{billingLocation.code}}</span>
                 </dd>
+                <dt><span>Id Billing Location</span></dt>
+                <dd>
+                    <div *ngIf="billingLocation.idBillingLocationId">
+                        <a [routerLink]="['/billing-tariff', billingLocation.idBillingLocationId, 'view']">{{billingLocation.idBillingLocationId}}</a>
+                    </div>
+                </dd>
+                <dt><span>Id Billing Location</span></dt>
+                <dd>
+                    <div *ngIf="billingLocation.idBillingLocationId">
+                        <a [routerLink]="['/passage', billingLocation.idBillingLocationId, 'view']">{{billingLocation.idBillingLocationId}}</a>
+                    </div>
+                </dd>
                 <dt><span>Id Passage</span></dt>
                 <dd>
                     <div *ngIf="billingLocation.idPassageId">

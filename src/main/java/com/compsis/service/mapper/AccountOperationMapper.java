@@ -8,19 +8,11 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity AccountOperation and its DTO AccountOperationDTO.
  */
-@Mapper(componentModel = "spring", uses = {FinancialAccountMapper.class})
+@Mapper(componentModel = "spring", uses = {})
 public interface AccountOperationMapper extends EntityMapper<AccountOperationDTO, AccountOperation> {
 
-    @Mapping(source = "financialAccount.id", target = "financialAccountId")
-    AccountOperationDTO toDto(AccountOperation accountOperation);
 
-    @Mapping(source = "financialAccountId", target = "financialAccount")
-    @Mapping(target = "idDataChanges", ignore = true)
-    @Mapping(target = "idInformativeOperations", ignore = true)
-    @Mapping(target = "idBalanceCalculations", ignore = true)
     @Mapping(target = "idOperators", ignore = true)
-    @Mapping(target = "idAccountTransctions", ignore = true)
-    @Mapping(target = "idAutomaticOperations", ignore = true)
     AccountOperation toEntity(AccountOperationDTO accountOperationDTO);
 
     default AccountOperation fromId(Long id) {

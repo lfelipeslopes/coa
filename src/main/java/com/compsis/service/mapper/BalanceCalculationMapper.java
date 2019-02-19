@@ -8,14 +8,10 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity BalanceCalculation and its DTO BalanceCalculationDTO.
  */
-@Mapper(componentModel = "spring", uses = {AccountOperationMapper.class})
+@Mapper(componentModel = "spring", uses = {})
 public interface BalanceCalculationMapper extends EntityMapper<BalanceCalculationDTO, BalanceCalculation> {
 
-    @Mapping(source = "accountOperation.id", target = "accountOperationId")
-    BalanceCalculationDTO toDto(BalanceCalculation balanceCalculation);
 
-    @Mapping(source = "accountOperationId", target = "accountOperation")
-    BalanceCalculation toEntity(BalanceCalculationDTO balanceCalculationDTO);
 
     default BalanceCalculation fromId(Long id) {
         if (id == null) {

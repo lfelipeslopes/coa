@@ -32,6 +32,14 @@ public class BillingLocation implements Serializable {
 
     @OneToOne
     @JoinColumn(unique = true)
+    private BillingTariff idBillingLocation;
+
+    @OneToOne
+    @JoinColumn(unique = true)
+    private Passage idBillingLocation;
+
+    @OneToOne
+    @JoinColumn(unique = true)
     private Passage idPassage;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
@@ -67,6 +75,32 @@ public class BillingLocation implements Serializable {
 
     public void setCode(String code) {
         this.code = code;
+    }
+
+    public BillingTariff getIdBillingLocation() {
+        return idBillingLocation;
+    }
+
+    public BillingLocation idBillingLocation(BillingTariff billingTariff) {
+        this.idBillingLocation = billingTariff;
+        return this;
+    }
+
+    public void setIdBillingLocation(BillingTariff billingTariff) {
+        this.idBillingLocation = billingTariff;
+    }
+
+    public Passage getIdBillingLocation() {
+        return idBillingLocation;
+    }
+
+    public BillingLocation idBillingLocation(Passage passage) {
+        this.idBillingLocation = passage;
+        return this;
+    }
+
+    public void setIdBillingLocation(Passage passage) {
+        this.idBillingLocation = passage;
     }
 
     public Passage getIdPassage() {

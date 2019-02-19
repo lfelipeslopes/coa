@@ -183,28 +183,24 @@ entity AutomaticOperation{
     transactionType TransactionType
 }
 
-/**
-*	RELACIONAMENTOS
-*/
-relationship OneToMany{
-	FinancialAccount{idUserAccount} to UserAccount,
-    FinancialAccount{idVehicleAccount} to VehicleAccount,
-    FinancialAccount{idAccountOperation} to AccountOperation
-}
-
 relationship OneToOne{
 	VehicleAccount{idVehicleClass} to VehicleClass
 }
 
 relationship OneToOne{
-	BillingTariff{idBillingLocation} to BillingLocation
+	BillingLocation{idBillingLocation} to BillingTariff
+    BillingLocation{idBillingLocation} to Passage
 }
 
 relationship OneToMany{
-	Vehicle{idMedia} to Media,
-    Vehicle{idVehicleClass} to VehicleClass,
-    Vehicle{idPassage} to Passage
+    Vehicle{idVehicleClass(id)} to VehicleClass,
+    Vehicle{idVehicle} to Passage
 }
+
+relationship OneToOne{
+	Media{idMedia} to Vehicle
+}
+
 
 relationship OneToOne{
 	VehicleClass{idBillingTariff} to BillingTariff
@@ -220,14 +216,8 @@ relationship ManyToOne{
 
 }
 
-
 relationship OneToMany{
-	AccountOperation{idDataChange} to DataChange,
-    AccountOperation{idInformativeOperation} to InformativeOperation,
-    AccountOperation{idBalanceCalculation} to BalanceCalculation
-    AccountOperation{idOperator} to Operator,
-    AccountOperation{idAccountTransction} to AccountTransction,
-    AccountOperation{idAutomaticOperation} to AutomaticOperation
+    AccountOperation{idOperator} to Operator
 }
 
 relationship ManyToOne{
