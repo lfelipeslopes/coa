@@ -17,6 +17,7 @@
             <th><span>ID</span></th>
             <th><span>Description</span></th>
             <th><span>Code</span></th>
+            <th><span>Id Billing Location</span></th>
             <th></th>
             </tr>
             </thead>
@@ -25,6 +26,11 @@
                 <td><a [routerLink]="['/billing-location', billingLocation.id, 'view' ]">{{billingLocation.id}}</a></td>
                 <td>{{billingLocation.description}}</td>
                 <td>{{billingLocation.code}}</td>
+                <td>
+                    <div *ngIf="billingLocation.idBillingLocationId">
+                        <a [routerLink]="['../billing-tariff', billingLocation.idBillingLocationId , 'view' ]" >{{billingLocation.idBillingLocationId}}</a>
+                    </div>
+                </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

@@ -12,15 +12,11 @@
     ],
     "relationships": [
         {
-            "relationshipType": "one-to-many",
+            "relationshipType": "one-to-one",
             "relationshipName": "idBillingLocation",
             "otherEntityName": "billingTariff",
-            "otherEntityRelationshipName": "billingLocation"
-        },
-        {
-            "relationshipType": "one-to-many",
-            "relationshipName": "idBillingLocation",
-            "otherEntityName": "passage",
+            "otherEntityField": "id",
+            "ownerSide": true,
             "otherEntityRelationshipName": "billingLocation"
         }
     ],

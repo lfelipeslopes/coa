@@ -10,8 +10,6 @@ import { IBillingTariff } from 'app/shared/model/billing-tariff.model';
 import { BillingTariffService } from './billing-tariff.service';
 import { IVehicleClass } from 'app/shared/model/vehicle-class.model';
 import { VehicleClassService } from 'app/entities/vehicle-class';
-import { IBillingLocation } from 'app/shared/model/billing-location.model';
-import { BillingLocationService } from 'app/entities/billing-location';
 
 @Component({
     selector: 'jhi-billing-tariff-update',
@@ -22,15 +20,12 @@ export class BillingTariffUpdateComponent implements OnInit {
     isSaving: boolean;
 
     idbillingtariffs: IVehicleClass[];
-
-    billinglocations: IBillingLocation[];
     startedIn: string;
 
     constructor(
         protected jhiAlertService: JhiAlertService,
         protected billingTariffService: BillingTariffService,
         protected vehicleClassService: VehicleClassService,
-        protected billingLocationService: BillingLocationService,
         protected activatedRoute: ActivatedRoute
     ) {}
 
@@ -65,13 +60,6 @@ export class BillingTariffUpdateComponent implements OnInit {
                 },
                 (res: HttpErrorResponse) => this.onError(res.message)
             );
-        this.billingLocationService
-            .query()
-            .pipe(
-                filter((mayBeOk: HttpResponse<IBillingLocation[]>) => mayBeOk.ok),
-                map((response: HttpResponse<IBillingLocation[]>) => response.body)
-            )
-            .subscribe((res: IBillingLocation[]) => (this.billinglocations = res), (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     previousState() {
@@ -106,10 +94,6 @@ export class BillingTariffUpdateComponent implements OnInit {
     }
 
     trackVehicleClassById(index: number, item: IVehicleClass) {
-        return item.id;
-    }
-
-    trackBillingLocationById(index: number, item: IBillingLocation) {
         return item.id;
     }
 }

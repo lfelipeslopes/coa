@@ -22,8 +22,6 @@ public class BillingTariffDTO implements Serializable {
 
     private Long idBillingTariffId;
 
-    private Long billingLocationId;
-
     public Long getId() {
         return id;
     }
@@ -64,14 +62,6 @@ public class BillingTariffDTO implements Serializable {
         this.idBillingTariffId = vehicleClassId;
     }
 
-    public Long getBillingLocationId() {
-        return billingLocationId;
-    }
-
-    public void setBillingLocationId(Long billingLocationId) {
-        this.billingLocationId = billingLocationId;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -101,7 +91,6 @@ public class BillingTariffDTO implements Serializable {
             ", startedIn='" + getStartedIn() + "'" +
             ", value=" + getValue() +
             ", idBillingTariff=" + getIdBillingTariffId() +
-            ", billingLocation=" + getBillingLocationId() +
             "}";
     }
 }

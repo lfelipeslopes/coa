@@ -38,12 +38,6 @@
             "otherEntityField": "id"
         },
         {
-            "relationshipName": "billingLocation",
-            "otherEntityName": "billingLocation",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "id"
-        },
-        {
             "relationshipType": "many-to-one",
             "relationshipName": "classifiedClass",
             "otherEntityName": "vehicleClass",

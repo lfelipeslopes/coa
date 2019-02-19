@@ -30,8 +30,6 @@ public class PassageDTO implements Serializable {
 
     private Long vehicleId;
 
-    private Long billingLocationId;
-
     private Long classifiedClassId;
 
     private Long detectClassId;
@@ -110,14 +108,6 @@ public class PassageDTO implements Serializable {
         this.vehicleId = vehicleId;
     }
 
-    public Long getBillingLocationId() {
-        return billingLocationId;
-    }
-
-    public void setBillingLocationId(Long billingLocationId) {
-        this.billingLocationId = billingLocationId;
-    }
-
     public Long getClassifiedClassId() {
         return classifiedClassId;
     }
@@ -175,7 +165,6 @@ public class PassageDTO implements Serializable {
             ", plate='" + getPlate() + "'" +
             ", processedAt='" + getProcessedAt() + "'" +
             ", vehicle=" + getVehicleId() +
-            ", billingLocation=" + getBillingLocationId() +
             ", classifiedClass=" + getClassifiedClassId() +
             ", detectClass=" + getDetectClassId() +
             ", chargedClass=" + getChargedClassId() +
