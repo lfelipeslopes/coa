@@ -16,6 +16,8 @@ public class BillingLocationDTO implements Serializable {
     private String code;
 
 
+    private Long idBillingLocationId;
+
     public Long getId() {
         return id;
     }
@@ -38,6 +40,14 @@ public class BillingLocationDTO implements Serializable {
 
     public void setCode(String code) {
         this.code = code;
+    }
+
+    public Long getIdBillingLocationId() {
+        return idBillingLocationId;
+    }
+
+    public void setIdBillingLocationId(Long billingTariffId) {
+        this.idBillingLocationId = billingTariffId;
     }
 
     @Override
@@ -67,6 +77,7 @@ public class BillingLocationDTO implements Serializable {
             "id=" + getId() +
             ", description='" + getDescription() + "'" +
             ", code='" + getCode() + "'" +
+            ", idBillingLocation=" + getIdBillingLocationId() +
             "}";
     }
 }

@@ -6,7 +6,6 @@ export interface IBillingTariff {
     startedIn?: Moment;
     value?: number;
     idBillingTariffId?: number;
-    billingLocationId?: number;
 }
 
 export class BillingTariff implements IBillingTariff {
@@ -15,7 +14,6 @@ export class BillingTariff implements IBillingTariff {
         public dayOfWeek?: number,
         public startedIn?: Moment,
         public value?: number,
-        public idBillingTariffId?: number,
-        public billingLocationId?: number
+        public idBillingTariffId?: number
     ) {}
 }

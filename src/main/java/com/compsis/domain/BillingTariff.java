@@ -1,7 +1,6 @@
 package com.compsis.domain;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -39,10 +38,6 @@ public class BillingTariff implements Serializable {
     @OneToOne
     @JoinColumn(unique = true)
     private VehicleClass idBillingTariff;
-
-    @ManyToOne
-    @JsonIgnoreProperties("idBillingLocations")
-    private BillingLocation billingLocation;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -103,19 +98,6 @@ public class BillingTariff implements Serializable {
 
     public void setIdBillingTariff(VehicleClass vehicleClass) {
         this.idBillingTariff = vehicleClass;
-    }
-
-    public BillingLocation getBillingLocation() {
-        return billingLocation;
-    }
-
-    public BillingTariff billingLocation(BillingLocation billingLocation) {
-        this.billingLocation = billingLocation;
-        return this;
-    }
-
-    public void setBillingLocation(BillingLocation billingLocation) {
-        this.billingLocation = billingLocation;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

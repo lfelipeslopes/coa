@@ -53,10 +53,6 @@ public class Passage implements Serializable {
     private Vehicle vehicle;
 
     @ManyToOne
-    @JsonIgnoreProperties("idBillingLocations")
-    private BillingLocation billingLocation;
-
-    @ManyToOne
     @JsonIgnoreProperties("passages")
     private VehicleClass classifiedClass;
 
@@ -179,19 +175,6 @@ public class Passage implements Serializable {
 
     public void setVehicle(Vehicle vehicle) {
         this.vehicle = vehicle;
-    }
-
-    public BillingLocation getBillingLocation() {
-        return billingLocation;
-    }
-
-    public Passage billingLocation(BillingLocation billingLocation) {
-        this.billingLocation = billingLocation;
-        return this;
-    }
-
-    public void setBillingLocation(BillingLocation billingLocation) {
-        this.billingLocation = billingLocation;
     }
 
     public VehicleClass getClassifiedClass() {
