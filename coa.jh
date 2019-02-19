@@ -188,7 +188,7 @@ entity AutomaticOperation{
 *	RELACIONAMENTOS
 */
 relationship OneToOne{
-	VehicleAccount{idVehicleClass} to Vehicle
+	VehicleAccount{idVehicle} to Vehicle
 }
 
 relationship OneToOne{
@@ -199,11 +199,6 @@ relationship OneToOne{
 	Vehicle{idVehicleClass(id)} to VehicleClass,
     Vehicle{idMedia(id)} to Media
 }
-
-relationship OneToOne{
-	Media{idMedia(id)} to Vehicle
-}
-
 
 relationship OneToOne{
 	 BillingTariff {idBillingTariff(id)} to VehicleClass
