@@ -14,11 +14,5 @@
                                  referencedColumnNames="id"
                                  referencedTableName="vehicle"/>
 
-        <addForeignKeyConstraint baseColumnNames="id_billing_tariff_id"
-                                 baseTableName="vehicle_class"
-                                 constraintName="fk_vehicle_class_id_billing_tariff_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="billing_tariff"/>
-
     </changeSet>
 </databaseChangeLog>

@@ -10,6 +10,8 @@ import { IPassage } from 'app/shared/model/passage.model';
 import { PassageService } from './passage.service';
 import { IVehicle } from 'app/shared/model/vehicle.model';
 import { VehicleService } from 'app/entities/vehicle';
+import { IBillingLocation } from 'app/shared/model/billing-location.model';
+import { BillingLocationService } from 'app/entities/billing-location';
 import { IVehicleClass } from 'app/shared/model/vehicle-class.model';
 import { VehicleClassService } from 'app/entities/vehicle-class';
 
@@ -23,6 +25,8 @@ export class PassageUpdateComponent implements OnInit {
 
     vehicles: IVehicle[];
 
+    billinglocations: IBillingLocation[];
+
     vehicleclasses: IVehicleClass[];
     occurrenceDate: string;
     processedAt: string;
@@ -31,6 +35,7 @@ export class PassageUpdateComponent implements OnInit {
         protected jhiAlertService: JhiAlertService,
         protected passageService: PassageService,
         protected vehicleService: VehicleService,
+        protected billingLocationService: BillingLocationService,
         protected vehicleClassService: VehicleClassService,
         protected activatedRoute: ActivatedRoute
     ) {}
@@ -49,6 +54,13 @@ export class PassageUpdateComponent implements OnInit {
                 map((response: HttpResponse<IVehicle[]>) => response.body)
             )
             .subscribe((res: IVehicle[]) => (this.vehicles = res), (res: HttpErrorResponse) => this.onError(res.message));
+        this.billingLocationService
+            .query()
+            .pipe(
+                filter((mayBeOk: HttpResponse<IBillingLocation[]>) => mayBeOk.ok),
+                map((response: HttpResponse<IBillingLocation[]>) => response.body)
+            )
+            .subscribe((res: IBillingLocation[]) => (this.billinglocations = res), (res: HttpErrorResponse) => this.onError(res.message));
         this.vehicleClassService
             .query()
             .pipe(
@@ -91,6 +103,10 @@ export class PassageUpdateComponent implements OnInit {
     }
 
     trackVehicleById(index: number, item: IVehicle) {
+        return item.id;
+    }
+
+    trackBillingLocationById(index: number, item: IBillingLocation) {
         return item.id;
     }
 

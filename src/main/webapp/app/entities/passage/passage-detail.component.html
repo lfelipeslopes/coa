@@ -39,6 +39,12 @@
                         <a [routerLink]="['/vehicle', passage.vehicleId, 'view']">{{passage.vehicleId}}</a>
                     </div>
                 </dd>
+                <dt><span>Billing Location</span></dt>
+                <dd>
+                    <div *ngIf="passage.billingLocationId">
+                        <a [routerLink]="['/billing-location', passage.billingLocationId, 'view']">{{passage.billingLocationId}}</a>
+                    </div>
+                </dd>
                 <dt><span>Classified Class</span></dt>
                 <dd>
                     <div *ngIf="passage.classifiedClassId">

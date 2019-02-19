@@ -1,12 +1,15 @@
 package com.compsis.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -30,18 +33,12 @@ public class BillingLocation implements Serializable {
     @Column(name = "code")
     private String code;
 
-    @OneToOne
-    @JoinColumn(unique = true)
-    private BillingTariff idBillingLocation;
-
-    @OneToOne
-    @JoinColumn(unique = true)
-    private Passage idBillingLocation;
-
-    @OneToOne
-    @JoinColumn(unique = true)
-    private Passage idPassage;
-
+    @OneToMany(mappedBy = "billingLocation")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<BillingTariff> idBillingLocations = new HashSet<>();
+    @OneToMany(mappedBy = "billingLocation")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Passage> idBillingLocations = new HashSet<>();
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -77,43 +74,54 @@ public class BillingLocation implements Serializable {
         this.code = code;
     }
 
-    public BillingTariff getIdBillingLocation() {
-        return idBillingLocation;
+    public Set<BillingTariff> getIdBillingLocations() {
+        return idBillingLocations;
     }
 
-    public BillingLocation idBillingLocation(BillingTariff billingTariff) {
-        this.idBillingLocation = billingTariff;
+    public BillingLocation idBillingLocations(Set<BillingTariff> billingTariffs) {
+        this.idBillingLocations = billingTariffs;
         return this;
     }
 
-    public void setIdBillingLocation(BillingTariff billingTariff) {
-        this.idBillingLocation = billingTariff;
-    }
-
-    public Passage getIdBillingLocation() {
-        return idBillingLocation;
-    }
-
-    public BillingLocation idBillingLocation(Passage passage) {
-        this.idBillingLocation = passage;
+    public BillingLocation addIdBillingLocation(BillingTariff billingTariff) {
+        this.idBillingLocations.add(billingTariff);
+        billingTariff.setBillingLocation(this);
         return this;
     }
 
-    public void setIdBillingLocation(Passage passage) {
-        this.idBillingLocation = passage;
-    }
-
-    public Passage getIdPassage() {
-        return idPassage;
-    }
-
-    public BillingLocation idPassage(Passage passage) {
-        this.idPassage = passage;
+    public BillingLocation removeIdBillingLocation(BillingTariff billingTariff) {
+        this.idBillingLocations.remove(billingTariff);
+        billingTariff.setBillingLocation(null);
         return this;
     }
 
-    public void setIdPassage(Passage passage) {
-        this.idPassage = passage;
+    public void setIdBillingLocations(Set<BillingTariff> billingTariffs) {
+        this.idBillingLocations = billingTariffs;
+    }
+
+    public Set<Passage> getIdBillingLocations() {
+        return idBillingLocations;
+    }
+
+    public BillingLocation idBillingLocations(Set<Passage> passages) {
+        this.idBillingLocations = passages;
+        return this;
+    }
+
+    public BillingLocation addIdBillingLocation(Passage passage) {
+        this.idBillingLocations.add(passage);
+        passage.setBillingLocation(this);
+        return this;
+    }
+
+    public BillingLocation removeIdBillingLocation(Passage passage) {
+        this.idBillingLocations.remove(passage);
+        passage.setBillingLocation(null);
+        return this;
+    }
+
+    public void setIdBillingLocations(Set<Passage> passages) {
+        this.idBillingLocations = passages;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

@@ -187,9 +187,9 @@ relationship OneToOne{
 	VehicleAccount{idVehicleClass} to VehicleClass
 }
 
-relationship OneToOne{
-	BillingLocation{idBillingLocation} to BillingTariff
-    BillingLocation{idBillingLocation} to Passage
+relationship OneToMany{
+	BillingLocation{idBillingLocation(id)} to BillingTariff
+    BillingLocation{idBillingLocation(id)} to Passage
 }
 
 relationship OneToMany{
@@ -198,17 +198,15 @@ relationship OneToMany{
 }
 
 relationship OneToOne{
-	Media{idMedia} to Vehicle
+	Media{idMedia(id)} to Vehicle
 }
 
 
 relationship OneToOne{
-	VehicleClass{idBillingTariff} to BillingTariff
+	 BillingTariff {idBillingTariff(id)} to VehicleClass
 } 
 
-relationship OneToOne{
-	BillingLocation{idPassage} to Passage
-}
+
 
 relationship ManyToOne{
     UserAccount{accountable(id)} to Person,

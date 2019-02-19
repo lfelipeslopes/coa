@@ -20,6 +20,10 @@ public class BillingTariffDTO implements Serializable {
     private BigDecimal value;
 
 
+    private Long idBillingTariffId;
+
+    private Long billingLocationId;
+
     public Long getId() {
         return id;
     }
@@ -52,6 +56,22 @@ public class BillingTariffDTO implements Serializable {
         this.value = value;
     }
 
+    public Long getIdBillingTariffId() {
+        return idBillingTariffId;
+    }
+
+    public void setIdBillingTariffId(Long vehicleClassId) {
+        this.idBillingTariffId = vehicleClassId;
+    }
+
+    public Long getBillingLocationId() {
+        return billingLocationId;
+    }
+
+    public void setBillingLocationId(Long billingLocationId) {
+        this.billingLocationId = billingLocationId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -80,6 +100,8 @@ public class BillingTariffDTO implements Serializable {
             ", dayOfWeek=" + getDayOfWeek() +
             ", startedIn='" + getStartedIn() + "'" +
             ", value=" + getValue() +
+            ", idBillingTariff=" + getIdBillingTariffId() +
+            ", billingLocation=" + getBillingLocationId() +
             "}";
     }
 }

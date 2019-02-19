@@ -14,7 +14,22 @@
             "fieldType": "BigDecimal"
         }
     ],
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "idBillingTariff",
+            "otherEntityName": "vehicleClass",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "billingTariff"
+        },
+        {
+            "relationshipName": "billingLocation",
+            "otherEntityName": "billingLocation",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
     "changelogDate": "20190218192410",
     "javadoc": "Tarifa",
     "entityTableName": "billing_tariff",

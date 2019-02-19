@@ -10,6 +10,7 @@ export interface IPassage {
     plate?: string;
     processedAt?: Moment;
     vehicleId?: number;
+    billingLocationId?: number;
     classifiedClassId?: number;
     detectClassId?: number;
     chargedClassId?: number;
@@ -26,6 +27,7 @@ export class Passage implements IPassage {
         public plate?: string,
         public processedAt?: Moment,
         public vehicleId?: number,
+        public billingLocationId?: number,
         public classifiedClassId?: number,
         public detectClassId?: number,
         public chargedClassId?: number

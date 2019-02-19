@@ -23,6 +23,7 @@
             <th><span>Plate</span></th>
             <th><span>Processed At</span></th>
             <th><span>Vehicle</span></th>
+            <th><span>Billing Location</span></th>
             <th><span>Classified Class</span></th>
             <th><span>Detect Class</span></th>
             <th><span>Charged Class</span></th>
@@ -42,6 +43,11 @@
                 <td>
                     <div *ngIf="passage.vehicleId">
                         <a [routerLink]="['../vehicle', passage.vehicleId , 'view' ]" >{{passage.vehicleId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="passage.billingLocationId">
+                        <a [routerLink]="['../billing-location', passage.billingLocationId , 'view' ]" >{{passage.billingLocationId}}</a>
                     </div>
                 </td>
                 <td>

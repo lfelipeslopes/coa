@@ -17,6 +17,18 @@
                 <dd>
                     <span>{{billingTariff.value}}</span>
                 </dd>
+                <dt><span>Id Billing Tariff</span></dt>
+                <dd>
+                    <div *ngIf="billingTariff.idBillingTariffId">
+                        <a [routerLink]="['/vehicle-class', billingTariff.idBillingTariffId, 'view']">{{billingTariff.idBillingTariffId}}</a>
+                    </div>
+                </dd>
+                <dt><span>Billing Location</span></dt>
+                <dd>
+                    <div *ngIf="billingTariff.billingLocationId">
+                        <a [routerLink]="['/billing-location', billingTariff.billingLocationId, 'view']">{{billingTariff.billingLocationId}}</a>
+                    </div>
+                </dd>
             </dl>
 
             <button type="submit"

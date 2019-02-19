@@ -1,10 +1,12 @@
+import { IBillingTariff } from 'app/shared/model/billing-tariff.model';
+import { IPassage } from 'app/shared/model/passage.model';
+
 export interface IBillingLocation {
     id?: number;
     description?: string;
     code?: string;
-    idBillingLocationId?: number;
-    idBillingLocationId?: number;
-    idPassageId?: number;
+    idBillingLocations?: IBillingTariff[];
+    idBillingLocations?: IPassage[];
 }
 
 export class BillingLocation implements IBillingLocation {
@@ -12,8 +14,7 @@ export class BillingLocation implements IBillingLocation {
         public id?: number,
         public description?: string,
         public code?: string,
-        public idBillingLocationId?: number,
-        public idBillingLocationId?: number,
-        public idPassageId?: number
+        public idBillingLocations?: IBillingTariff[],
+        public idBillingLocations?: IPassage[]
     ) {}
 }

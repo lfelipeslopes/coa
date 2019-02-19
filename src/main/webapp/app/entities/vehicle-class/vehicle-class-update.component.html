@@ -32,13 +32,6 @@
                         <option [ngValue]="vehicleOption.id" *ngFor="let vehicleOption of vehicles; trackBy: trackVehicleById">{{vehicleOption.id}}</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label class="form-control-label" for="field_idBillingTariff">Id Billing Tariff</label>
-                    <select class="form-control" id="field_idBillingTariff" name="idBillingTariff" [(ngModel)]="vehicleClass.idBillingTariffId">
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="billingTariffOption.id" *ngFor="let billingTariffOption of idbillingtariffs; trackBy: trackBillingTariffById">{{billingTariffOption.id}}</option>
-                    </select>
-                </div>
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">

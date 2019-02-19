@@ -53,6 +53,10 @@
                 <constraints nullable="true" />
             </column>
 
+            <column name="billing_location_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
             <column name="classified_class_id" type="bigint">
                 <constraints nullable="true" />
             </column>
