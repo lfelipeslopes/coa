@@ -14,6 +14,7 @@ export interface IVehicle {
     model?: string;
     plate?: string;
     vehicleStatus?: VehicleStatus;
+    idVehicleClassId?: number;
     idVehicles?: IPassage[];
 }
 
@@ -25,6 +26,7 @@ export class Vehicle implements IVehicle {
         public model?: string,
         public plate?: string,
         public vehicleStatus?: VehicleStatus,
+        public idVehicleClassId?: number,
         public idVehicles?: IPassage[]
     ) {}
 }

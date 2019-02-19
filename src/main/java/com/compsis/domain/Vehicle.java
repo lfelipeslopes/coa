@@ -45,6 +45,10 @@ public class Vehicle implements Serializable {
     @Column(name = "vehicle_status")
     private VehicleStatus vehicleStatus;
 
+    @OneToOne
+    @JoinColumn(unique = true)
+    private VehicleClass idVehicleClass;
+
     @OneToMany(mappedBy = "vehicle")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Passage> idVehicles = new HashSet<>();
@@ -120,6 +124,19 @@ public class Vehicle implements Serializable {
 
     public void setVehicleStatus(VehicleStatus vehicleStatus) {
         this.vehicleStatus = vehicleStatus;
+    }
+
+    public VehicleClass getIdVehicleClass() {
+        return idVehicleClass;
+    }
+
+    public Vehicle idVehicleClass(VehicleClass vehicleClass) {
+        this.idVehicleClass = vehicleClass;
+        return this;
+    }
+
+    public void setIdVehicleClass(VehicleClass vehicleClass) {
+        this.idVehicleClass = vehicleClass;
     }
 
     public Set<Passage> getIdVehicles() {

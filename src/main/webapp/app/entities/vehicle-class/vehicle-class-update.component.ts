@@ -3,11 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
-import { JhiAlertService } from 'ng-jhipster';
 import { IVehicleClass } from 'app/shared/model/vehicle-class.model';
 import { VehicleClassService } from './vehicle-class.service';
-import { IVehicle } from 'app/shared/model/vehicle.model';
-import { VehicleService } from 'app/entities/vehicle';
 
 @Component({
     selector: 'jhi-vehicle-class-update',
@@ -17,45 +14,13 @@ export class VehicleClassUpdateComponent implements OnInit {
     vehicleClass: IVehicleClass;
     isSaving: boolean;
 
-    idvehicleclasses: IVehicle[];
-
-    constructor(
-        protected jhiAlertService: JhiAlertService,
-        protected vehicleClassService: VehicleClassService,
-        protected vehicleService: VehicleService,
-        protected activatedRoute: ActivatedRoute
-    ) {}
+    constructor(protected vehicleClassService: VehicleClassService, protected activatedRoute: ActivatedRoute) {}
 
     ngOnInit() {
         this.isSaving = false;
         this.activatedRoute.data.subscribe(({ vehicleClass }) => {
             this.vehicleClass = vehicleClass;
         });
-        this.vehicleService
-            .query({ filter: 'vehicleclass-is-null' })
-            .pipe(
-                filter((mayBeOk: HttpResponse<IVehicle[]>) => mayBeOk.ok),
-                map((response: HttpResponse<IVehicle[]>) => response.body)
-            )
-            .subscribe(
-                (res: IVehicle[]) => {
-                    if (!this.vehicleClass.idVehicleClassId) {
-                        this.idvehicleclasses = res;
-                    } else {
-                        this.vehicleService
-                            .find(this.vehicleClass.idVehicleClassId)
-                            .pipe(
-                                filter((subResMayBeOk: HttpResponse<IVehicle>) => subResMayBeOk.ok),
-                                map((subResponse: HttpResponse<IVehicle>) => subResponse.body)
-                            )
-                            .subscribe(
-                                (subRes: IVehicle) => (this.idvehicleclasses = [subRes].concat(res)),
-                                (subRes: HttpErrorResponse) => this.onError(subRes.message)
-                            );
-                    }
-                },
-                (res: HttpErrorResponse) => this.onError(res.message)
-            );
     }
 
     previousState() {
@@ -82,13 +47,5 @@ export class VehicleClassUpdateComponent implements OnInit {
 
     protected onSaveError() {
         this.isSaving = false;
-    }
-
-    protected onError(errorMessage: string) {
-        this.jhiAlertService.error(errorMessage, null, null);
-    }
-
-    trackVehicleById(index: number, item: IVehicle) {
-        return item.id;
     }
 }
