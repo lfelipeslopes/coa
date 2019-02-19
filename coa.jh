@@ -1,10 +1,16 @@
  /**
  * Conta
  */
- entity FinancialAccount{
+ 
+entity FinancialAccount{
 	id Long,
     alias String,
     balance BigDecimal
+    financialAccountStatus FinancialAccountStatus
+}
+
+enum FinancialAccountStatus{
+	ENABLED, DISABLED
 }
 
 /**
