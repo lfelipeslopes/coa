@@ -50,13 +50,6 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" for="field_vehicle">Vehicle</label>
-                    <select class="form-control" id="field_vehicle" name="vehicle" [(ngModel)]="passage.vehicleId" >
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="vehicleOption.id" *ngFor="let vehicleOption of vehicles; trackBy: trackVehicleById">{{vehicleOption.id}}</option>
-                    </select>
-                </div>
-                <div class="form-group">
                     <label class="form-control-label" for="field_classifiedClass">Classified Class</label>
                     <select class="form-control" id="field_classifiedClass" name="classifiedClass" [(ngModel)]="passage.classifiedClassId" >
                         <option [ngValue]="null"></option>
@@ -75,6 +68,13 @@
                     <select class="form-control" id="field_chargedClass" name="chargedClass" [(ngModel)]="passage.chargedClassId" >
                         <option [ngValue]="null"></option>
                         <option [ngValue]="vehicleClassOption.id" *ngFor="let vehicleClassOption of vehicleclasses; trackBy: trackVehicleClassById">{{vehicleClassOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_idVehicle">Id Vehicle</label>
+                    <select class="form-control" id="field_idVehicle" name="idVehicle" [(ngModel)]="passage.idVehicleId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="vehicleOption.id" *ngFor="let vehicleOption of vehicles; trackBy: trackVehicleById">{{vehicleOption.id}}</option>
                     </select>
                 </div>
             </div>

@@ -33,12 +33,6 @@
                 <dd>
                     <span>{{passage.processedAt}}</span>
                 </dd>
-                <dt><span>Vehicle</span></dt>
-                <dd>
-                    <div *ngIf="passage.vehicleId">
-                        <a [routerLink]="['/vehicle', passage.vehicleId, 'view']">{{passage.vehicleId}}</a>
-                    </div>
-                </dd>
                 <dt><span>Classified Class</span></dt>
                 <dd>
                     <div *ngIf="passage.classifiedClassId">
@@ -55,6 +49,12 @@
                 <dd>
                     <div *ngIf="passage.chargedClassId">
                         <a [routerLink]="['/vehicle-class', passage.chargedClassId, 'view']">{{passage.chargedClassId}}</a>
+                    </div>
+                </dd>
+                <dt><span>Id Vehicle</span></dt>
+                <dd>
+                    <div *ngIf="passage.idVehicleId">
+                        <a [routerLink]="['/vehicle', passage.idVehicleId, 'view']">{{passage.idVehicleId}}</a>
                     </div>
                 </dd>
             </dl>

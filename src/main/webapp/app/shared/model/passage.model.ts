@@ -9,10 +9,10 @@ export interface IPassage {
     passageIdentification?: number;
     plate?: string;
     processedAt?: Moment;
-    vehicleId?: number;
     classifiedClassId?: number;
     detectClassId?: number;
     chargedClassId?: number;
+    idVehicleId?: number;
 }
 
 export class Passage implements IPassage {
@@ -25,10 +25,10 @@ export class Passage implements IPassage {
         public passageIdentification?: number,
         public plate?: string,
         public processedAt?: Moment,
-        public vehicleId?: number,
         public classifiedClassId?: number,
         public detectClassId?: number,
-        public chargedClassId?: number
+        public chargedClassId?: number,
+        public idVehicleId?: number
     ) {
         this.automaticPassage = this.automaticPassage || false;
     }

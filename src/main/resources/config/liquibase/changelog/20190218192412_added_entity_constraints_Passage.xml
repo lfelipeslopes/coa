@@ -8,12 +8,6 @@
     -->
     <changeSet id="20190218192412-2" author="jhipster">
         
-        <addForeignKeyConstraint baseColumnNames="vehicle_id"
-                                 baseTableName="passage"
-                                 constraintName="fk_passage_vehicle_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="vehicle"/>
-
         <addForeignKeyConstraint baseColumnNames="classified_class_id"
                                  baseTableName="passage"
                                  constraintName="fk_passage_classified_class_id"
@@ -31,6 +25,12 @@
                                  constraintName="fk_passage_charged_class_id"
                                  referencedColumnNames="id"
                                  referencedTableName="vehicle_class"/>
+
+        <addForeignKeyConstraint baseColumnNames="id_vehicle_id"
+                                 baseTableName="passage"
+                                 constraintName="fk_passage_id_vehicle_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="vehicle"/>
 
     </changeSet>
 </databaseChangeLog>

@@ -49,10 +49,6 @@ public class Passage implements Serializable {
     private ZonedDateTime processedAt;
 
     @ManyToOne
-    @JsonIgnoreProperties("idVehicles")
-    private Vehicle vehicle;
-
-    @ManyToOne
     @JsonIgnoreProperties("passages")
     private VehicleClass classifiedClass;
 
@@ -63,6 +59,10 @@ public class Passage implements Serializable {
     @ManyToOne
     @JsonIgnoreProperties("passages")
     private VehicleClass chargedClass;
+
+    @ManyToOne
+    @JsonIgnoreProperties("passages")
+    private Vehicle idVehicle;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -164,19 +164,6 @@ public class Passage implements Serializable {
         this.processedAt = processedAt;
     }
 
-    public Vehicle getVehicle() {
-        return vehicle;
-    }
-
-    public Passage vehicle(Vehicle vehicle) {
-        this.vehicle = vehicle;
-        return this;
-    }
-
-    public void setVehicle(Vehicle vehicle) {
-        this.vehicle = vehicle;
-    }
-
     public VehicleClass getClassifiedClass() {
         return classifiedClass;
     }
@@ -214,6 +201,19 @@ public class Passage implements Serializable {
 
     public void setChargedClass(VehicleClass vehicleClass) {
         this.chargedClass = vehicleClass;
+    }
+
+    public Vehicle getIdVehicle() {
+        return idVehicle;
+    }
+
+    public Passage idVehicle(Vehicle vehicle) {
+        this.idVehicle = vehicle;
+        return this;
+    }
+
+    public void setIdVehicle(Vehicle vehicle) {
+        this.idVehicle = vehicle;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

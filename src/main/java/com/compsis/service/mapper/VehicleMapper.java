@@ -15,7 +15,6 @@ public interface VehicleMapper extends EntityMapper<VehicleDTO, Vehicle> {
     VehicleDTO toDto(Vehicle vehicle);
 
     @Mapping(source = "idVehicleClassId", target = "idVehicleClass")
-    @Mapping(target = "idVehicles", ignore = true)
     Vehicle toEntity(VehicleDTO vehicleDTO);
 
     default Vehicle fromId(Long id) {

@@ -1,15 +1,12 @@
 package com.compsis.domain;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
 
 import com.compsis.domain.enumeration.VehicleStatus;
@@ -49,9 +46,6 @@ public class Vehicle implements Serializable {
     @JoinColumn(unique = true)
     private VehicleClass idVehicleClass;
 
-    @OneToMany(mappedBy = "vehicle")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Passage> idVehicles = new HashSet<>();
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -137,31 +131,6 @@ public class Vehicle implements Serializable {
 
     public void setIdVehicleClass(VehicleClass vehicleClass) {
         this.idVehicleClass = vehicleClass;
-    }
-
-    public Set<Passage> getIdVehicles() {
-        return idVehicles;
-    }
-
-    public Vehicle idVehicles(Set<Passage> passages) {
-        this.idVehicles = passages;
-        return this;
-    }
-
-    public Vehicle addIdVehicle(Passage passage) {
-        this.idVehicles.add(passage);
-        passage.setVehicle(this);
-        return this;
-    }
-
-    public Vehicle removeIdVehicle(Passage passage) {
-        this.idVehicles.remove(passage);
-        passage.setVehicle(null);
-        return this;
-    }
-
-    public void setIdVehicles(Set<Passage> passages) {
-        this.idVehicles = passages;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
