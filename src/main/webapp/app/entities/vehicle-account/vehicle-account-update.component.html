@@ -14,7 +14,7 @@
                     <label class="form-control-label" for="field_idVehicleClass">Id Vehicle Class</label>
                     <select class="form-control" id="field_idVehicleClass" name="idVehicleClass" [(ngModel)]="vehicleAccount.idVehicleClassId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="vehicleClassOption.id" *ngFor="let vehicleClassOption of idvehicleclasses; trackBy: trackVehicleClassById">{{vehicleClassOption.id}}</option>
+                        <option [ngValue]="vehicleOption.id" *ngFor="let vehicleOption of idvehicleclasses; trackBy: trackVehicleById">{{vehicleOption.id}}</option>
                     </select>
                 </div>
             </div>

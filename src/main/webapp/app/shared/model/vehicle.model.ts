@@ -1,4 +1,3 @@
-import { IVehicleClass } from 'app/shared/model/vehicle-class.model';
 import { IPassage } from 'app/shared/model/passage.model';
 
 export const enum VehicleStatus {
@@ -15,7 +14,6 @@ export interface IVehicle {
     model?: string;
     plate?: string;
     vehicleStatus?: VehicleStatus;
-    idVehicleClasses?: IVehicleClass[];
     idVehicles?: IPassage[];
 }
 
@@ -27,7 +25,6 @@ export class Vehicle implements IVehicle {
         public model?: string,
         public plate?: string,
         public vehicleStatus?: VehicleStatus,
-        public idVehicleClasses?: IVehicleClass[],
         public idVehicles?: IPassage[]
     ) {}
 }

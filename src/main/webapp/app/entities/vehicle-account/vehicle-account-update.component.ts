@@ -6,8 +6,8 @@ import { filter, map } from 'rxjs/operators';
 import { JhiAlertService } from 'ng-jhipster';
 import { IVehicleAccount } from 'app/shared/model/vehicle-account.model';
 import { VehicleAccountService } from './vehicle-account.service';
-import { IVehicleClass } from 'app/shared/model/vehicle-class.model';
-import { VehicleClassService } from 'app/entities/vehicle-class';
+import { IVehicle } from 'app/shared/model/vehicle.model';
+import { VehicleService } from 'app/entities/vehicle';
 
 @Component({
     selector: 'jhi-vehicle-account-update',
@@ -17,12 +17,12 @@ export class VehicleAccountUpdateComponent implements OnInit {
     vehicleAccount: IVehicleAccount;
     isSaving: boolean;
 
-    idvehicleclasses: IVehicleClass[];
+    idvehicleclasses: IVehicle[];
 
     constructor(
         protected jhiAlertService: JhiAlertService,
         protected vehicleAccountService: VehicleAccountService,
-        protected vehicleClassService: VehicleClassService,
+        protected vehicleService: VehicleService,
         protected activatedRoute: ActivatedRoute
     ) {}
 
@@ -31,25 +31,25 @@ export class VehicleAccountUpdateComponent implements OnInit {
         this.activatedRoute.data.subscribe(({ vehicleAccount }) => {
             this.vehicleAccount = vehicleAccount;
         });
-        this.vehicleClassService
+        this.vehicleService
             .query({ filter: 'vehicleaccount-is-null' })
             .pipe(
-                filter((mayBeOk: HttpResponse<IVehicleClass[]>) => mayBeOk.ok),
-                map((response: HttpResponse<IVehicleClass[]>) => response.body)
+                filter((mayBeOk: HttpResponse<IVehicle[]>) => mayBeOk.ok),
+                map((response: HttpResponse<IVehicle[]>) => response.body)
             )
             .subscribe(
-                (res: IVehicleClass[]) => {
+                (res: IVehicle[]) => {
                     if (!this.vehicleAccount.idVehicleClassId) {
                         this.idvehicleclasses = res;
                     } else {
-                        this.vehicleClassService
+                        this.vehicleService
                             .find(this.vehicleAccount.idVehicleClassId)
                             .pipe(
-                                filter((subResMayBeOk: HttpResponse<IVehicleClass>) => subResMayBeOk.ok),
-                                map((subResponse: HttpResponse<IVehicleClass>) => subResponse.body)
+                                filter((subResMayBeOk: HttpResponse<IVehicle>) => subResMayBeOk.ok),
+                                map((subResponse: HttpResponse<IVehicle>) => subResponse.body)
                             )
                             .subscribe(
-                                (subRes: IVehicleClass) => (this.idvehicleclasses = [subRes].concat(res)),
+                                (subRes: IVehicle) => (this.idvehicleclasses = [subRes].concat(res)),
                                 (subRes: HttpErrorResponse) => this.onError(subRes.message)
                             );
                     }
@@ -88,7 +88,7 @@ export class VehicleAccountUpdateComponent implements OnInit {
         this.jhiAlertService.error(errorMessage, null, null);
     }
 
-    trackVehicleClassById(index: number, item: IVehicleClass) {
+    trackVehicleById(index: number, item: IVehicle) {
         return item.id;
     }
 }

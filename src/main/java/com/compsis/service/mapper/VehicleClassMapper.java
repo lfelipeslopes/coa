@@ -11,10 +11,10 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {VehicleMapper.class})
 public interface VehicleClassMapper extends EntityMapper<VehicleClassDTO, VehicleClass> {
 
-    @Mapping(source = "vehicle.id", target = "vehicleId")
+    @Mapping(source = "idVehicleClass.id", target = "idVehicleClassId")
     VehicleClassDTO toDto(VehicleClass vehicleClass);
 
-    @Mapping(source = "vehicleId", target = "vehicle")
+    @Mapping(source = "idVehicleClassId", target = "idVehicleClass")
     VehicleClass toEntity(VehicleClassDTO vehicleClassDTO);
 
     default VehicleClass fromId(Long id) {

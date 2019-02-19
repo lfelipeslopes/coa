@@ -17,10 +17,10 @@
                 <dd>
                     <span>{{vehicleClass.doubleWheel}}</span>
                 </dd>
-                <dt><span>Vehicle</span></dt>
+                <dt><span>Id Vehicle Class</span></dt>
                 <dd>
-                    <div *ngIf="vehicleClass.vehicleId">
-                        <a [routerLink]="['/vehicle', vehicleClass.vehicleId, 'view']">{{vehicleClass.vehicleId}}</a>
+                    <div *ngIf="vehicleClass.idVehicleClassId">
+                        <a [routerLink]="['/vehicle', vehicleClass.idVehicleClassId, 'view']">{{vehicleClass.idVehicleClassId}}</a>
                     </div>
                 </dd>
             </dl>

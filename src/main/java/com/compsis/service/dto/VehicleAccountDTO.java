@@ -26,8 +26,8 @@ public class VehicleAccountDTO implements Serializable {
         return idVehicleClassId;
     }
 
-    public void setIdVehicleClassId(Long vehicleClassId) {
-        this.idVehicleClassId = vehicleClassId;
+    public void setIdVehicleClassId(Long vehicleId) {
+        this.idVehicleClassId = vehicleId;
     }
 
     @Override

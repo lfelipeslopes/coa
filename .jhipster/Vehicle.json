@@ -26,12 +26,6 @@
     "relationships": [
         {
             "relationshipType": "one-to-many",
-            "relationshipName": "idVehicleClass",
-            "otherEntityName": "vehicleClass",
-            "otherEntityRelationshipName": "vehicle"
-        },
-        {
-            "relationshipType": "one-to-many",
             "relationshipName": "idVehicle",
             "otherEntityName": "passage",
             "otherEntityRelationshipName": "vehicle"

@@ -12,7 +12,7 @@
                                  baseTableName="vehicle_account"
                                  constraintName="fk_vehicle_account_id_vehicle_class_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="vehicle_class"/>
+                                 referencedTableName="vehicle"/>
 
     </changeSet>
 </databaseChangeLog>

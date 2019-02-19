@@ -24,7 +24,7 @@
                 <td><a [routerLink]="['/vehicle-account', vehicleAccount.id, 'view' ]">{{vehicleAccount.id}}</a></td>
                 <td>
                     <div *ngIf="vehicleAccount.idVehicleClassId">
-                        <a [routerLink]="['../vehicle-class', vehicleAccount.idVehicleClassId , 'view' ]" >{{vehicleAccount.idVehicleClassId}}</a>
+                        <a [routerLink]="['../vehicle', vehicleAccount.idVehicleClassId , 'view' ]" >{{vehicleAccount.idVehicleClassId}}</a>
                     </div>
                 </td>
                 <td class="text-right">
