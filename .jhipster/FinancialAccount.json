@@ -8,6 +8,11 @@
         {
             "fieldName": "balance",
             "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "financialAccountStatus",
+            "fieldType": "FinancialAccountStatus",
+            "fieldValues": "ENABLED,DISABLED"
         }
     ],
     "relationships": [],

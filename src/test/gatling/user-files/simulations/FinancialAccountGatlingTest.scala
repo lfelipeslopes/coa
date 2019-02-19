@@ -74,6 +74,7 @@ class FinancialAccountGatlingTest extends Simulation {
                 "id":null
                 , "alias":"SAMPLE_TEXT"
                 , "balance":"0"
+                , "financialAccountStatus":"ENABLED"
                 }""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_financialAccount_url"))).exitHereIfFailed
