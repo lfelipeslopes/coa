@@ -1,7 +1,6 @@
 package com.compsis.domain;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -34,9 +33,9 @@ public class VehicleClass implements Serializable {
     @Column(name = "double_wheel")
     private Integer doubleWheel;
 
-    @ManyToOne
-    @JsonIgnoreProperties("idVehicleClasses")
-    private Vehicle vehicle;
+    @OneToOne
+    @JoinColumn(unique = true)
+    private Vehicle idVehicleClass;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -86,17 +85,17 @@ public class VehicleClass implements Serializable {
         this.doubleWheel = doubleWheel;
     }
 
-    public Vehicle getVehicle() {
-        return vehicle;
+    public Vehicle getIdVehicleClass() {
+        return idVehicleClass;
     }
 
-    public VehicleClass vehicle(Vehicle vehicle) {
-        this.vehicle = vehicle;
+    public VehicleClass idVehicleClass(Vehicle vehicle) {
+        this.idVehicleClass = vehicle;
         return this;
     }
 
-    public void setVehicle(Vehicle vehicle) {
-        this.vehicle = vehicle;
+    public void setIdVehicleClass(Vehicle vehicle) {
+        this.idVehicleClass = vehicle;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

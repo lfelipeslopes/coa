@@ -183,8 +183,12 @@ entity AutomaticOperation{
     transactionType TransactionType
 }
 
+
+/**
+*	RELACIONAMENTOS
+*/
 relationship OneToOne{
-	VehicleAccount{idVehicleClass} to VehicleClass
+	VehicleAccount{idVehicleClass} to Vehicle
 }
 
 relationship OneToOne{
@@ -192,8 +196,11 @@ relationship OneToOne{
 }
 
 relationship OneToMany{
-    Vehicle{idVehicleClass(id)} to VehicleClass,
-    Vehicle{idVehicle} to Passage
+    Vehicle{idVehicle(id)} to Passage
+}
+
+relationship OneToOne{
+	VehicleClass{idVehicleClass(id)} to Vehicle
 }
 
 relationship OneToOne{
@@ -204,8 +211,6 @@ relationship OneToOne{
 relationship OneToOne{
 	 BillingTariff {idBillingTariff(id)} to VehicleClass
 } 
-
-
 
 relationship ManyToOne{
     UserAccount{accountable(id)} to Person,

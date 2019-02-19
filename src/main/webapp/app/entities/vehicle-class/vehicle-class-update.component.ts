@@ -17,7 +17,7 @@ export class VehicleClassUpdateComponent implements OnInit {
     vehicleClass: IVehicleClass;
     isSaving: boolean;
 
-    vehicles: IVehicle[];
+    idvehicleclasses: IVehicle[];
 
     constructor(
         protected jhiAlertService: JhiAlertService,
@@ -32,12 +32,30 @@ export class VehicleClassUpdateComponent implements OnInit {
             this.vehicleClass = vehicleClass;
         });
         this.vehicleService
-            .query()
+            .query({ filter: 'vehicleclass-is-null' })
             .pipe(
                 filter((mayBeOk: HttpResponse<IVehicle[]>) => mayBeOk.ok),
                 map((response: HttpResponse<IVehicle[]>) => response.body)
             )
-            .subscribe((res: IVehicle[]) => (this.vehicles = res), (res: HttpErrorResponse) => this.onError(res.message));
+            .subscribe(
+                (res: IVehicle[]) => {
+                    if (!this.vehicleClass.idVehicleClassId) {
+                        this.idvehicleclasses = res;
+                    } else {
+                        this.vehicleService
+                            .find(this.vehicleClass.idVehicleClassId)
+                            .pipe(
+                                filter((subResMayBeOk: HttpResponse<IVehicle>) => subResMayBeOk.ok),
+                                map((subResponse: HttpResponse<IVehicle>) => subResponse.body)
+                            )
+                            .subscribe(
+                                (subRes: IVehicle) => (this.idvehicleclasses = [subRes].concat(res)),
+                                (subRes: HttpErrorResponse) => this.onError(subRes.message)
+                            );
+                    }
+                },
+                (res: HttpErrorResponse) => this.onError(res.message)
+            );
     }
 
     previousState() {

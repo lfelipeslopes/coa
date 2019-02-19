@@ -12,7 +12,6 @@ import org.mapstruct.*;
 public interface VehicleMapper extends EntityMapper<VehicleDTO, Vehicle> {
 
 
-    @Mapping(target = "idVehicleClasses", ignore = true)
     @Mapping(target = "idVehicles", ignore = true)
     Vehicle toEntity(VehicleDTO vehicleDTO);
 

@@ -3,7 +3,7 @@ export interface IVehicleClass {
     axes?: number;
     description?: string;
     doubleWheel?: number;
-    vehicleId?: number;
+    idVehicleClassId?: number;
 }
 
 export class VehicleClass implements IVehicleClass {
@@ -12,6 +12,6 @@ export class VehicleClass implements IVehicleClass {
         public axes?: number,
         public description?: string,
         public doubleWheel?: number,
-        public vehicleId?: number
+        public idVehicleClassId?: number
     ) {}
 }

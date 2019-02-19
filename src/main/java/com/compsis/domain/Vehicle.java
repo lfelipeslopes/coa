@@ -47,9 +47,6 @@ public class Vehicle implements Serializable {
 
     @OneToMany(mappedBy = "vehicle")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<VehicleClass> idVehicleClasses = new HashSet<>();
-    @OneToMany(mappedBy = "vehicle")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Passage> idVehicles = new HashSet<>();
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -123,31 +120,6 @@ public class Vehicle implements Serializable {
 
     public void setVehicleStatus(VehicleStatus vehicleStatus) {
         this.vehicleStatus = vehicleStatus;
-    }
-
-    public Set<VehicleClass> getIdVehicleClasses() {
-        return idVehicleClasses;
-    }
-
-    public Vehicle idVehicleClasses(Set<VehicleClass> vehicleClasses) {
-        this.idVehicleClasses = vehicleClasses;
-        return this;
-    }
-
-    public Vehicle addIdVehicleClass(VehicleClass vehicleClass) {
-        this.idVehicleClasses.add(vehicleClass);
-        vehicleClass.setVehicle(this);
-        return this;
-    }
-
-    public Vehicle removeIdVehicleClass(VehicleClass vehicleClass) {
-        this.idVehicleClasses.remove(vehicleClass);
-        vehicleClass.setVehicle(null);
-        return this;
-    }
-
-    public void setIdVehicleClasses(Set<VehicleClass> vehicleClasses) {
-        this.idVehicleClasses = vehicleClasses;
     }
 
     public Set<Passage> getIdVehicles() {
