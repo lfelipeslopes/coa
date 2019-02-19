@@ -25,6 +25,8 @@ public class VehicleDTO implements Serializable {
 
     private Long idVehicleClassId;
 
+    private Long idMediaId;
+
     public Long getId() {
         return id;
     }
@@ -81,6 +83,14 @@ public class VehicleDTO implements Serializable {
         this.idVehicleClassId = vehicleClassId;
     }
 
+    public Long getIdMediaId() {
+        return idMediaId;
+    }
+
+    public void setIdMediaId(Long mediaId) {
+        this.idMediaId = mediaId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -112,6 +122,7 @@ public class VehicleDTO implements Serializable {
             ", plate='" + getPlate() + "'" +
             ", vehicleStatus='" + getVehicleStatus() + "'" +
             ", idVehicleClass=" + getIdVehicleClassId() +
+            ", idMedia=" + getIdMediaId() +
             "}";
     }
 }

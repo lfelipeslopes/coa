@@ -31,6 +31,14 @@
             "otherEntityField": "id",
             "ownerSide": true,
             "otherEntityRelationshipName": "vehicle"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "idMedia",
+            "otherEntityName": "media",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "vehicle"
         }
     ],
     "changelogDate": "20190218192407",
