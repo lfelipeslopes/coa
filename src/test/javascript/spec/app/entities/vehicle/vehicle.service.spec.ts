@@ -5,7 +5,7 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { of } from 'rxjs';
 import { take, map } from 'rxjs/operators';
 import { VehicleService } from 'app/entities/vehicle/vehicle.service';
-import { IVehicle, Vehicle, VehicleStatus } from 'app/shared/model/vehicle.model';
+import { IVehicle, Vehicle } from 'app/shared/model/vehicle.model';
 
 describe('Service Tests', () => {
     describe('Vehicle Service', () => {
@@ -21,7 +21,7 @@ describe('Service Tests', () => {
             service = injector.get(VehicleService);
             httpMock = injector.get(HttpTestingController);
 
-            elemDefault = new Vehicle(0, 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', VehicleStatus.RELEASED);
+            elemDefault = new Vehicle(0, 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA');
         });
 
         describe('Service methods', async () => {
@@ -58,8 +58,7 @@ describe('Service Tests', () => {
                         color: 'BBBBBB',
                         manufacturer: 'BBBBBB',
                         model: 'BBBBBB',
-                        plate: 'BBBBBB',
-                        vehicleStatus: 'BBBBBB'
+                        plate: 'BBBBBB'
                     },
                     elemDefault
                 );
@@ -79,8 +78,7 @@ describe('Service Tests', () => {
                         color: 'BBBBBB',
                         manufacturer: 'BBBBBB',
                         model: 'BBBBBB',
-                        plate: 'BBBBBB',
-                        vehicleStatus: 'BBBBBB'
+                        plate: 'BBBBBB'
                     },
                     elemDefault
                 );

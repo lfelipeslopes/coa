@@ -34,7 +34,6 @@ import static org.hamcrest.Matchers.hasItem;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-import com.compsis.domain.enumeration.VehicleStatus;
 /**
  * Test class for the VehicleResource REST controller.
  *
@@ -55,9 +54,6 @@ public class VehicleResourceIntTest {
 
     private static final String DEFAULT_PLATE = "AAAAAAAAAA";
     private static final String UPDATED_PLATE = "BBBBBBBBBB";
-
-    private static final VehicleStatus DEFAULT_VEHICLE_STATUS = VehicleStatus.RELEASED;
-    private static final VehicleStatus UPDATED_VEHICLE_STATUS = VehicleStatus.BLOCKED;
 
     @Autowired
     private VehicleRepository vehicleRepository;
@@ -110,8 +106,7 @@ public class VehicleResourceIntTest {
             .color(DEFAULT_COLOR)
             .manufacturer(DEFAULT_MANUFACTURER)
             .model(DEFAULT_MODEL)
-            .plate(DEFAULT_PLATE)
-            .vehicleStatus(DEFAULT_VEHICLE_STATUS);
+            .plate(DEFAULT_PLATE);
         return vehicle;
     }
 
@@ -140,7 +135,6 @@ public class VehicleResourceIntTest {
         assertThat(testVehicle.getManufacturer()).isEqualTo(DEFAULT_MANUFACTURER);
         assertThat(testVehicle.getModel()).isEqualTo(DEFAULT_MODEL);
         assertThat(testVehicle.getPlate()).isEqualTo(DEFAULT_PLATE);
-        assertThat(testVehicle.getVehicleStatus()).isEqualTo(DEFAULT_VEHICLE_STATUS);
     }
 
     @Test
@@ -177,8 +171,7 @@ public class VehicleResourceIntTest {
             .andExpect(jsonPath("$.[*].color").value(hasItem(DEFAULT_COLOR.toString())))
             .andExpect(jsonPath("$.[*].manufacturer").value(hasItem(DEFAULT_MANUFACTURER.toString())))
             .andExpect(jsonPath("$.[*].model").value(hasItem(DEFAULT_MODEL.toString())))
-            .andExpect(jsonPath("$.[*].plate").value(hasItem(DEFAULT_PLATE.toString())))
-            .andExpect(jsonPath("$.[*].vehicleStatus").value(hasItem(DEFAULT_VEHICLE_STATUS.toString())));
+            .andExpect(jsonPath("$.[*].plate").value(hasItem(DEFAULT_PLATE.toString())));
     }
     
     @Test
@@ -195,8 +188,7 @@ public class VehicleResourceIntTest {
             .andExpect(jsonPath("$.color").value(DEFAULT_COLOR.toString()))
             .andExpect(jsonPath("$.manufacturer").value(DEFAULT_MANUFACTURER.toString()))
             .andExpect(jsonPath("$.model").value(DEFAULT_MODEL.toString()))
-            .andExpect(jsonPath("$.plate").value(DEFAULT_PLATE.toString()))
-            .andExpect(jsonPath("$.vehicleStatus").value(DEFAULT_VEHICLE_STATUS.toString()));
+            .andExpect(jsonPath("$.plate").value(DEFAULT_PLATE.toString()));
     }
 
     @Test
@@ -223,8 +215,7 @@ public class VehicleResourceIntTest {
             .color(UPDATED_COLOR)
             .manufacturer(UPDATED_MANUFACTURER)
             .model(UPDATED_MODEL)
-            .plate(UPDATED_PLATE)
-            .vehicleStatus(UPDATED_VEHICLE_STATUS);
+            .plate(UPDATED_PLATE);
         VehicleDTO vehicleDTO = vehicleMapper.toDto(updatedVehicle);
 
         restVehicleMockMvc.perform(put("/api/vehicles")
@@ -240,7 +231,6 @@ public class VehicleResourceIntTest {
         assertThat(testVehicle.getManufacturer()).isEqualTo(UPDATED_MANUFACTURER);
         assertThat(testVehicle.getModel()).isEqualTo(UPDATED_MODEL);
         assertThat(testVehicle.getPlate()).isEqualTo(UPDATED_PLATE);
-        assertThat(testVehicle.getVehicleStatus()).isEqualTo(UPDATED_VEHICLE_STATUS);
     }
 
     @Test

@@ -6,11 +6,6 @@ entity FinancialAccount{
 	id Long,
     alias String,
     balance BigDecimal
-    financialAccountStatus FinancialAccountStatus
-}
-
-enum FinancialAccountStatus{
-	ENABLED, DISABLED
 }
 
 /**
@@ -39,16 +34,18 @@ entity UserAccount{
 }
 
 /**
-*	Conta do veiculo
-*/
-entity VehicleAccount{
-	id Long
-}
-/**
 * Status do veículo
 */
 enum VehicleStatus{
 	RELEASED, BLOCKED, FORCED_RELEASE, FORCED_LOCK
+}
+
+/**
+*	Conta do veiculo
+*/
+entity VehicleAccount{
+	id Long,
+    vehicleStatus VehicleStatus
 }
 /**
 * Veiculo
@@ -58,8 +55,7 @@ entity Vehicle{
     color String,
     manufacturer String,
     model String,
-    plate String,
-    vehicleStatus VehicleStatus
+    plate String
 }
 
 /**

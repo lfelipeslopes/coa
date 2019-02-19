@@ -17,7 +17,6 @@
             <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="alias"><span>Alias</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="balance"><span>Balance</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="financialAccountStatus"><span>Financial Account Status</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
             </tr>
             </thead>
@@ -26,7 +25,6 @@
                 <td><a [routerLink]="['/financial-account', financialAccount.id, 'view' ]">{{financialAccount.id}}</a></td>
                 <td>{{financialAccount.alias}}</td>
                 <td>{{financialAccount.balance}}</td>
-                <td>{{financialAccount.financialAccountStatus}}</td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

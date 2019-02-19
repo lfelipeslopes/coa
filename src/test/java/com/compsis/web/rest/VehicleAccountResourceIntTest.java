@@ -34,6 +34,7 @@ import static org.hamcrest.Matchers.hasItem;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+import com.compsis.domain.enumeration.VehicleStatus;
 /**
  * Test class for the VehicleAccountResource REST controller.
  *
@@ -42,6 +43,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = CoaApp.class)
 public class VehicleAccountResourceIntTest {
+
+    private static final VehicleStatus DEFAULT_VEHICLE_STATUS = VehicleStatus.RELEASED;
+    private static final VehicleStatus UPDATED_VEHICLE_STATUS = VehicleStatus.BLOCKED;
 
     @Autowired
     private VehicleAccountRepository vehicleAccountRepository;
@@ -90,7 +94,8 @@ public class VehicleAccountResourceIntTest {
      * if they test an entity which requires the current entity.
      */
     public static VehicleAccount createEntity(EntityManager em) {
-        VehicleAccount vehicleAccount = new VehicleAccount();
+        VehicleAccount vehicleAccount = new VehicleAccount()
+            .vehicleStatus(DEFAULT_VEHICLE_STATUS);
         return vehicleAccount;
     }
 
@@ -115,6 +120,7 @@ public class VehicleAccountResourceIntTest {
         List<VehicleAccount> vehicleAccountList = vehicleAccountRepository.findAll();
         assertThat(vehicleAccountList).hasSize(databaseSizeBeforeCreate + 1);
         VehicleAccount testVehicleAccount = vehicleAccountList.get(vehicleAccountList.size() - 1);
+        assertThat(testVehicleAccount.getVehicleStatus()).isEqualTo(DEFAULT_VEHICLE_STATUS);
     }
 
     @Test
@@ -147,7 +153,8 @@ public class VehicleAccountResourceIntTest {
         restVehicleAccountMockMvc.perform(get("/api/vehicle-accounts?sort=id,desc"))
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-            .andExpect(jsonPath("$.[*].id").value(hasItem(vehicleAccount.getId().intValue())));
+            .andExpect(jsonPath("$.[*].id").value(hasItem(vehicleAccount.getId().intValue())))
+            .andExpect(jsonPath("$.[*].vehicleStatus").value(hasItem(DEFAULT_VEHICLE_STATUS.toString())));
     }
     
     @Test
@@ -160,7 +167,8 @@ public class VehicleAccountResourceIntTest {
         restVehicleAccountMockMvc.perform(get("/api/vehicle-accounts/{id}", vehicleAccount.getId()))
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-            .andExpect(jsonPath("$.id").value(vehicleAccount.getId().intValue()));
+            .andExpect(jsonPath("$.id").value(vehicleAccount.getId().intValue()))
+            .andExpect(jsonPath("$.vehicleStatus").value(DEFAULT_VEHICLE_STATUS.toString()));
     }
 
     @Test
@@ -183,6 +191,8 @@ public class VehicleAccountResourceIntTest {
         VehicleAccount updatedVehicleAccount = vehicleAccountRepository.findById(vehicleAccount.getId()).get();
         // Disconnect from session so that the updates on updatedVehicleAccount are not directly saved in db
         em.detach(updatedVehicleAccount);
+        updatedVehicleAccount
+            .vehicleStatus(UPDATED_VEHICLE_STATUS);
         VehicleAccountDTO vehicleAccountDTO = vehicleAccountMapper.toDto(updatedVehicleAccount);
 
         restVehicleAccountMockMvc.perform(put("/api/vehicle-accounts")
@@ -194,6 +204,7 @@ public class VehicleAccountResourceIntTest {
         List<VehicleAccount> vehicleAccountList = vehicleAccountRepository.findAll();
         assertThat(vehicleAccountList).hasSize(databaseSizeBeforeUpdate);
         VehicleAccount testVehicleAccount = vehicleAccountList.get(vehicleAccountList.size() - 1);
+        assertThat(testVehicleAccount.getVehicleStatus()).isEqualTo(UPDATED_VEHICLE_STATUS);
     }
 
     @Test

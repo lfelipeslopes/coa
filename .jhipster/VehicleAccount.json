@@ -1,6 +1,12 @@
 {
     "name": "VehicleAccount",
-    "fields": [],
+    "fields": [
+        {
+            "fieldName": "vehicleStatus",
+            "fieldType": "VehicleStatus",
+            "fieldValues": "RELEASED,BLOCKED,FORCED_RELEASE,FORCED_LOCK"
+        }
+    ],
     "relationships": [
         {
             "relationshipType": "one-to-one",

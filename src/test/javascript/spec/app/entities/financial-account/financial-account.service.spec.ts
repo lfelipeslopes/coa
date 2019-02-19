@@ -5,7 +5,7 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { of } from 'rxjs';
 import { take, map } from 'rxjs/operators';
 import { FinancialAccountService } from 'app/entities/financial-account/financial-account.service';
-import { IFinancialAccount, FinancialAccount, FinancialAccountStatus } from 'app/shared/model/financial-account.model';
+import { IFinancialAccount, FinancialAccount } from 'app/shared/model/financial-account.model';
 
 describe('Service Tests', () => {
     describe('FinancialAccount Service', () => {
@@ -21,7 +21,7 @@ describe('Service Tests', () => {
             service = injector.get(FinancialAccountService);
             httpMock = injector.get(HttpTestingController);
 
-            elemDefault = new FinancialAccount(0, 'AAAAAAA', 0, FinancialAccountStatus.ENABLED);
+            elemDefault = new FinancialAccount(0, 'AAAAAAA', 0);
         });
 
         describe('Service methods', async () => {
@@ -56,8 +56,7 @@ describe('Service Tests', () => {
                 const returnedFromService = Object.assign(
                     {
                         alias: 'BBBBBB',
-                        balance: 1,
-                        financialAccountStatus: 'BBBBBB'
+                        balance: 1
                     },
                     elemDefault
                 );
@@ -75,8 +74,7 @@ describe('Service Tests', () => {
                 const returnedFromService = Object.assign(
                     {
                         alias: 'BBBBBB',
-                        balance: 1,
-                        financialAccountStatus: 'BBBBBB'
+                        balance: 1
                     },
                     elemDefault
                 );

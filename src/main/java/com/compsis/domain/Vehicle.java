@@ -9,8 +9,6 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
-import com.compsis.domain.enumeration.VehicleStatus;
-
 /**
  * Veiculo
  */
@@ -37,10 +35,6 @@ public class Vehicle implements Serializable {
 
     @Column(name = "plate")
     private String plate;
-
-    @Enumerated(EnumType.STRING)
-    @Column(name = "vehicle_status")
-    private VehicleStatus vehicleStatus;
 
     @OneToOne
     @JoinColumn(unique = true)
@@ -111,19 +105,6 @@ public class Vehicle implements Serializable {
         this.plate = plate;
     }
 
-    public VehicleStatus getVehicleStatus() {
-        return vehicleStatus;
-    }
-
-    public Vehicle vehicleStatus(VehicleStatus vehicleStatus) {
-        this.vehicleStatus = vehicleStatus;
-        return this;
-    }
-
-    public void setVehicleStatus(VehicleStatus vehicleStatus) {
-        this.vehicleStatus = vehicleStatus;
-    }
-
     public VehicleClass getIdVehicleClass() {
         return idVehicleClass;
     }
@@ -179,7 +160,6 @@ public class Vehicle implements Serializable {
             ", manufacturer='" + getManufacturer() + "'" +
             ", model='" + getModel() + "'" +
             ", plate='" + getPlate() + "'" +
-            ", vehicleStatus='" + getVehicleStatus() + "'" +
             "}";
     }
 }

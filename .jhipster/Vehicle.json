@@ -16,11 +16,6 @@
         {
             "fieldName": "plate",
             "fieldType": "String"
-        },
-        {
-            "fieldName": "vehicleStatus",
-            "fieldType": "VehicleStatus",
-            "fieldValues": "RELEASED,BLOCKED,FORCED_RELEASE,FORCED_LOCK"
         }
     ],
     "relationships": [
