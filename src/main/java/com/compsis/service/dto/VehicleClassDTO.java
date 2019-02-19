@@ -18,8 +18,6 @@ public class VehicleClassDTO implements Serializable {
     private Integer doubleWheel;
 
 
-    private Long idVehicleClassId;
-
     public Long getId() {
         return id;
     }
@@ -52,14 +50,6 @@ public class VehicleClassDTO implements Serializable {
         this.doubleWheel = doubleWheel;
     }
 
-    public Long getIdVehicleClassId() {
-        return idVehicleClassId;
-    }
-
-    public void setIdVehicleClassId(Long vehicleId) {
-        this.idVehicleClassId = vehicleId;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -88,7 +78,6 @@ public class VehicleClassDTO implements Serializable {
             ", axes=" + getAxes() +
             ", description='" + getDescription() + "'" +
             ", doubleWheel=" + getDoubleWheel() +
-            ", idVehicleClass=" + getIdVehicleClassId() +
             "}";
     }
 }

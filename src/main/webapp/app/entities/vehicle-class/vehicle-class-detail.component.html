@@ -17,12 +17,6 @@
                 <dd>
                     <span>{{vehicleClass.doubleWheel}}</span>
                 </dd>
-                <dt><span>Id Vehicle Class</span></dt>
-                <dd>
-                    <div *ngIf="vehicleClass.idVehicleClassId">
-                        <a [routerLink]="['/vehicle', vehicleClass.idVehicleClassId, 'view']">{{vehicleClass.idVehicleClassId}}</a>
-                    </div>
-                </dd>
             </dl>
 
             <button type="submit"

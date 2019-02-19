@@ -200,7 +200,7 @@ relationship OneToMany{
 }
 
 relationship OneToOne{
-	VehicleClass{idVehicleClass(id)} to Vehicle
+	Vehicle{idVehicleClass(id)} to VehicleClass
 }
 
 relationship OneToOne{

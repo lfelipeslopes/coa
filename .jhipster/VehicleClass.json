@@ -14,16 +14,7 @@
             "fieldType": "Integer"
         }
     ],
-    "relationships": [
-        {
-            "relationshipType": "one-to-one",
-            "relationshipName": "idVehicleClass",
-            "otherEntityName": "vehicle",
-            "otherEntityField": "id",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "vehicleClass"
-        }
-    ],
+    "relationships": [],
     "changelogDate": "20190218192409",
     "javadoc": "Classificação do veículo",
     "entityTableName": "vehicle_class",

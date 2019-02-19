@@ -25,6 +25,14 @@
     ],
     "relationships": [
         {
+            "relationshipType": "one-to-one",
+            "relationshipName": "idVehicleClass",
+            "otherEntityName": "vehicleClass",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "vehicle"
+        },
+        {
             "relationshipType": "one-to-many",
             "relationshipName": "idVehicle",
             "otherEntityName": "passage",

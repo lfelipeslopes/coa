@@ -33,10 +33,6 @@ public class VehicleClass implements Serializable {
     @Column(name = "double_wheel")
     private Integer doubleWheel;
 
-    @OneToOne
-    @JoinColumn(unique = true)
-    private Vehicle idVehicleClass;
-
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -83,19 +79,6 @@ public class VehicleClass implements Serializable {
 
     public void setDoubleWheel(Integer doubleWheel) {
         this.doubleWheel = doubleWheel;
-    }
-
-    public Vehicle getIdVehicleClass() {
-        return idVehicleClass;
-    }
-
-    public VehicleClass idVehicleClass(Vehicle vehicle) {
-        this.idVehicleClass = vehicle;
-        return this;
-    }
-
-    public void setIdVehicleClass(Vehicle vehicle) {
-        this.idVehicleClass = vehicle;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

@@ -18,7 +18,6 @@
             <th><span>Axes</span></th>
             <th><span>Description</span></th>
             <th><span>Double Wheel</span></th>
-            <th><span>Id Vehicle Class</span></th>
             <th></th>
             </tr>
             </thead>
@@ -28,11 +27,6 @@
                 <td>{{vehicleClass.axes}}</td>
                 <td>{{vehicleClass.description}}</td>
                 <td>{{vehicleClass.doubleWheel}}</td>
-                <td>
-                    <div *ngIf="vehicleClass.idVehicleClassId">
-                        <a [routerLink]="['../vehicle', vehicleClass.idVehicleClassId , 'view' ]" >{{vehicleClass.idVehicleClassId}}</a>
-                    </div>
-                </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"
