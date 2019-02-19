@@ -18,6 +18,8 @@
             <th><span>Day Of Week</span></th>
             <th><span>Started In</span></th>
             <th><span>Value</span></th>
+            <th><span>Id Billing Tariff</span></th>
+            <th><span>Billing Location</span></th>
             <th></th>
             </tr>
             </thead>
@@ -27,6 +29,16 @@
                 <td>{{billingTariff.dayOfWeek}}</td>
                 <td>{{billingTariff.startedIn | date:'medium'}}</td>
                 <td>{{billingTariff.value}}</td>
+                <td>
+                    <div *ngIf="billingTariff.idBillingTariffId">
+                        <a [routerLink]="['../vehicle-class', billingTariff.idBillingTariffId , 'view' ]" >{{billingTariff.idBillingTariffId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="billingTariff.billingLocationId">
+                        <a [routerLink]="['../billing-location', billingTariff.billingLocationId , 'view' ]" >{{billingTariff.billingLocationId}}</a>
+                    </div>
+                </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

@@ -5,8 +5,17 @@ export interface IBillingTariff {
     dayOfWeek?: number;
     startedIn?: Moment;
     value?: number;
+    idBillingTariffId?: number;
+    billingLocationId?: number;
 }
 
 export class BillingTariff implements IBillingTariff {
-    constructor(public id?: number, public dayOfWeek?: number, public startedIn?: Moment, public value?: number) {}
+    constructor(
+        public id?: number,
+        public dayOfWeek?: number,
+        public startedIn?: Moment,
+        public value?: number,
+        public idBillingTariffId?: number,
+        public billingLocationId?: number
+    ) {}
 }

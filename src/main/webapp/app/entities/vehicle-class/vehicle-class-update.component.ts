@@ -8,8 +8,6 @@ import { IVehicleClass } from 'app/shared/model/vehicle-class.model';
 import { VehicleClassService } from './vehicle-class.service';
 import { IVehicle } from 'app/shared/model/vehicle.model';
 import { VehicleService } from 'app/entities/vehicle';
-import { IBillingTariff } from 'app/shared/model/billing-tariff.model';
-import { BillingTariffService } from 'app/entities/billing-tariff';
 
 @Component({
     selector: 'jhi-vehicle-class-update',
@@ -21,13 +19,10 @@ export class VehicleClassUpdateComponent implements OnInit {
 
     vehicles: IVehicle[];
 
-    idbillingtariffs: IBillingTariff[];
-
     constructor(
         protected jhiAlertService: JhiAlertService,
         protected vehicleClassService: VehicleClassService,
         protected vehicleService: VehicleService,
-        protected billingTariffService: BillingTariffService,
         protected activatedRoute: ActivatedRoute
     ) {}
 
@@ -43,31 +38,6 @@ export class VehicleClassUpdateComponent implements OnInit {
                 map((response: HttpResponse<IVehicle[]>) => response.body)
             )
             .subscribe((res: IVehicle[]) => (this.vehicles = res), (res: HttpErrorResponse) => this.onError(res.message));
-        this.billingTariffService
-            .query({ filter: 'vehicleclass-is-null' })
-            .pipe(
-                filter((mayBeOk: HttpResponse<IBillingTariff[]>) => mayBeOk.ok),
-                map((response: HttpResponse<IBillingTariff[]>) => response.body)
-            )
-            .subscribe(
-                (res: IBillingTariff[]) => {
-                    if (!this.vehicleClass.idBillingTariffId) {
-                        this.idbillingtariffs = res;
-                    } else {
-                        this.billingTariffService
-                            .find(this.vehicleClass.idBillingTariffId)
-                            .pipe(
-                                filter((subResMayBeOk: HttpResponse<IBillingTariff>) => subResMayBeOk.ok),
-                                map((subResponse: HttpResponse<IBillingTariff>) => subResponse.body)
-                            )
-                            .subscribe(
-                                (subRes: IBillingTariff) => (this.idbillingtariffs = [subRes].concat(res)),
-                                (subRes: HttpErrorResponse) => this.onError(subRes.message)
-                            );
-                    }
-                },
-                (res: HttpErrorResponse) => this.onError(res.message)
-            );
     }
 
     previousState() {
@@ -101,10 +71,6 @@ export class VehicleClassUpdateComponent implements OnInit {
     }
 
     trackVehicleById(index: number, item: IVehicle) {
-        return item.id;
-    }
-
-    trackBillingTariffById(index: number, item: IBillingTariff) {
         return item.id;
     }
 }

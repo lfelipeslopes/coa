@@ -23,12 +23,6 @@
                         <a [routerLink]="['/vehicle', vehicleClass.vehicleId, 'view']">{{vehicleClass.vehicleId}}</a>
                     </div>
                 </dd>
-                <dt><span>Id Billing Tariff</span></dt>
-                <dd>
-                    <div *ngIf="vehicleClass.idBillingTariffId">
-                        <a [routerLink]="['/billing-tariff', vehicleClass.idBillingTariffId, 'view']">{{vehicleClass.idBillingTariffId}}</a>
-                    </div>
-                </dd>
             </dl>
 
             <button type="submit"

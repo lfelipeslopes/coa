@@ -20,14 +20,6 @@
             "otherEntityName": "vehicle",
             "relationshipType": "many-to-one",
             "otherEntityField": "id"
-        },
-        {
-            "relationshipType": "one-to-one",
-            "relationshipName": "idBillingTariff",
-            "otherEntityName": "billingTariff",
-            "otherEntityField": "id",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "vehicleClass"
         }
     ],
     "changelogDate": "20190218192409",

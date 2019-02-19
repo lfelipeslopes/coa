@@ -20,8 +20,6 @@ public class VehicleClassDTO implements Serializable {
 
     private Long vehicleId;
 
-    private Long idBillingTariffId;
-
     public Long getId() {
         return id;
     }
@@ -62,14 +60,6 @@ public class VehicleClassDTO implements Serializable {
         this.vehicleId = vehicleId;
     }
 
-    public Long getIdBillingTariffId() {
-        return idBillingTariffId;
-    }
-
-    public void setIdBillingTariffId(Long billingTariffId) {
-        this.idBillingTariffId = billingTariffId;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -99,7 +89,6 @@ public class VehicleClassDTO implements Serializable {
             ", description='" + getDescription() + "'" +
             ", doubleWheel=" + getDoubleWheel() +
             ", vehicle=" + getVehicleId() +
-            ", idBillingTariff=" + getIdBillingTariffId() +
             "}";
     }
 }

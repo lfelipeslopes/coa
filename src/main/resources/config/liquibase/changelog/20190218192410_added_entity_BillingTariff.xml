@@ -32,6 +32,12 @@
             <column name="jhi_value" type="decimal(10,2)">
                 <constraints nullable="true" />
             </column>
+            <column name="id_billing_tariff_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_billing_tariff_id_billing_tariff_id" />
+            </column>
+            <column name="billing_location_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
 
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
