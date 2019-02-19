@@ -76,7 +76,6 @@ class VehicleGatlingTest extends Simulation {
                 , "manufacturer":"SAMPLE_TEXT"
                 , "model":"SAMPLE_TEXT"
                 , "plate":"SAMPLE_TEXT"
-                , "vehicleStatus":"RELEASED"
                 }""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_vehicle_url"))).exitHereIfFailed

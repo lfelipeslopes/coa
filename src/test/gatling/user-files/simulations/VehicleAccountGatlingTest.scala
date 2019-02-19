@@ -72,6 +72,7 @@ class VehicleAccountGatlingTest extends Simulation {
             .headers(headers_http_authenticated)
             .body(StringBody("""{
                 "id":null
+                , "vehicleStatus":"RELEASED"
                 }""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_vehicleAccount_url"))).exitHereIfFailed

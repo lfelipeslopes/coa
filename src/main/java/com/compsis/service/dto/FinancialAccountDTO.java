@@ -3,7 +3,6 @@ import io.swagger.annotations.ApiModel;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
-import com.compsis.domain.enumeration.FinancialAccountStatus;
 
 /**
  * A DTO for the FinancialAccount entity.
@@ -16,8 +15,6 @@ public class FinancialAccountDTO implements Serializable {
     private String alias;
 
     private BigDecimal balance;
-
-    private FinancialAccountStatus financialAccountStatus;
 
 
     public Long getId() {
@@ -42,14 +39,6 @@ public class FinancialAccountDTO implements Serializable {
 
     public void setBalance(BigDecimal balance) {
         this.balance = balance;
-    }
-
-    public FinancialAccountStatus getFinancialAccountStatus() {
-        return financialAccountStatus;
-    }
-
-    public void setFinancialAccountStatus(FinancialAccountStatus financialAccountStatus) {
-        this.financialAccountStatus = financialAccountStatus;
     }
 
     @Override
@@ -79,7 +68,6 @@ public class FinancialAccountDTO implements Serializable {
             "id=" + getId() +
             ", alias='" + getAlias() + "'" +
             ", balance=" + getBalance() +
-            ", financialAccountStatus='" + getFinancialAccountStatus() + "'" +
             "}";
     }
 }

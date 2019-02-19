@@ -5,7 +5,7 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { of } from 'rxjs';
 import { take, map } from 'rxjs/operators';
 import { VehicleAccountService } from 'app/entities/vehicle-account/vehicle-account.service';
-import { IVehicleAccount, VehicleAccount } from 'app/shared/model/vehicle-account.model';
+import { IVehicleAccount, VehicleAccount, VehicleStatus } from 'app/shared/model/vehicle-account.model';
 
 describe('Service Tests', () => {
     describe('VehicleAccount Service', () => {
@@ -21,7 +21,7 @@ describe('Service Tests', () => {
             service = injector.get(VehicleAccountService);
             httpMock = injector.get(HttpTestingController);
 
-            elemDefault = new VehicleAccount(0);
+            elemDefault = new VehicleAccount(0, VehicleStatus.RELEASED);
         });
 
         describe('Service methods', async () => {
@@ -53,7 +53,12 @@ describe('Service Tests', () => {
             });
 
             it('should update a VehicleAccount', async () => {
-                const returnedFromService = Object.assign({}, elemDefault);
+                const returnedFromService = Object.assign(
+                    {
+                        vehicleStatus: 'BBBBBB'
+                    },
+                    elemDefault
+                );
 
                 const expected = Object.assign({}, returnedFromService);
                 service
@@ -65,7 +70,12 @@ describe('Service Tests', () => {
             });
 
             it('should return a list of VehicleAccount', async () => {
-                const returnedFromService = Object.assign({}, elemDefault);
+                const returnedFromService = Object.assign(
+                    {
+                        vehicleStatus: 'BBBBBB'
+                    },
+                    elemDefault
+                );
                 const expected = Object.assign({}, returnedFromService);
                 service
                     .query(expected)

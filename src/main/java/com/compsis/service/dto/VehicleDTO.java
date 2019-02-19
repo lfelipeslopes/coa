@@ -2,7 +2,6 @@ package com.compsis.service.dto;
 import io.swagger.annotations.ApiModel;
 import java.io.Serializable;
 import java.util.Objects;
-import com.compsis.domain.enumeration.VehicleStatus;
 
 /**
  * A DTO for the Vehicle entity.
@@ -19,8 +18,6 @@ public class VehicleDTO implements Serializable {
     private String model;
 
     private String plate;
-
-    private VehicleStatus vehicleStatus;
 
 
     private Long idVehicleClassId;
@@ -65,14 +62,6 @@ public class VehicleDTO implements Serializable {
 
     public void setPlate(String plate) {
         this.plate = plate;
-    }
-
-    public VehicleStatus getVehicleStatus() {
-        return vehicleStatus;
-    }
-
-    public void setVehicleStatus(VehicleStatus vehicleStatus) {
-        this.vehicleStatus = vehicleStatus;
     }
 
     public Long getIdVehicleClassId() {
@@ -120,7 +109,6 @@ public class VehicleDTO implements Serializable {
             ", manufacturer='" + getManufacturer() + "'" +
             ", model='" + getModel() + "'" +
             ", plate='" + getPlate() + "'" +
-            ", vehicleStatus='" + getVehicleStatus() + "'" +
             ", idVehicleClass=" + getIdVehicleClassId() +
             ", idMedia=" + getIdMediaId() +
             "}";

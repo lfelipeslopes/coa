@@ -9,6 +9,8 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
+import com.compsis.domain.enumeration.VehicleStatus;
+
 /**
  * Conta do veiculo
  */
@@ -24,6 +26,10 @@ public class VehicleAccount implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "vehicle_status")
+    private VehicleStatus vehicleStatus;
+
     @OneToOne
     @JoinColumn(unique = true)
     private Vehicle idVehicle;
@@ -35,6 +41,19 @@ public class VehicleAccount implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public VehicleStatus getVehicleStatus() {
+        return vehicleStatus;
+    }
+
+    public VehicleAccount vehicleStatus(VehicleStatus vehicleStatus) {
+        this.vehicleStatus = vehicleStatus;
+        return this;
+    }
+
+    public void setVehicleStatus(VehicleStatus vehicleStatus) {
+        this.vehicleStatus = vehicleStatus;
     }
 
     public Vehicle getIdVehicle() {
@@ -75,6 +94,7 @@ public class VehicleAccount implements Serializable {
     public String toString() {
         return "VehicleAccount{" +
             "id=" + getId() +
+            ", vehicleStatus='" + getVehicleStatus() + "'" +
             "}";
     }
 }
