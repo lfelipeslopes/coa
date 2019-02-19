@@ -196,7 +196,8 @@ relationship OneToOne{
 }
 
 relationship OneToOne{
-	Vehicle{idVehicleClass(id)} to VehicleClass
+	Vehicle{idVehicleClass(id)} to VehicleClass,
+    Vehicle{idMedia(id)} to Media
 }
 
 relationship OneToOne{

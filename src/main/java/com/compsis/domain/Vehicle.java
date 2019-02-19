@@ -46,6 +46,10 @@ public class Vehicle implements Serializable {
     @JoinColumn(unique = true)
     private VehicleClass idVehicleClass;
 
+    @OneToOne
+    @JoinColumn(unique = true)
+    private Media idMedia;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -131,6 +135,19 @@ public class Vehicle implements Serializable {
 
     public void setIdVehicleClass(VehicleClass vehicleClass) {
         this.idVehicleClass = vehicleClass;
+    }
+
+    public Media getIdMedia() {
+        return idMedia;
+    }
+
+    public Vehicle idMedia(Media media) {
+        this.idMedia = media;
+        return this;
+    }
+
+    public void setIdMedia(Media media) {
+        this.idMedia = media;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

@@ -13,6 +13,7 @@ export interface IVehicle {
     plate?: string;
     vehicleStatus?: VehicleStatus;
     idVehicleClassId?: number;
+    idMediaId?: number;
 }
 
 export class Vehicle implements IVehicle {
@@ -23,6 +24,7 @@ export class Vehicle implements IVehicle {
         public model?: string,
         public plate?: string,
         public vehicleStatus?: VehicleStatus,
-        public idVehicleClassId?: number
+        public idVehicleClassId?: number,
+        public idMediaId?: number
     ) {}
 }

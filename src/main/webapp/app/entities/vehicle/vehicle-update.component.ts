@@ -8,6 +8,8 @@ import { IVehicle } from 'app/shared/model/vehicle.model';
 import { VehicleService } from './vehicle.service';
 import { IVehicleClass } from 'app/shared/model/vehicle-class.model';
 import { VehicleClassService } from 'app/entities/vehicle-class';
+import { IMedia } from 'app/shared/model/media.model';
+import { MediaService } from 'app/entities/media';
 
 @Component({
     selector: 'jhi-vehicle-update',
@@ -19,10 +21,13 @@ export class VehicleUpdateComponent implements OnInit {
 
     idvehicleclasses: IVehicleClass[];
 
+    idmedias: IMedia[];
+
     constructor(
         protected jhiAlertService: JhiAlertService,
         protected vehicleService: VehicleService,
         protected vehicleClassService: VehicleClassService,
+        protected mediaService: MediaService,
         protected activatedRoute: ActivatedRoute
     ) {}
 
@@ -50,6 +55,31 @@ export class VehicleUpdateComponent implements OnInit {
                             )
                             .subscribe(
                                 (subRes: IVehicleClass) => (this.idvehicleclasses = [subRes].concat(res)),
+                                (subRes: HttpErrorResponse) => this.onError(subRes.message)
+                            );
+                    }
+                },
+                (res: HttpErrorResponse) => this.onError(res.message)
+            );
+        this.mediaService
+            .query({ filter: 'vehicle-is-null' })
+            .pipe(
+                filter((mayBeOk: HttpResponse<IMedia[]>) => mayBeOk.ok),
+                map((response: HttpResponse<IMedia[]>) => response.body)
+            )
+            .subscribe(
+                (res: IMedia[]) => {
+                    if (!this.vehicle.idMediaId) {
+                        this.idmedias = res;
+                    } else {
+                        this.mediaService
+                            .find(this.vehicle.idMediaId)
+                            .pipe(
+                                filter((subResMayBeOk: HttpResponse<IMedia>) => subResMayBeOk.ok),
+                                map((subResponse: HttpResponse<IMedia>) => subResponse.body)
+                            )
+                            .subscribe(
+                                (subRes: IMedia) => (this.idmedias = [subRes].concat(res)),
                                 (subRes: HttpErrorResponse) => this.onError(subRes.message)
                             );
                     }
@@ -89,6 +119,10 @@ export class VehicleUpdateComponent implements OnInit {
     }
 
     trackVehicleClassById(index: number, item: IVehicleClass) {
+        return item.id;
+    }
+
+    trackMediaById(index: number, item: IMedia) {
         return item.id;
     }
 }

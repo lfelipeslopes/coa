@@ -31,6 +31,12 @@
                         <a [routerLink]="['/vehicle-class', vehicle.idVehicleClassId, 'view']">{{vehicle.idVehicleClassId}}</a>
                     </div>
                 </dd>
+                <dt><span>Id Media</span></dt>
+                <dd>
+                    <div *ngIf="vehicle.idMediaId">
+                        <a [routerLink]="['/media', vehicle.idMediaId, 'view']">{{vehicle.idMediaId}}</a>
+                    </div>
+                </dd>
             </dl>
 
             <button type="submit"

@@ -14,5 +14,11 @@
                                  referencedColumnNames="id"
                                  referencedTableName="vehicle_class"/>
 
+        <addForeignKeyConstraint baseColumnNames="id_media_id"
+                                 baseTableName="vehicle"
+                                 constraintName="fk_vehicle_id_media_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="media"/>
+
     </changeSet>
 </databaseChangeLog>

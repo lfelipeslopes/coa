@@ -21,6 +21,7 @@
             <th jhiSortBy="plate"><span>Plate</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="vehicleStatus"><span>Vehicle Status</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="idVehicleClassId"><span>Id Vehicle Class</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="idMediaId"><span>Id Media</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
             </tr>
             </thead>
@@ -35,6 +36,11 @@
                 <td>
                     <div *ngIf="vehicle.idVehicleClassId">
                         <a [routerLink]="['../vehicle-class', vehicle.idVehicleClassId , 'view' ]" >{{vehicle.idVehicleClassId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="vehicle.idMediaId">
+                        <a [routerLink]="['../media', vehicle.idMediaId , 'view' ]" >{{vehicle.idMediaId}}</a>
                     </div>
                 </td>
                 <td class="text-right">
