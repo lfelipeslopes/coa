@@ -187,9 +187,8 @@ relationship OneToOne{
 	VehicleAccount{idVehicleClass} to VehicleClass
 }
 
-relationship OneToMany{
+relationship OneToOne{
 	BillingLocation{idBillingLocation(id)} to BillingTariff
-    BillingLocation{idBillingLocation(id)} to Passage
 }
 
 relationship OneToMany{
