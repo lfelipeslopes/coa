@@ -6,14 +6,7 @@
             "fieldType": "String"
         }
     ],
-    "relationships": [
-        {
-            "relationshipName": "accountOperation",
-            "otherEntityName": "accountOperation",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "id"
-        }
-    ],
+    "relationships": [],
     "changelogDate": "20190218192415",
     "javadoc": "Comentários do usuário",
     "entityTableName": "informative_operation",

@@ -16,7 +16,6 @@
             <tr>
             <th><span>ID</span></th>
             <th><span>Comments</span></th>
-            <th><span>Account Operation</span></th>
             <th></th>
             </tr>
             </thead>
@@ -24,11 +23,6 @@
             <tr *ngFor="let informativeOperation of informativeOperations ;trackBy: trackId">
                 <td><a [routerLink]="['/informative-operation', informativeOperation.id, 'view' ]">{{informativeOperation.id}}</a></td>
                 <td>{{informativeOperation.comments}}</td>
-                <td>
-                    <div *ngIf="informativeOperation.accountOperationId">
-                        <a [routerLink]="['../account-operation', informativeOperation.accountOperationId , 'view' ]" >{{informativeOperation.accountOperationId}}</a>
-                    </div>
-                </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

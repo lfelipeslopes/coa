@@ -15,7 +15,6 @@
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
             <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="financialAccountId"><span>Financial Account</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="accountableId"><span>Accountable</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="contactsId"><span>Contacts</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
@@ -24,11 +23,6 @@
             <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
             <tr *ngFor="let userAccount of userAccounts ;trackBy: trackId">
                 <td><a [routerLink]="['/user-account', userAccount.id, 'view' ]">{{userAccount.id}}</a></td>
-                <td>
-                    <div *ngIf="userAccount.financialAccountId">
-                        <a [routerLink]="['../financial-account', userAccount.financialAccountId , 'view' ]" >{{userAccount.financialAccountId}}</a>
-                    </div>
-                </td>
                 <td>
                     <div *ngIf="userAccount.accountableId">
                         <a [routerLink]="['../person', userAccount.accountableId , 'view' ]" >{{userAccount.accountableId}}</a>

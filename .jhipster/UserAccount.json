@@ -3,12 +3,6 @@
     "fields": [],
     "relationships": [
         {
-            "relationshipName": "financialAccount",
-            "otherEntityName": "financialAccount",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "id"
-        },
-        {
             "relationshipType": "many-to-one",
             "relationshipName": "accountable",
             "otherEntityName": "person",

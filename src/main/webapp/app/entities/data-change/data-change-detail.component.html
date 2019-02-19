@@ -9,12 +9,6 @@
                 <dd>
                     <span>{{dataChange.changeDetail}}</span>
                 </dd>
-                <dt><span>Account Operation</span></dt>
-                <dd>
-                    <div *ngIf="dataChange.accountOperationId">
-                        <a [routerLink]="['/account-operation', dataChange.accountOperationId, 'view']">{{dataChange.accountOperationId}}</a>
-                    </div>
-                </dd>
             </dl>
 
             <button type="submit"

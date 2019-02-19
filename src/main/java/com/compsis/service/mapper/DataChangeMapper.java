@@ -8,14 +8,10 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity DataChange and its DTO DataChangeDTO.
  */
-@Mapper(componentModel = "spring", uses = {AccountOperationMapper.class})
+@Mapper(componentModel = "spring", uses = {})
 public interface DataChangeMapper extends EntityMapper<DataChangeDTO, DataChange> {
 
-    @Mapping(source = "accountOperation.id", target = "accountOperationId")
-    DataChangeDTO toDto(DataChange dataChange);
 
-    @Mapping(source = "accountOperationId", target = "accountOperation")
-    DataChange toEntity(DataChangeDTO dataChangeDTO);
 
     default DataChange fromId(Long id) {
         if (id == null) {

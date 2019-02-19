@@ -20,7 +20,6 @@ export interface IAutomaticOperation {
     automatictOperationStatus?: AutomaticOperationStatus;
     automatictEvent?: AutomaticEvent;
     transactionType?: TransactionType;
-    accountOperationId?: number;
 }
 
 export class AutomaticOperation implements IAutomaticOperation {
@@ -30,8 +29,7 @@ export class AutomaticOperation implements IAutomaticOperation {
         public recurrent?: boolean,
         public automatictOperationStatus?: AutomaticOperationStatus,
         public automatictEvent?: AutomaticEvent,
-        public transactionType?: TransactionType,
-        public accountOperationId?: number
+        public transactionType?: TransactionType
     ) {
         this.recurrent = this.recurrent || false;
     }

@@ -1,4 +1,3 @@
-import { IMedia } from 'app/shared/model/media.model';
 import { IVehicleClass } from 'app/shared/model/vehicle-class.model';
 import { IPassage } from 'app/shared/model/passage.model';
 
@@ -16,9 +15,8 @@ export interface IVehicle {
     model?: string;
     plate?: string;
     vehicleStatus?: VehicleStatus;
-    idMedias?: IMedia[];
     idVehicleClasses?: IVehicleClass[];
-    idPassages?: IPassage[];
+    idVehicles?: IPassage[];
 }
 
 export class Vehicle implements IVehicle {
@@ -29,8 +27,7 @@ export class Vehicle implements IVehicle {
         public model?: string,
         public plate?: string,
         public vehicleStatus?: VehicleStatus,
-        public idMedias?: IMedia[],
         public idVehicleClasses?: IVehicleClass[],
-        public idPassages?: IPassage[]
+        public idVehicles?: IPassage[]
     ) {}
 }

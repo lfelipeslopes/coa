@@ -25,14 +25,7 @@
             "fieldValues": "CREDIT,DEBIT"
         }
     ],
-    "relationships": [
-        {
-            "relationshipName": "accountOperation",
-            "otherEntityName": "accountOperation",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "id"
-        }
-    ],
+    "relationships": [],
     "changelogDate": "20190218192419",
     "entityTableName": "automatic_operation",
     "dto": "mapstruct",

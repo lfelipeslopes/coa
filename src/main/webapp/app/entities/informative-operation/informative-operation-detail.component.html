@@ -9,12 +9,6 @@
                 <dd>
                     <span>{{informativeOperation.comments}}</span>
                 </dd>
-                <dt><span>Account Operation</span></dt>
-                <dd>
-                    <div *ngIf="informativeOperation.accountOperationId">
-                        <a [routerLink]="['/account-operation', informativeOperation.accountOperationId, 'view']">{{informativeOperation.accountOperationId}}</a>
-                    </div>
-                </dd>
             </dl>
 
             <button type="submit"

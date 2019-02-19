@@ -16,7 +16,6 @@
             <tr>
             <th><span>ID</span></th>
             <th><span>Balance</span></th>
-            <th><span>Account Operation</span></th>
             <th></th>
             </tr>
             </thead>
@@ -24,11 +23,6 @@
             <tr *ngFor="let balanceCalculation of balanceCalculations ;trackBy: trackId">
                 <td><a [routerLink]="['/balance-calculation', balanceCalculation.id, 'view' ]">{{balanceCalculation.id}}</a></td>
                 <td>{{balanceCalculation.balance}}</td>
-                <td>
-                    <div *ngIf="balanceCalculation.accountOperationId">
-                        <a [routerLink]="['../account-operation', balanceCalculation.accountOperationId , 'view' ]" >{{balanceCalculation.accountOperationId}}</a>
-                    </div>
-                </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

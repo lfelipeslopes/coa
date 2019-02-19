@@ -6,8 +6,6 @@ import { filter, map } from 'rxjs/operators';
 import { JhiAlertService } from 'ng-jhipster';
 import { IUserAccount } from 'app/shared/model/user-account.model';
 import { UserAccountService } from './user-account.service';
-import { IFinancialAccount } from 'app/shared/model/financial-account.model';
-import { FinancialAccountService } from 'app/entities/financial-account';
 import { IPerson } from 'app/shared/model/person.model';
 import { PersonService } from 'app/entities/person';
 
@@ -19,14 +17,11 @@ export class UserAccountUpdateComponent implements OnInit {
     userAccount: IUserAccount;
     isSaving: boolean;
 
-    financialaccounts: IFinancialAccount[];
-
     people: IPerson[];
 
     constructor(
         protected jhiAlertService: JhiAlertService,
         protected userAccountService: UserAccountService,
-        protected financialAccountService: FinancialAccountService,
         protected personService: PersonService,
         protected activatedRoute: ActivatedRoute
     ) {}
@@ -36,13 +31,6 @@ export class UserAccountUpdateComponent implements OnInit {
         this.activatedRoute.data.subscribe(({ userAccount }) => {
             this.userAccount = userAccount;
         });
-        this.financialAccountService
-            .query()
-            .pipe(
-                filter((mayBeOk: HttpResponse<IFinancialAccount[]>) => mayBeOk.ok),
-                map((response: HttpResponse<IFinancialAccount[]>) => response.body)
-            )
-            .subscribe((res: IFinancialAccount[]) => (this.financialaccounts = res), (res: HttpErrorResponse) => this.onError(res.message));
         this.personService
             .query()
             .pipe(
@@ -80,10 +68,6 @@ export class UserAccountUpdateComponent implements OnInit {
 
     protected onError(errorMessage: string) {
         this.jhiAlertService.error(errorMessage, null, null);
-    }
-
-    trackFinancialAccountById(index: number, item: IFinancialAccount) {
-        return item.id;
     }
 
     trackPersonById(index: number, item: IPerson) {

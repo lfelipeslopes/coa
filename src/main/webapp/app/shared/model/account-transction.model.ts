@@ -8,15 +8,8 @@ export interface IAccountTransction {
     amount?: number;
     origin?: string;
     transactionType?: TransactionType;
-    accountOperationId?: number;
 }
 
 export class AccountTransction implements IAccountTransction {
-    constructor(
-        public id?: number,
-        public amount?: number,
-        public origin?: string,
-        public transactionType?: TransactionType,
-        public accountOperationId?: number
-    ) {}
+    constructor(public id?: number, public amount?: number, public origin?: string, public transactionType?: TransactionType) {}
 }

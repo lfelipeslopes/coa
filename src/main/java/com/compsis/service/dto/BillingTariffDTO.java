@@ -20,8 +20,6 @@ public class BillingTariffDTO implements Serializable {
     private BigDecimal value;
 
 
-    private Long idBillingLocationId;
-
     public Long getId() {
         return id;
     }
@@ -54,14 +52,6 @@ public class BillingTariffDTO implements Serializable {
         this.value = value;
     }
 
-    public Long getIdBillingLocationId() {
-        return idBillingLocationId;
-    }
-
-    public void setIdBillingLocationId(Long billingLocationId) {
-        this.idBillingLocationId = billingLocationId;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -90,7 +80,6 @@ public class BillingTariffDTO implements Serializable {
             ", dayOfWeek=" + getDayOfWeek() +
             ", startedIn='" + getStartedIn() + "'" +
             ", value=" + getValue() +
-            ", idBillingLocation=" + getIdBillingLocationId() +
             "}";
     }
 }

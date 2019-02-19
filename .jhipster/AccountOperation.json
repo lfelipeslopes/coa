@@ -8,45 +8,9 @@
     ],
     "relationships": [
         {
-            "relationshipName": "financialAccount",
-            "otherEntityName": "financialAccount",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "id"
-        },
-        {
-            "relationshipType": "one-to-many",
-            "relationshipName": "idDataChange",
-            "otherEntityName": "dataChange",
-            "otherEntityRelationshipName": "accountOperation"
-        },
-        {
-            "relationshipType": "one-to-many",
-            "relationshipName": "idInformativeOperation",
-            "otherEntityName": "informativeOperation",
-            "otherEntityRelationshipName": "accountOperation"
-        },
-        {
-            "relationshipType": "one-to-many",
-            "relationshipName": "idBalanceCalculation",
-            "otherEntityName": "balanceCalculation",
-            "otherEntityRelationshipName": "accountOperation"
-        },
-        {
             "relationshipType": "one-to-many",
             "relationshipName": "idOperator",
             "otherEntityName": "operator",
-            "otherEntityRelationshipName": "accountOperation"
-        },
-        {
-            "relationshipType": "one-to-many",
-            "relationshipName": "idAccountTransction",
-            "otherEntityName": "accountTransction",
-            "otherEntityRelationshipName": "accountOperation"
-        },
-        {
-            "relationshipType": "one-to-many",
-            "relationshipName": "idAutomaticOperation",
-            "otherEntityName": "automaticOperation",
             "otherEntityRelationshipName": "accountOperation"
         }
     ],

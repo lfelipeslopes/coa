@@ -14,8 +14,6 @@ public class InformativeOperationDTO implements Serializable {
     private String comments;
 
 
-    private Long accountOperationId;
-
     public Long getId() {
         return id;
     }
@@ -30,14 +28,6 @@ public class InformativeOperationDTO implements Serializable {
 
     public void setComments(String comments) {
         this.comments = comments;
-    }
-
-    public Long getAccountOperationId() {
-        return accountOperationId;
-    }
-
-    public void setAccountOperationId(Long accountOperationId) {
-        this.accountOperationId = accountOperationId;
     }
 
     @Override
@@ -66,7 +56,6 @@ public class InformativeOperationDTO implements Serializable {
         return "InformativeOperationDTO{" +
             "id=" + getId() +
             ", comments='" + getComments() + "'" +
-            ", accountOperation=" + getAccountOperationId() +
             "}";
     }
 }

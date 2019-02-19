@@ -3,11 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
-import { JhiAlertService } from 'ng-jhipster';
 import { IDataChange } from 'app/shared/model/data-change.model';
 import { DataChangeService } from './data-change.service';
-import { IAccountOperation } from 'app/shared/model/account-operation.model';
-import { AccountOperationService } from 'app/entities/account-operation';
 
 @Component({
     selector: 'jhi-data-change-update',
@@ -17,27 +14,13 @@ export class DataChangeUpdateComponent implements OnInit {
     dataChange: IDataChange;
     isSaving: boolean;
 
-    accountoperations: IAccountOperation[];
-
-    constructor(
-        protected jhiAlertService: JhiAlertService,
-        protected dataChangeService: DataChangeService,
-        protected accountOperationService: AccountOperationService,
-        protected activatedRoute: ActivatedRoute
-    ) {}
+    constructor(protected dataChangeService: DataChangeService, protected activatedRoute: ActivatedRoute) {}
 
     ngOnInit() {
         this.isSaving = false;
         this.activatedRoute.data.subscribe(({ dataChange }) => {
             this.dataChange = dataChange;
         });
-        this.accountOperationService
-            .query()
-            .pipe(
-                filter((mayBeOk: HttpResponse<IAccountOperation[]>) => mayBeOk.ok),
-                map((response: HttpResponse<IAccountOperation[]>) => response.body)
-            )
-            .subscribe((res: IAccountOperation[]) => (this.accountoperations = res), (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     previousState() {
@@ -64,13 +47,5 @@ export class DataChangeUpdateComponent implements OnInit {
 
     protected onSaveError() {
         this.isSaving = false;
-    }
-
-    protected onError(errorMessage: string) {
-        this.jhiAlertService.error(errorMessage, null, null);
-    }
-
-    trackAccountOperationById(index: number, item: IAccountOperation) {
-        return item.id;
     }
 }

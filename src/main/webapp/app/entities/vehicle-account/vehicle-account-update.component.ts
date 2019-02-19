@@ -6,8 +6,6 @@ import { filter, map } from 'rxjs/operators';
 import { JhiAlertService } from 'ng-jhipster';
 import { IVehicleAccount } from 'app/shared/model/vehicle-account.model';
 import { VehicleAccountService } from './vehicle-account.service';
-import { IFinancialAccount } from 'app/shared/model/financial-account.model';
-import { FinancialAccountService } from 'app/entities/financial-account';
 import { IVehicleClass } from 'app/shared/model/vehicle-class.model';
 import { VehicleClassService } from 'app/entities/vehicle-class';
 
@@ -19,14 +17,11 @@ export class VehicleAccountUpdateComponent implements OnInit {
     vehicleAccount: IVehicleAccount;
     isSaving: boolean;
 
-    financialaccounts: IFinancialAccount[];
-
     idvehicleclasses: IVehicleClass[];
 
     constructor(
         protected jhiAlertService: JhiAlertService,
         protected vehicleAccountService: VehicleAccountService,
-        protected financialAccountService: FinancialAccountService,
         protected vehicleClassService: VehicleClassService,
         protected activatedRoute: ActivatedRoute
     ) {}
@@ -36,13 +31,6 @@ export class VehicleAccountUpdateComponent implements OnInit {
         this.activatedRoute.data.subscribe(({ vehicleAccount }) => {
             this.vehicleAccount = vehicleAccount;
         });
-        this.financialAccountService
-            .query()
-            .pipe(
-                filter((mayBeOk: HttpResponse<IFinancialAccount[]>) => mayBeOk.ok),
-                map((response: HttpResponse<IFinancialAccount[]>) => response.body)
-            )
-            .subscribe((res: IFinancialAccount[]) => (this.financialaccounts = res), (res: HttpErrorResponse) => this.onError(res.message));
         this.vehicleClassService
             .query({ filter: 'vehicleaccount-is-null' })
             .pipe(
@@ -98,10 +86,6 @@ export class VehicleAccountUpdateComponent implements OnInit {
 
     protected onError(errorMessage: string) {
         this.jhiAlertService.error(errorMessage, null, null);
-    }
-
-    trackFinancialAccountById(index: number, item: IFinancialAccount) {
-        return item.id;
     }
 
     trackVehicleClassById(index: number, item: IVehicleClass) {

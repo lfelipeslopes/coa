@@ -8,14 +8,10 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity InformativeOperation and its DTO InformativeOperationDTO.
  */
-@Mapper(componentModel = "spring", uses = {AccountOperationMapper.class})
+@Mapper(componentModel = "spring", uses = {})
 public interface InformativeOperationMapper extends EntityMapper<InformativeOperationDTO, InformativeOperation> {
 
-    @Mapping(source = "accountOperation.id", target = "accountOperationId")
-    InformativeOperationDTO toDto(InformativeOperation informativeOperation);
 
-    @Mapping(source = "accountOperationId", target = "accountOperation")
-    InformativeOperation toEntity(InformativeOperationDTO informativeOperationDTO);
 
     default InformativeOperation fromId(Long id) {
         if (id == null) {

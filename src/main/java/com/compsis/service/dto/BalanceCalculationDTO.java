@@ -15,8 +15,6 @@ public class BalanceCalculationDTO implements Serializable {
     private BigDecimal balance;
 
 
-    private Long accountOperationId;
-
     public Long getId() {
         return id;
     }
@@ -31,14 +29,6 @@ public class BalanceCalculationDTO implements Serializable {
 
     public void setBalance(BigDecimal balance) {
         this.balance = balance;
-    }
-
-    public Long getAccountOperationId() {
-        return accountOperationId;
-    }
-
-    public void setAccountOperationId(Long accountOperationId) {
-        this.accountOperationId = accountOperationId;
     }
 
     @Override
@@ -67,7 +57,6 @@ public class BalanceCalculationDTO implements Serializable {
         return "BalanceCalculationDTO{" +
             "id=" + getId() +
             ", balance=" + getBalance() +
-            ", accountOperation=" + getAccountOperationId() +
             "}";
     }
 }

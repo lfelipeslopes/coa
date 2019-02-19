@@ -1,7 +1,6 @@
 package com.compsis.domain;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -49,10 +48,6 @@ public class AutomaticOperation implements Serializable {
     @Enumerated(EnumType.STRING)
     @Column(name = "transaction_type")
     private TransactionType transactionType;
-
-    @ManyToOne
-    @JsonIgnoreProperties("idAutomaticOperations")
-    private AccountOperation accountOperation;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -126,19 +121,6 @@ public class AutomaticOperation implements Serializable {
 
     public void setTransactionType(TransactionType transactionType) {
         this.transactionType = transactionType;
-    }
-
-    public AccountOperation getAccountOperation() {
-        return accountOperation;
-    }
-
-    public AutomaticOperation accountOperation(AccountOperation accountOperation) {
-        this.accountOperation = accountOperation;
-        return this;
-    }
-
-    public void setAccountOperation(AccountOperation accountOperation) {
-        this.accountOperation = accountOperation;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

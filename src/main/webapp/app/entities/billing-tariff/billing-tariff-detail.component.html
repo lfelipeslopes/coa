@@ -17,12 +17,6 @@
                 <dd>
                     <span>{{billingTariff.value}}</span>
                 </dd>
-                <dt><span>Id Billing Location</span></dt>
-                <dd>
-                    <div *ngIf="billingTariff.idBillingLocationId">
-                        <a [routerLink]="['/billing-location', billingTariff.idBillingLocationId, 'view']">{{billingTariff.idBillingLocationId}}</a>
-                    </div>
-                </dd>
             </dl>
 
             <button type="submit"

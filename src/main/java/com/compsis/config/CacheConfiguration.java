@@ -70,6 +70,7 @@ public class CacheConfiguration {
             cm.createCache(com.compsis.domain.AccountOperation.class.getName() + ".idOperators", jcacheConfiguration);
             cm.createCache(com.compsis.domain.AccountOperation.class.getName() + ".idAccountTransctions", jcacheConfiguration);
             cm.createCache(com.compsis.domain.AccountOperation.class.getName() + ".idAutomaticOperations", jcacheConfiguration);
+            cm.createCache(com.compsis.domain.Vehicle.class.getName() + ".idVehicles", jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

@@ -1,7 +1,6 @@
 package com.compsis.domain;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -25,10 +24,6 @@ public class VehicleAccount implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @ManyToOne
-    @JsonIgnoreProperties("idVehicleAccounts")
-    private FinancialAccount financialAccount;
-
     @OneToOne
     @JoinColumn(unique = true)
     private VehicleClass idVehicleClass;
@@ -40,19 +35,6 @@ public class VehicleAccount implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public FinancialAccount getFinancialAccount() {
-        return financialAccount;
-    }
-
-    public VehicleAccount financialAccount(FinancialAccount financialAccount) {
-        this.financialAccount = financialAccount;
-        return this;
-    }
-
-    public void setFinancialAccount(FinancialAccount financialAccount) {
-        this.financialAccount = financialAccount;
     }
 
     public VehicleClass getIdVehicleClass() {
