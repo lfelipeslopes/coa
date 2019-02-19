@@ -35,6 +35,7 @@ import static org.hamcrest.Matchers.hasItem;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+import com.compsis.domain.enumeration.FinancialAccountStatus;
 /**
  * Test class for the FinancialAccountResource REST controller.
  *
@@ -49,6 +50,9 @@ public class FinancialAccountResourceIntTest {
 
     private static final BigDecimal DEFAULT_BALANCE = new BigDecimal(1);
     private static final BigDecimal UPDATED_BALANCE = new BigDecimal(2);
+
+    private static final FinancialAccountStatus DEFAULT_FINANCIAL_ACCOUNT_STATUS = FinancialAccountStatus.ENABLED;
+    private static final FinancialAccountStatus UPDATED_FINANCIAL_ACCOUNT_STATUS = FinancialAccountStatus.DISABLED;
 
     @Autowired
     private FinancialAccountRepository financialAccountRepository;
@@ -99,7 +103,8 @@ public class FinancialAccountResourceIntTest {
     public static FinancialAccount createEntity(EntityManager em) {
         FinancialAccount financialAccount = new FinancialAccount()
             .alias(DEFAULT_ALIAS)
-            .balance(DEFAULT_BALANCE);
+            .balance(DEFAULT_BALANCE)
+            .financialAccountStatus(DEFAULT_FINANCIAL_ACCOUNT_STATUS);
         return financialAccount;
     }
 
@@ -126,6 +131,7 @@ public class FinancialAccountResourceIntTest {
         FinancialAccount testFinancialAccount = financialAccountList.get(financialAccountList.size() - 1);
         assertThat(testFinancialAccount.getAlias()).isEqualTo(DEFAULT_ALIAS);
         assertThat(testFinancialAccount.getBalance()).isEqualTo(DEFAULT_BALANCE);
+        assertThat(testFinancialAccount.getFinancialAccountStatus()).isEqualTo(DEFAULT_FINANCIAL_ACCOUNT_STATUS);
     }
 
     @Test
@@ -160,7 +166,8 @@ public class FinancialAccountResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(financialAccount.getId().intValue())))
             .andExpect(jsonPath("$.[*].alias").value(hasItem(DEFAULT_ALIAS.toString())))
-            .andExpect(jsonPath("$.[*].balance").value(hasItem(DEFAULT_BALANCE.intValue())));
+            .andExpect(jsonPath("$.[*].balance").value(hasItem(DEFAULT_BALANCE.intValue())))
+            .andExpect(jsonPath("$.[*].financialAccountStatus").value(hasItem(DEFAULT_FINANCIAL_ACCOUNT_STATUS.toString())));
     }
     
     @Test
@@ -175,7 +182,8 @@ public class FinancialAccountResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(financialAccount.getId().intValue()))
             .andExpect(jsonPath("$.alias").value(DEFAULT_ALIAS.toString()))
-            .andExpect(jsonPath("$.balance").value(DEFAULT_BALANCE.intValue()));
+            .andExpect(jsonPath("$.balance").value(DEFAULT_BALANCE.intValue()))
+            .andExpect(jsonPath("$.financialAccountStatus").value(DEFAULT_FINANCIAL_ACCOUNT_STATUS.toString()));
     }
 
     @Test
@@ -200,7 +208,8 @@ public class FinancialAccountResourceIntTest {
         em.detach(updatedFinancialAccount);
         updatedFinancialAccount
             .alias(UPDATED_ALIAS)
-            .balance(UPDATED_BALANCE);
+            .balance(UPDATED_BALANCE)
+            .financialAccountStatus(UPDATED_FINANCIAL_ACCOUNT_STATUS);
         FinancialAccountDTO financialAccountDTO = financialAccountMapper.toDto(updatedFinancialAccount);
 
         restFinancialAccountMockMvc.perform(put("/api/financial-accounts")
@@ -214,6 +223,7 @@ public class FinancialAccountResourceIntTest {
         FinancialAccount testFinancialAccount = financialAccountList.get(financialAccountList.size() - 1);
         assertThat(testFinancialAccount.getAlias()).isEqualTo(UPDATED_ALIAS);
         assertThat(testFinancialAccount.getBalance()).isEqualTo(UPDATED_BALANCE);
+        assertThat(testFinancialAccount.getFinancialAccountStatus()).isEqualTo(UPDATED_FINANCIAL_ACCOUNT_STATUS);
     }
 
     @Test

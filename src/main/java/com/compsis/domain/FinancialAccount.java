@@ -10,6 +10,8 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
 
+import com.compsis.domain.enumeration.FinancialAccountStatus;
+
 /**
  * Conta
  */
@@ -30,6 +32,10 @@ public class FinancialAccount implements Serializable {
 
     @Column(name = "balance", precision = 10, scale = 2)
     private BigDecimal balance;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "financial_account_status")
+    private FinancialAccountStatus financialAccountStatus;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -65,6 +71,19 @@ public class FinancialAccount implements Serializable {
     public void setBalance(BigDecimal balance) {
         this.balance = balance;
     }
+
+    public FinancialAccountStatus getFinancialAccountStatus() {
+        return financialAccountStatus;
+    }
+
+    public FinancialAccount financialAccountStatus(FinancialAccountStatus financialAccountStatus) {
+        this.financialAccountStatus = financialAccountStatus;
+        return this;
+    }
+
+    public void setFinancialAccountStatus(FinancialAccountStatus financialAccountStatus) {
+        this.financialAccountStatus = financialAccountStatus;
+    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
@@ -93,6 +112,7 @@ public class FinancialAccount implements Serializable {
             "id=" + getId() +
             ", alias='" + getAlias() + "'" +
             ", balance=" + getBalance() +
+            ", financialAccountStatus='" + getFinancialAccountStatus() + "'" +
             "}";
     }
 }
